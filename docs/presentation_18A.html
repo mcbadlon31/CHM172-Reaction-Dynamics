@@ -19,6 +19,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/black.min.css" id="theme">
 
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <!-- Custom Glassmorphism Theme -->
     <style>
         :root {
@@ -229,19 +232,26 @@
                 </div>
             </section>
 
-            <!-- Slide 5: Collision Cross-Section -->
+            <!-- Slide 5: Interactive Collision Simulator -->
             <section>
-                <h2>Collision Cross-Section ($\sigma$)</h2>
+                <h2>Collision Simulator</h2>
                 <div class="cols">
-                    <div class="text-left">
-                        <p>Treat molecules as hard spheres.</p>
-                        <ul>
-                            <li>Collision occurs if centers approach within distance $d = r_A + r_B$.</li>
-                            <li>Target Area: $\sigma = \pi d^2$</li>
+                    <div class="text-left" style="flex: 0.8;">
+                        <p><strong>Simulation:</strong></p>
+                        <ul class="text-small">
+                            <li><span style="color:#60a5fa">Blue</span>: Low Energy</li>
+                            <li><span style="color:#ef4444">Red</span>: High Energy</li>
                         </ul>
+                        <div class="glass-card" style="margin-top: 1rem;">
+                            <label>Density: <input type="range" id="sim-count" min="5" max="40" value="15"></label><br>
+                            <label>Speed: <input type="range" id="sim-speed" min="1" max="8" value="3"></label>
+                        </div>
                     </div>
-                    <div>
-                        <img src="images/collision_cylinder.png" alt="Collision Cylinder">
+                    <div style="flex: 1.2;">
+                        <div class="glass-card" style="padding: 0; overflow: hidden;">
+                            <canvas id="collisionCanvas"
+                                style="width: 100%; height: 300px; background: #0f172a;"></canvas>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -310,16 +320,30 @@
                 </div>
             </section>
 
-            <!-- Slide 9: Energy Distribution Graph -->
+            <!-- Slide 9: Interactive Energy Distribution -->
             <section>
-                <h2>Maxwell-Boltzmann Energy</h2>
+                <h2>Maxwell-Boltzmann Explorer</h2>
                 <div class="cols">
-                    <div class="text-left">
-                        <p>The shaded area represents the fraction of molecules with enough energy to react.</p>
-                        <p class="fragment">As $T$ increases, the tail grows $\to$ Rate increases.</p>
+                    <div class="text-left" style="flex: 1;">
+                        <p>Explore how Temperature and Activation Energy affect the reaction fraction.</p>
+                        <div class="glass-card" style="padding: 1rem;">
+                            <div style="margin-bottom: 10px;">
+                                <label>Temperature ($T$): <span id="disp-mb-temp"
+                                        style="color:var(--secondary-color)">300</span> K</label>
+                                <input type="range" id="mb-temp" min="100" max="1000" value="300" style="width: 100%;">
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <label>Activation Energy ($E_a$): <span id="disp-mb-ea"
+                                        style="color:var(--accent-color)">25</span> kJ/mol</label>
+                                <input type="range" id="mb-ea" min="10" max="80" value="25" style="width: 100%;">
+                            </div>
+                            <div id="disp-mb-fraction" class="highlight-box" style="text-align: center;">
+                                Fraction: Calculating...
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <img src="images/maxwell_boltzmann_energy.png" alt="Energy Distribution">
+                    <div style="flex: 1.5; height: 400px;">
+                        <canvas id="mbChart"></canvas>
                     </div>
                 </div>
             </section>
@@ -349,15 +373,43 @@
                 </div>
             </section>
 
-            <!-- Slide 10: Rate Constant Derivation -->
+            <!-- Slide 10: Rate Constant Derivation (Step 1) -->
             <section>
-                <h2>Deriving the Rate Constant</h2>
-                <p>Integrating the reactive cross-section over the energy distribution yields:</p>
+                <h2>Derivation: The Setup</h2>
+                <p class="text-left">The total rate is the sum of rates over all possible energies:</p>
+                <div class="formula">
+                    $$Rate = \int_0^{\infty} \sigma(v_{rel}) v_{rel} \mathcal{N}_A \mathcal{N}_B f(v_{rel}) dv_{rel}$$
+                </div>
+                <div class="text-left text-small fragment">
+                    <p><strong>Key Substitutions:</strong></p>
+                    <ul>
+                        <li>$\sigma(E) = \sigma (1 - E_a/E)$ for $E \ge E_a$ (0 otherwise)</li>
+                        <li>$v_{rel} = \sqrt{2E/\mu}$</li>
+                        <li>$f(E)$ is the Boltzmann distribution</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Slide 10b: Rate Constant Derivation (Step 2) -->
+            <section>
+                <h2>Derivation: The Integral</h2>
+                <p class="text-left">Substituting and integrating from $E_a$ to $\infty$:</p>
+                <div class="formula" style="font-size: 0.8em;">
+                    $$k_r = \int_{E_a}^{\infty} \sigma \left(1 - \frac{E_a}{E}\right) \sqrt{\frac{2E}{\mu}}
+                    \frac{2\pi}{(\pi k_B T)^{3/2}} \sqrt{E} e^{-E/k_B T} dE$$
+                </div>
+                <p class="fragment">This looks scary, but it's a standard integral of the form $\int x e^{-x} dx$.</p>
+            </section>
+
+            <!-- Slide 10c: Rate Constant Derivation (Result) -->
+            <section>
+                <h2>Derivation: The Result</h2>
+                <p>The solution yields the Collision Theory Rate Constant:</p>
                 <div class="formula">
                     $$k_r = N_A \sigma \left(\frac{8k_BT}{\pi \mu}\right)^{1/2} e^{-E_a/RT}$$
                 </div>
                 <div class="fragment glass-card">
-                    <p>Compare to Arrhenius Equation:</p>
+                    <p><strong>Success!</strong> This matches the Arrhenius form:</p>
                     <div class="formula">
                         $$k = A e^{-E_a/RT}$$
                     </div>
@@ -397,17 +449,33 @@
                 </div>
             </section>
 
-            <!-- Slide 13: Reactive Geometry -->
+            <!-- Slide 13: Interactive Steric Factor -->
             <section>
-                <h2>Orientation Matters</h2>
-                <div class="cols">
-                    <div class="text-left">
-                        <p>Collisions must occur at the reactive site.</p>
-                        <p>Complex molecules have smaller $P$ values ($10^{-6}$ to $10^{-2}$).</p>
+                <h2>Steric Factor Game</h2>
+                <p>Align the molecule to react!</p>
+                <div id="steric-game" class="glass-card"
+                    style="height: 350px; position: relative; cursor: crosshair; background: rgba(15, 23, 42, 0.8);">
+                    <!-- Target Site (Right) -->
+                    <div id="target-site"
+                        style="position: absolute; right: 100px; top: 50%; transform: translateY(-50%); width: 60px; height: 60px; background: #334155; border-radius: 50%; border: 2px dashed #94a3b8; display: flex; align-items: center; justify-content: center;">
+                        <div
+                            style="width: 20px; height: 20px; background: #ef4444; border-radius: 50%; margin-left: -30px;">
+                        </div>
                     </div>
-                    <div>
-                        <img src="images/steric_factor_geometry.png" alt="Steric Geometry">
+
+                    <!-- Rotatable Molecule (Left) -->
+                    <div id="rotatable-molecule"
+                        style="position: absolute; left: 100px; top: 50%; margin-top: -25px; width: 120px; height: 50px; background: #3b82f6; border-radius: 25px; transform-origin: center; display: flex; align-items: center; justify-content: flex-end; padding-right: 5px;">
+                        <div style="width: 20px; height: 20px; background: #ef4444; border-radius: 50%;"></div>
                     </div>
+
+                    <div
+                        style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); text-align: center;">
+                        <button id="check-orientation" class="btn">Attempt Reaction</button>
+                        <div id="steric-feedback" style="margin-top: 15px; height: 24px;"></div>
+                    </div>
+                    <p class="text-small text-muted" style="position: absolute; top: 20px; left: 20px;">Move mouse to
+                        rotate the blue molecule.</p>
                 </div>
             </section>
 
@@ -489,6 +557,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/math/math.min.js"></script>
+    <!-- Custom Interactive Logic -->
+    <script src="js/topic_18A.js"></script>
     <script>
         Reveal.initialize({
             hash: true,

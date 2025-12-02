@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Topic 18D: Molecular Collision Dynamics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive slides for Topic 18D: Molecular Collision Dynamics">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/black.min.css" id="theme">
+
+    <!-- Custom Glassmorphism Theme -->
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #60a5fa;
+            --accent-color: #8b5cf6;
+            --text-color: #f1f5f9;
+            --text-muted: #94a3b8;
+            --glass-bg: rgba(30, 41, 59, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        body {
+            background: radial-gradient(circle at 15% 50%, #0f172a 0%, #1e293b 100%);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .reveal {
+            color: var(--text-color);
+        }
+
+        .reveal h1,
+        .reveal h2,
+        .reveal h3,
+        .reveal h4 {
+            font-family: 'Merriweather', serif;
+            text-transform: none;
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .reveal p,
+        .reveal li {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* Glass Cards for Content */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--glass-shadow);
+            margin: 1rem 0;
+        }
+
+        .formula {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--glass-border);
+            margin: 20px 0;
+            font-family: 'Computer Modern', serif;
+        }
+
+        .highlight-box {
+            border-left: 4px solid var(--accent-color);
+            background: rgba(139, 92, 246, 0.1);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+            text-align: left;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Table Styling */
+        .reveal table {
+            font-size: 0.8em;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .reveal th {
+            border-bottom: 2px solid var(--secondary-color);
+            padding: 10px;
+        }
+
+        .reveal td {
+            border-bottom: 1px solid var(--glass-border);
+            padding: 10px;
+        }
+
+        /* Image Styling */
+        .reveal img {
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Layout Helpers */
+        .cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-small {
+            font-size: 0.7em;
+        }
+
+        .text-muted {
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Slide 1: Title -->
+            <section>
+                <h1>Topic 18D</h1>
+                <h3>Molecular Collision Dynamics</h3>
+                <p class="text-muted">Reaction Dynamics &bull; Physical Chemistry</p>
+                <div class="glass-card" style="display: inline-block; margin-top: 2rem;">
+                    <p>Understanding Single Collisions</p>
+                </div>
+            </section>
+
+            <!-- Slide 2: Molecular Beams -->
+            <section>
+                <h2>Molecular Beams</h2>
+                <div class="cols">
+                    <div class="text-left">
+                        <p><strong>The Experiment:</strong></p>
+                        <ul>
+                            <li><strong>Single Collisions:</strong> High vacuum ($10^{-6}$ torr).</li>
+                            <li><strong>State Selection:</strong> Velocity, vibration, rotation.</li>
+                            <li><strong>Detection:</strong> Angular distribution and product states.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="images/velocity_selection.png" alt="Velocity Selection">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 3: Differential Cross-Section -->
+            <section>
+                <h2>Differential Cross-Section</h2>
+                <p>Measuring where the products go:</p>
+                <div class="formula">
+                    $$dN = \sigma(\theta, \phi) I_{\text{inc}} d\Omega$$
+                </div>
+                <div class="cols text-small">
+                    <div class="glass-card fragment">
+                        <h3>Forward Scattering</h3>
+                        <p>Stripping mechanism (e.g., K + Br$_2$)</p>
+                    </div>
+                    <div class="glass-card fragment">
+                        <h3>Backward Scattering</h3>
+                        <p>Rebound mechanism (e.g., K + CH$_3$I)</p>
+                    </div>
+                </div>
+                <div class="fragment">
+                    <img src="images/differential_cross_section_polar.png" alt="Scattering Pattern"
+                        style="height: 200px;">
+                </div>
+            </section>
+
+            <!-- Slide 4: Potential Energy Surfaces -->
+            <section>
+                <h2>Potential Energy Surfaces (PES)</h2>
+                <div class="cols">
+                    <div class="text-left">
+                        <p>The landscape of chemical reactions.</p>
+                        <ul>
+                            <li><strong>Valleys:</strong> Reactants and Products.</li>
+                            <li><strong>Saddle Point:</strong> Transition State.</li>
+                            <li><strong>Reaction Path:</strong> Minimum Energy Path.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="images/pes_contour_leps.png" alt="PES Contour">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 5: Energy Disposal -->
+            <section>
+                <h2>Energy Disposal</h2>
+                <p>How is the available energy distributed?</p>
+                <div class="formula">
+                    $$E_{\text{avail}} = E_{\text{trans}} + E_{\text{vib}} + E_{\text{rot}}$$
+                </div>
+                <div class="cols text-small">
+                    <div class="highlight-box fragment">
+                        <strong>Attractive Surface (Early Barrier):</strong><br>
+                        Energy goes into <strong>Vibration</strong>.<br>
+                        (e.g., Harpoon Mechanism)
+                    </div>
+                    <div class="highlight-box fragment">
+                        <strong>Repulsive Surface (Late Barrier):</strong><br>
+                        Energy goes into <strong>Translation</strong>.<br>
+                        (e.g., H + Cl$_2$)
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 6: Polanyi's Rules -->
+            <section>
+                <h2>Polanyi's Rules</h2>
+                <div class="glass-card text-left">
+                    <p><strong>Rule 1 (Early Barrier):</strong> Translational energy is most effective for reaction.</p>
+                    <p><strong>Rule 2 (Late Barrier):</strong> Vibrational energy is most effective for reaction.</p>
+                </div>
+                <div class="fragment">
+                    <img src="images/attractive_vs_repulsive.png" alt="Attractive vs Repulsive Surfaces"
+                        style="height: 250px;">
+                </div>
+            </section>
+
+            <!-- Slide 7: Harpoon Mechanism -->
+            <section>
+                <h2>The Harpoon Mechanism</h2>
+                <p>K + Br$_2$ $\to$ K$^+$ + Br$_2^-$ $\to$ KBr + Br</p>
+                <div class="cols">
+                    <div class="text-left text-small">
+                        <ol>
+                            <li>Electron jump at long range ($\sim 6$ Å).</li>
+                            <li>Coulomb attraction pulls ions together.</li>
+                            <li>"Harpooning" the reactant.</li>
+                            <li>Results in vibrationally excited KBr.</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <div class="glass-card">
+                            <p><strong>Cross-Section:</strong></p>
+                            <p>Huge! ($\sim 200$ Å$^2$)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 8: Interactive Resources -->
+            <section>
+                <h2>Interactive Learning</h2>
+                <div class="cols">
+                    <div class="text-left">
+                        <p>Explore these concepts in the Jupyter Notebook:</p>
+                        <ul>
+                            <li>3D PES Visualizer</li>
+                            <li>Trajectory Simulator</li>
+                            <li>Differential Cross-Sections</li>
+                            <li>Newton Diagrams</li>
+                        </ul>
+                        <a href="https://colab.research.google.com/github/mcbadlon31/Reaction-Dynamics-Physical-Chemistry/blob/main/notebooks/04_Molecular_Dynamics.ipynb"
+                            target="_blank" class="btn">Open in Colab</a>
+                    </div>
+                    <div>
+                        <div class="glass-card" style="padding: 10px; display: inline-block; background: white;">
+                            <img src="images/04_Molecular_Dynamics.png" alt="QR Code"
+                                style="box-shadow: none; margin: 0; width: 200px;">
+                        </div>
+                        <p class="text-small text-muted">Scan to open on mobile</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/math/math.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            transition: 'convex',
+            backgroundTransition: 'zoom',
+            plugins: [RevealMath.KaTeX]
+        });
+    </script>
+</body>
+
+</html>

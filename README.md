@@ -1,7 +1,7 @@
 # Reaction Dynamics - Physical Chemistry Interactive Course
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue.svg)](https://github.com/mcbadlon31/Reaction-Dynamics-Physical-Chemistry)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue.svg)](https://github.com/mcbadlon31/CHM172-Reaction-Dynamics)
 
 ## 📚 Overview
 
@@ -16,17 +16,17 @@ Complete interactive course materials for **Focus 18: Reaction Dynamics** from A
 
 | Topic | Title | Notebook | Colab Link |
 |-------|-------|----------|------------|
-| **18A** | Collision Theory | `01_Collision_Theory.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/Reaction-Dynamics-Physical-Chemistry/blob/main/notebooks/01_Collision_Theory.ipynb) |
-| **18B** | Diffusion-Controlled Reactions | `02_Diffusion_Controlled.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/Reaction-Dynamics-Physical-Chemistry/blob/main/notebooks/02_Diffusion_Controlled.ipynb) |
-| **18C** | Transition-State Theory | `03_Transition_State_Theory.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/Reaction-Dynamics-Physical-Chemistry/blob/main/notebooks/03_Transition_State_Theory.ipynb) |
-| **18D** | Molecular Collision Dynamics | `04_Molecular_Dynamics.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/Reaction-Dynamics-Physical-Chemistry/blob/main/notebooks/04_Molecular_Dynamics.ipynb) |
-| **18E** | Electron Transfer | `05_Electron_Transfer.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/Reaction-Dynamics-Physical-Chemistry/blob/main/notebooks/05_Electron_Transfer.ipynb) |
+| **18A** | Collision Theory | `01_Collision_Theory.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/01_Collision_Theory.ipynb) |
+| **18B** | Diffusion-Controlled Reactions | `02_Diffusion_Controlled.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/02_Diffusion_Controlled.ipynb) |
+| **18C** | Transition-State Theory | `03_Transition_State_Theory.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/03_Transition_State_Theory.ipynb) |
+| **18D** | Molecular Collision Dynamics | `04_Molecular_Dynamics.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/04_Molecular_Dynamics.ipynb) |
+| **18E** | Electron Transfer | `05_Electron_Transfer.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/05_Electron_Transfer.ipynb) |
 
 ## 🌐 Live Deployment
 
 **Web Dashboard & Presentations:**
 The interactive dashboard and web-based presentations are available online:
-[**Reaction Dynamics Dashboard**](https://mcbadlon31.github.io/Reaction-Dynamics-Physical-Chemistry/)
+[**Reaction Dynamics Dashboard**](https://mcbadlon31.github.io/CHM172-Reaction-Dynamics/)
 
 **Interactive Notebooks:**
 All notebooks can be run instantly in the cloud via Google Colab using the links above. No installation is required.
@@ -44,7 +44,7 @@ All notebooks can be run instantly in the cloud via Google Colab using the links
 
 ```bash
 # Clone repository
-git clone https://github.com/mcbadlon31/Reaction-Dynamics-Physical-Chemistry.git
+git clone https://github.com/mcbadlon31/CHM172-Reaction-Dynamics.git
 cd Reaction-Dynamics-Physical-Chemistry
 
 # Install dependencies

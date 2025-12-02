@@ -5,28 +5,153 @@
     <meta charset="utf-8">
     <title>Topic 18A: Collision Theory</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive slides for Topic 18A: Collision Theory">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Reveal.js CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/simple.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/black.min.css" id="theme">
+
+    <!-- Custom Glassmorphism Theme -->
     <style>
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #60a5fa;
+            --accent-color: #8b5cf6;
+            --text-color: #f1f5f9;
+            --text-muted: #94a3b8;
+            --glass-bg: rgba(30, 41, 59, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        body {
+            background: radial-gradient(circle at 15% 50%, #0f172a 0%, #1e293b 100%);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .reveal {
+            color: var(--text-color);
+        }
+
         .reveal h1,
         .reveal h2,
-        .reveal h3 {
-            text-transform: none;
+        .reveal h3,
+        .reveal h4 {
             font-family: 'Merriweather', serif;
+            text-transform: none;
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
         }
 
         .reveal p,
         .reveal li {
             font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* Glass Cards for Content */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--glass-shadow);
+            margin: 1rem 0;
         }
 
         .formula {
-            background-color: #f1f5f9;
-            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
             border-radius: 8px;
-            font-family: monospace;
-            color: #2563eb;
+            border: 1px solid var(--glass-border);
+            margin: 20px 0;
+            font-family: 'Computer Modern', serif;
+        }
+
+        .highlight-box {
+            border-left: 4px solid var(--accent-color);
+            background: rgba(139, 92, 246, 0.1);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+            text-align: left;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Table Styling */
+        .reveal table {
+            font-size: 0.8em;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .reveal th {
+            border-bottom: 2px solid var(--secondary-color);
+            padding: 10px;
+        }
+
+        .reveal td {
+            border-bottom: 1px solid var(--glass-border);
+            padding: 10px;
+        }
+
+        /* Image Styling */
+        .reveal img {
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            /* Slight background for transparent PNGs */
+        }
+
+        /* Layout Helpers */
+        .cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-small {
+            font-size: 0.7em;
+        }
+
+        .text-muted {
+            color: var(--text-muted);
         }
     </style>
 </head>
@@ -34,49 +159,286 @@
 <body>
     <div class="reveal">
         <div class="slides">
+
+            <!-- Slide 1: Title -->
             <section>
                 <h1>Topic 18A</h1>
                 <h3>Collision Theory</h3>
-                <p>Reaction Dynamics</p>
+                <p class="text-muted">Reaction Dynamics &bull; Physical Chemistry</p>
+                <div class="glass-card" style="display: inline-block; margin-top: 2rem;">
+                    <p>Interactive Web Presentation</p>
+                </div>
             </section>
 
+            <!-- Slide 2: Overview -->
             <section>
                 <h2>Core Concepts</h2>
-                <ul>
-                    <li>Collision Frequency ($Z_{AB}$)</li>
-                    <li>Steric Factor ($P$)</li>
-                    <li>Activation Energy ($E_a$)</li>
-                    <li>Arrhenius Equation</li>
-                </ul>
+                <div class="cols">
+                    <div class="text-left">
+                        <p>Reactions occur when molecules collide <strong>if</strong>:</p>
+                        <ol>
+                            <li class="fragment">They collide with sufficient frequency ($Z_{AB}$)</li>
+                            <li class="fragment">They have enough kinetic energy ($\ge E_a$)</li>
+                            <li class="fragment">They have correct orientation (Steric Factor $P$)</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <div class="glass-card">
+                            <p><strong>Goal:</strong><br>Derive the Arrhenius Equation from first principles.</p>
+                            <div class="formula">
+                                $$k = A e^{-E_a/RT}$$
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
+            <!-- Slide 3: Collision Density -->
             <section>
                 <h2>Collision Density</h2>
                 <p>The number of collisions per unit volume per unit time:</p>
                 <div class="formula">
-                    $$Z_{AB} = \sigma \left(\frac{8k_BT}{\pi \mu}\right)^{1/2} N_A^2 [A][B]$$
+                    $$Z_{AB} = \sigma \left(\frac{8k_BT}{\pi \mu}\right)^{1/2} \mathcal{N}_A \mathcal{N}_B$$
                 </div>
-                <p style="font-size: 0.8em; margin-top: 20px;">Where $\sigma$ is the collision cross-section and $\mu$
-                    is the reduced mass.</p>
+                <div class="cols text-small">
+                    <div class="highlight-box">
+                        <strong>$\sigma$:</strong> Collision Cross-Section (Target Area)
+                    </div>
+                    <div class="highlight-box">
+                        <strong>$\mu$:</strong> Reduced Mass ($\frac{m_A m_B}{m_A + m_B}$)
+                    </div>
+                </div>
             </section>
 
+            <!-- Slide 4: Maxwell-Boltzmann Speeds -->
             <section>
-                <h2>The Steric Factor ($P$)</h2>
+                <h2>Molecular Speeds</h2>
+                <div class="cols">
+                    <div class="text-left">
+                        <p>Molecules have a distribution of speeds.</p>
+                        <ul>
+                            <li>Mean speed: $\bar{v} = (8k_BT/\pi m)^{1/2}$</li>
+                            <li>Relative speed: $\bar{v}_{rel} = (8k_BT/\pi \mu)^{1/2}$</li>
+                        </ul>
+                        <p class="text-small text-muted fragment">Higher T $\to$ Broader distribution, higher mean
+                            speed.</p>
+                    </div>
+                    <div>
+                        <img src="images/maxwell_boltzmann_speeds.png" alt="Maxwell-Boltzmann Distribution">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 5: Collision Cross-Section -->
+            <section>
+                <h2>Collision Cross-Section ($\sigma$)</h2>
+                <div class="cols">
+                    <div class="text-left">
+                        <p>Treat molecules as hard spheres.</p>
+                        <ul>
+                            <li>Collision occurs if centers approach within distance $d = r_A + r_B$.</li>
+                            <li>Target Area: $\sigma = \pi d^2$</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="images/collision_cylinder.png" alt="Collision Cylinder">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 6: Identical Molecules -->
+            <section>
+                <h2>Identical Molecules</h2>
+                <p>For collisions between A and A ($Z_{AA}$):</p>
+                <div class="glass-card">
+                    <div class="formula">
+                        $$Z_{AA} = \frac{1}{2} \sigma \left(\frac{8k_BT}{\pi \mu}\right)^{1/2} \mathcal{N}_A^2$$
+                    </div>
+                    <p class="text-small text-muted">The factor of $1/2$ prevents double-counting collisions.</p>
+                </div>
+            </section>
+
+            <!-- Slide 7: Worked Example -->
+            <section>
+                <h2>Example: N$_2$ Collision Rate</h2>
+                <div class="text-left text-small">
+                    <p><strong>Given:</strong> T = 298 K, P = 1 bar, $\sigma \approx 0.43$ nm$^2$</p>
+                    <p class="fragment">1. Number Density: $\mathcal{N} = P/k_BT \approx 2.43 \times 10^{25}$ m$^{-3}$
+                    </p>
+                    <p class="fragment">2. Mean Relative Speed: $\bar{v}_{rel} \approx 670$ m/s</p>
+                    <p class="fragment">3. Collision Density:</p>
+                    <div class="formula fragment">
+                        $$Z_{N_2-N_2} \approx 5 \times 10^{34} \text{ collisions m}^{-3} \text{ s}^{-1}$$
+                    </div>
+                    <div class="highlight-box fragment">
+                        <strong>Insight:</strong> This rate is enormous! If every collision reacted, reactions would be
+                        instantaneous.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 8: Energy Requirements -->
+            <section>
+                <h2>Energy Requirements</h2>
                 <p>Not all collisions lead to reaction.</p>
+                <div class="glass-card">
+                    <p>Only collisions with energy $\varepsilon \ge E_a$ react.</p>
+                    <div class="formula">
+                        $$f(E > E_a) = e^{-E_a/RT}$$
+                    </div>
+                </div>
+                <p class="text-small">This exponential factor dramatically reduces the effective rate.</p>
+            </section>
+
+            <!-- Slide 9: Energy Distribution Graph -->
+            <section>
+                <h2>Maxwell-Boltzmann Energy</h2>
+                <div class="cols">
+                    <div class="text-left">
+                        <p>The shaded area represents the fraction of molecules with enough energy to react.</p>
+                        <p class="fragment">As $T$ increases, the tail grows $\to$ Rate increases.</p>
+                    </div>
+                    <div>
+                        <img src="images/maxwell_boltzmann_energy.png" alt="Energy Distribution">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 10: Rate Constant Derivation -->
+            <section>
+                <h2>Deriving the Rate Constant</h2>
+                <p>Integrating the reactive cross-section over the energy distribution yields:</p>
+                <div class="formula">
+                    $$k_r = N_A \sigma \left(\frac{8k_BT}{\pi \mu}\right)^{1/2} e^{-E_a/RT}$$
+                </div>
+                <div class="fragment glass-card">
+                    <p>Compare to Arrhenius Equation:</p>
+                    <div class="formula">
+                        $$k = A e^{-E_a/RT}$$
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 11: The Pre-exponential Factor -->
+            <section>
+                <h2>The A-Factor</h2>
+                <p>Collision theory predicts the pre-exponential factor:</p>
+                <div class="formula">
+                    $$A_{theory} = N_A \sigma \left(\frac{8k_BT}{\pi \mu}\right)^{1/2}$$
+                </div>
                 <ul>
-                    <li>Orientation matters!</li>
-                    <li>$P$ represents the fraction of collisions with the correct orientation.</li>
-                    <li>Usually $P \ll 1$ for complex molecules.</li>
-                    <li>"Harpoon Mechanism" can lead to $P > 1$.</li>
+                    <li>Typical value: $\sim 10^{11}$ dm$^3$ mol$^{-1}$ s$^{-1}$</li>
+                    <li>Weak temperature dependence ($T^{1/2}$)</li>
                 </ul>
             </section>
 
+            <!-- Slide 12: Steric Factor -->
             <section>
-                <h2>Interactive Demo</h2>
-                <p>Check out the Jupyter Notebook for a live simulation of collision frequencies.</p>
-                <a href="https://colab.research.google.com/github/mcbadlon31/Reaction-Dynamics-Physical-Chemistry/blob/main/notebooks/01_Collision_Theory.ipynb"
-                    target="_blank">Open Notebook</a>
+                <h2>The Steric Factor ($P$)</h2>
+                <p>Theory often overestimates the rate ($A_{theory} > A_{exp}$).</p>
+                <div class="glass-card">
+                    <p>We introduce a correction factor $P$:</p>
+                    <div class="formula">
+                        $$k = P \cdot A_{theory} e^{-E_a/RT}$$
+                    </div>
+                </div>
+                <div class="cols text-small">
+                    <div class="highlight-box">
+                        <strong>$P < 1$:</strong> Strict orientation required (Steric Hindrance)
+                    </div>
+                    <div class="highlight-box">
+                        <strong>$P > 1$:</strong> Harpoon Mechanism (Long-range attraction)
+                    </div>
+                </div>
             </section>
+
+            <!-- Slide 13: Reactive Geometry -->
+            <section>
+                <h2>Orientation Matters</h2>
+                <div class="cols">
+                    <div class="text-left">
+                        <p>Collisions must occur at the reactive site.</p>
+                        <p>Complex molecules have smaller $P$ values ($10^{-6}$ to $10^{-2}$).</p>
+                    </div>
+                    <div>
+                        <img src="images/steric_factor_geometry.png" alt="Steric Geometry">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 14: Harpoon Mechanism -->
+            <section>
+                <h2>The Harpoon Mechanism</h2>
+                <p>Example: $K + Br_2 \to KBr + Br$ ($P \approx 4.8$)</p>
+                <div class="cols">
+                    <div class="text-left text-small">
+                        <ol>
+                            <li>Electron jump from K to Br$_2$ at long range.</li>
+                            <li>Formation of $K^+$ and $Br_2^-$.</li>
+                            <li>Coulombic attraction pulls them together ("Harpoon").</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <img src="images/harpoon_mechanism.png" alt="Harpoon Mechanism">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 15: Lindemann Mechanism -->
+            <section>
+                <h2>Unimolecular Reactions</h2>
+                <p>How can $A \to P$ be explained by collisions?</p>
+                <div class="glass-card text-left">
+                    <p><strong>Lindemann-Hinshelwood Mechanism:</strong></p>
+                    <ol>
+                        <li>Activation: $A + M \rightleftharpoons A^* + M$</li>
+                        <li>Reaction: $A^* \to P$</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Slide 16: Lindemann Rate Law -->
+            <section>
+                <h2>Lindemann Rate Law</h2>
+                <div class="formula">
+                    $$k_{uni} = \frac{k_a k_b [M]}{k_a'[M] + k_b}$$
+                </div>
+                <div class="cols text-small">
+                    <div class="highlight-box fragment">
+                        <strong>High Pressure:</strong><br>
+                        First-order ($k_{uni} \approx k_\infty$)
+                    </div>
+                    <div class="highlight-box fragment">
+                        <strong>Low Pressure:</strong><br>
+                        Second-order ($k_{uni} \propto [M]$)
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 17: Interactive Resources -->
+            <section>
+                <h2>Interactive Learning</h2>
+                <div class="cols">
+                    <div class="text-left">
+                        <p>Explore these concepts in the Jupyter Notebook:</p>
+                        <ul>
+                            <li>Collision Calculator</li>
+                            <li>Animated Collisions</li>
+                            <li>Harpoon Mechanism Simulation</li>
+                        </ul>
+                        <a href="https://colab.research.google.com/github/mcbadlon31/Reaction-Dynamics-Physical-Chemistry/blob/main/notebooks/01_Collision_Theory.ipynb"
+                            target="_blank" class="btn">Open in Colab</a>
+                    </div>
+                    <div>
+                        <div class="glass-card" style="padding: 10px; display: inline-block; background: white;">
+                            <img src="images/01_Collision_Theory.png" alt="QR Code"
+                                style="box-shadow: none; margin: 0; width: 200px;">
+                        </div>
+                        <p class="text-small text-muted">Scan to open on mobile</p>
+                    </div>
+                </div>
+            </section>
+
         </div>
     </div>
 
@@ -85,6 +447,8 @@
     <script>
         Reveal.initialize({
             hash: true,
+            transition: 'convex', // none/fade/slide/convex/concave/zoom
+            backgroundTransition: 'zoom',
             plugins: [RevealMath.KaTeX]
         });
     </script>

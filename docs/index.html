@@ -99,14 +99,43 @@
         </section>
 
         <section id="presentation" class="section">
-            <h2>Web Presentation</h2>
-            <div class="card glass-card featured-card">
-                <div class="card-header centered-header">
-                    <span class="topic-tag new-tag">New</span>
-                    <h3>Topic 18A: Collision Theory</h3>
+            <h2>Web Presentations</h2>
+            <div class="grid">
+                <div class="card glass-card featured-card" onclick="window.location.href='presentation_18A.html'"
+                    style="cursor: pointer;">
+                    <div class="card-header centered-header">
+                        <h3>Topic 18A</h3>
+                    </div>
+                    <p>Collision Theory</p>
                 </div>
-                <p>View the interactive web-based slides for the first topic.</p>
-                <a href="presentation_18A.html" target="_blank" class="btn btn-primary">View Presentation</a>
+                <div class="card glass-card featured-card" onclick="window.location.href='presentation_18B.html'"
+                    style="cursor: pointer;">
+                    <div class="card-header centered-header">
+                        <h3>Topic 18B</h3>
+                    </div>
+                    <p>Diffusion-Controlled Reactions</p>
+                </div>
+                <div class="card glass-card featured-card" onclick="window.location.href='presentation_18C.html'"
+                    style="cursor: pointer;">
+                    <div class="card-header centered-header">
+                        <h3>Topic 18C</h3>
+                    </div>
+                    <p>Transition-State Theory</p>
+                </div>
+                <div class="card glass-card featured-card" onclick="window.location.href='presentation_18D.html'"
+                    style="cursor: pointer;">
+                    <div class="card-header centered-header">
+                        <h3>Topic 18D</h3>
+                    </div>
+                    <p>Molecular Collision Dynamics</p>
+                </div>
+                <div class="card glass-card featured-card" onclick="window.location.href='presentation_18E.html'"
+                    style="cursor: pointer;">
+                    <div class="card-header centered-header">
+                        <h3>Topic 18E</h3>
+                    </div>
+                    <p>Electron Transfer</p>
+                </div>
             </div>
         </section>
 
@@ -122,5 +151,34 @@
                     <div class="input-group">
                         <label for="activation-energy">Activation Energy ($E_a$ in kJ/mol):</label>
                         <input type="number" id="activation-energy" value="50">
+                    </div>
+                    <div class="input-group">
+                        <label for="temperature">Temperature ($T$ in K):</label>
+                        <div class="range-container">
+                            <input type="range" id="temperature" min="200" max="1000" value="298">
+                            <span id="temp-display" class="value-display">298 K</span>
+                        </div>
+                    </div>
+                    <div class="result-group">
+                        <strong>Rate Constant ($k$):</strong>
+                        <span id="rate-result">Calculating...</span>
+                    </div>
+                </div>
+                <div class="calculator-graph">
+                    <canvas id="rateChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Reaction Dynamics Project. Licensed under <a
+                    href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 
 </html>

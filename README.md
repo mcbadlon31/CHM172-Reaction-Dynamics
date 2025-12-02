@@ -22,6 +22,15 @@ Complete interactive course materials for **Focus 18: Reaction Dynamics** from A
 | **18D** | Molecular Collision Dynamics | `04_Molecular_Dynamics.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/Reaction-Dynamics-Physical-Chemistry/blob/main/notebooks/04_Molecular_Dynamics.ipynb) |
 | **18E** | Electron Transfer | `05_Electron_Transfer.ipynb` | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/Reaction-Dynamics-Physical-Chemistry/blob/main/notebooks/05_Electron_Transfer.ipynb) |
 
+## 🌐 Live Deployment
+
+**Web Dashboard & Presentations:**
+The interactive dashboard and web-based presentations are available online:
+[**Reaction Dynamics Dashboard**](https://mcbadlon31.github.io/Reaction-Dynamics-Physical-Chemistry/)
+
+**Interactive Notebooks:**
+All notebooks can be run instantly in the cloud via Google Colab using the links above. No installation is required.
+
 ## Quick Start
 
 ### Option 1: Google Colab (Recommended - No Installation)

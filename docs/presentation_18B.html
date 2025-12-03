@@ -19,6 +19,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/black.min.css" id="theme">
 
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+
     <!-- Custom Glassmorphism Theme -->
     <style>
         :root {
@@ -182,9 +188,17 @@
                             <strong>Liquid Phase:</strong><br>
                             Molecules are crowded. <strong>Cage Effect</strong>. Diffusion limits encounter rate.
                         </div>
+                        <div style="margin-top: 20px;">
+                            <button id="btnGas" class="btn" style="font-size: 0.8em; margin-right: 10px;">Gas
+                                Phase</button>
+                            <button id="btnLiquid" class="btn" style="font-size: 0.8em;">Liquid Phase</button>
+                        </div>
                     </div>
                     <div>
-                        <img src="images/solvent_cage.png" alt="Solvent Cage Effect">
+                        <!-- Canvas for Cage Effect Simulation -->
+                        <div class="glass-card" style="padding: 0; overflow: hidden;">
+                            <canvas id="cageCanvas" style="width: 100%; height: 300px; background: #0f172a;"></canvas>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -299,109 +313,124 @@
                         $$k_d \approx \frac{8RT}{3\eta}$$
                     </div>
                 </div>
-                <div class="highlight-box fragment text-small">
-                    <strong>Result:</strong> $k_d \approx 7 \times 10^9$ M$^{-1}$s$^{-1}$ in water at 25°C.<br>
-                    Remarkably independent of molecular size!
-                </div>
-            </section>
 
-            <!-- Slide 9: Temperature Dependence -->
-            <section>
-                <h2>Temperature Dependence</h2>
-                <div class="cols">
-                    <div class="text-left">
-                        <p>For diffusion-controlled reactions:</p>
-                        <div class="formula">$$k_d \propto \frac{T}{\eta(T)}$$</div>
-                        <p>Since viscosity $\eta$ decreases with $T$, rate increases.</p>
-                        <p class="text-small fragment">Apparent $E_a \approx 10-20$ kJ/mol (viscosity activation
-                            energy).</p>
-                    </div>
-                    <div>
-                        <img src="images/rate_vs_viscosity.png" alt="Rate vs Viscosity">
-                    </div>
-                </div>
-            </section>
+                <div id="smoluchowski-calc" class="glass-card text-small fragment">
+                    <h4>Interactive Calculator</h4>
+                    <label>Temperature ($T$): <span id="displayT">298</span> K</label>
+                    <input type="range" id="inputT" min="200" max="400" value="298" step="1" style="width: 100%;">
 
-            <!-- Slide 10: Experimental Data -->
-            <section>
-                <h2>Experimental Verification</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Reaction</th>
-                            <th>$k$ (M$^{-1}$s$^{-1}$)</th>
-                            <th>Type</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>H$^+$ + OH$^-$</td>
-                            <td>$1.4 \times 10^{11}$</td>
-                            <td>Fast (Grotthuss)</td>
-                        </tr>
-                        <tr>
-                            <td>Radical Recombination</td>
-                            <td>$\sim 10^{10}$</td>
-                            <td>Diffusion Limit</td>
-                        </tr>
-                        <tr>
-                            <td>Enzyme-Substrate</td>
-                            <td>$\sim 10^8 - 10^9$</td>
-                            <td>Near Limit</td>
-                        </tr>
-                        <tr>
-                            <td>Sucrose Hydrolysis</td>
-                            <td>$10^{-5}$</td>
-                            <td>Activation Controlled</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
+                    <label>Viscosity ($\eta$): <span id="displayEta">0.89</span> mPa&middot;s</label>
+                    <input type="range" id="inputEta" min="0.1" max="10" value="0.89" step="0.1" style="width: 100%;">
 
-            <!-- Slide 11: Reaction-Diffusion Coupling -->
-            <section>
-                <h2>Reaction-Diffusion Coupling</h2>
-                <p>When reaction and diffusion compete:</p>
-                <div class="formula">
-                    $$\lambda = \sqrt{\frac{D}{k}}$$
+                    <div class="highlight-box" style="margin-top: 10px; text-align: center;">
+                        $k_d \approx$ <span id="resultKd" style="font-weight: bold; color: var(--secondary-color);">7.4
+                            &times;
+                            10<sup>9</sup></span> M$^{-1}$s$^{-1}$
+                    </div>
+                    <p class="text-muted" style="font-size: 0.8em; margin-top: 5px;">Remarkably independent of
+                        molecular size!</p>
                 </div>
-                <div class="cols">
-                    <div class="text-left text-small">
-                        <p><strong>$\lambda$ (Reaction-Diffusion Length):</strong><br>
-                            Distance a molecule diffuses before reacting.</p>
-                        <p>Important for biological patterns and catalysis.</p>
-                    </div>
-                    <div>
-                        <img src="images/smoluchowski_profile.png" alt="Concentration Profile">
-                    </div>
-                </div>
-            </section>
-
-            <!-- Slide 12: Interactive Resources -->
-            <section>
-                <h2>Interactive Learning</h2>
-                <div class="cols">
-                    <div class="text-left">
-                        <p>Explore these concepts in the Jupyter Notebook:</p>
-                        <ul>
-                            <li>Cage Effect Simulator</li>
-                            <li>Smoluchowski Calculator</li>
-                            <li>Viscosity Effects</li>
-                        </ul>
-                        <a href="https://colab.research.google.com/github/mcbadlon31/Reaction-Dynamics-Physical-Chemistry/blob/main/notebooks/02_Diffusion_Controlled.ipynb"
-                            target="_blank" class="btn">Open in Colab</a>
-                    </div>
-                    <div>
-                        <div class="glass-card" style="padding: 10px; display: inline-block; background: white;">
-                            <img src="images/02_Diffusion_Controlled.png" alt="QR Code"
-                                style="box-shadow: none; margin: 0; width: 200px;">
-                        </div>
-                        <p class="text-small text-muted">Scan to open on mobile</p>
-                    </div>
-                </div>
-            </section>
-
+                Remarkably independent of molecular size!
         </div>
+        </section>
+
+        <!-- Slide 9: Temperature Dependence -->
+        <section>
+            <h2>Temperature Dependence</h2>
+            <div class="cols">
+                <div class="text-left">
+                    <p>For diffusion-controlled reactions:</p>
+                    <div class="formula">$$k_d \propto \frac{T}{\eta(T)}$$</div>
+                    <p>Since viscosity $\eta$ decreases with $T$, rate increases.</p>
+                    <p class="text-small fragment">Apparent $E_a \approx 10-20$ kJ/mol (viscosity activation
+                        energy).</p>
+                </div>
+                <div>
+                    <div id="viscosityPlot" style="width: 100%; height: 400px;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 10: Experimental Data -->
+        <section>
+            <h2>Experimental Verification</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Reaction</th>
+                        <th>$k$ (M$^{-1}$s$^{-1}$)</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>H$^+$ + OH$^-$</td>
+                        <td>$1.4 \times 10^{11}$</td>
+                        <td>Fast (Grotthuss)</td>
+                    </tr>
+                    <tr>
+                        <td>Radical Recombination</td>
+                        <td>$\sim 10^{10}$</td>
+                        <td>Diffusion Limit</td>
+                    </tr>
+                    <tr>
+                        <td>Enzyme-Substrate</td>
+                        <td>$\sim 10^8 - 10^9$</td>
+                        <td>Near Limit</td>
+                    </tr>
+                    <tr>
+                        <td>Sucrose Hydrolysis</td>
+                        <td>$10^{-5}$</td>
+                        <td>Activation Controlled</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Slide 11: Reaction-Diffusion Coupling -->
+        <section>
+            <h2>Reaction-Diffusion Coupling</h2>
+            <p>When reaction and diffusion compete:</p>
+            <div class="formula">
+                $$\lambda = \sqrt{\frac{D}{k}}$$
+            </div>
+            <div class="cols">
+                <div class="text-left text-small">
+                    <p><strong>$\lambda$ (Reaction-Diffusion Length):</strong><br>
+                        Distance a molecule diffuses before reacting.</p>
+                    <p>Important for biological patterns and catalysis.</p>
+                </div>
+                <div>
+                    <img src="images/smoluchowski_profile.png" alt="Concentration Profile">
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 12: Interactive Resources -->
+        <section>
+            <h2>Interactive Learning</h2>
+            <div class="cols">
+                <div class="text-left">
+                    <p>Explore these concepts in the Jupyter Notebook:</p>
+                    <ul>
+                        <li>Cage Effect Simulator</li>
+                        <li>Smoluchowski Calculator</li>
+                        <li>Viscosity Effects</li>
+                    </ul>
+                    <a href="https://colab.research.google.com/github/mcbadlon31/Reaction-Dynamics-Physical-Chemistry/blob/main/notebooks/02_Diffusion_Controlled.ipynb"
+                        target="_blank" class="btn">Open in Colab</a>
+                </div>
+                <div>
+                    <div class="glass-card" style="padding: 10px; display: inline-block; background: white;">
+                        <img src="images/02_Diffusion_Controlled.png" alt="QR Code"
+                            style="box-shadow: none; margin: 0; width: 200px;">
+                    </div>
+                    <p class="text-small text-muted">Scan to open on mobile</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
@@ -414,6 +443,8 @@
             plugins: [RevealMath.KaTeX]
         });
     </script>
+    <!-- Custom Interactive Script -->
+    <script src="js/topic_18B.js"></script>
 </body>
 
 </html>

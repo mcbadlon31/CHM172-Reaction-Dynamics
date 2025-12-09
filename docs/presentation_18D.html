@@ -182,7 +182,9 @@
                         </ul>
                     </div>
                     <div>
-                        <img src="images/velocity_selection.png" alt="Velocity Selection">
+                        <div class="glass-card" style="padding: 0; overflow: hidden;">
+                            <canvas id="beamCanvas" style="width: 100%; height: 300px; background: #0f172a;"></canvas>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -194,20 +196,28 @@
                 <div class="formula">
                     $$dN = \sigma(\theta, \phi) I_{\text{inc}} d\Omega$$
                 </div>
-                <div class="cols text-small">
-                    <div class="glass-card fragment">
-                        <h3>Forward Scattering</h3>
-                        <p>Stripping mechanism (e.g., K + Br$_2$)</p>
+                <div class="cols">
+                    <div class="text-left text-small">
+                        <label>Scattering Mechanism:</label>
+                        <select id="scatteringType"
+                            style="background: #334155; color: white; border: none; padding: 5px; border-radius: 5px; width: 100%; margin-bottom: 20px;">
+                            <option value="stripping">Stripping (Forward)</option>
+                            <option value="rebound">Rebound (Backward)</option>
+                            <option value="complex">Complex (Sideways/Symmetric)</option>
+                        </select>
+                        <div class="glass-card fragment">
+                            <h3>Forward Scattering</h3>
+                            <p>Stripping mechanism (e.g., K + Br$_2$)</p>
+                        </div>
+                        <div class="glass-card fragment">
+                            <h3>Backward Scattering</h3>
+                            <p>Rebound mechanism (e.g., K + CH$_3$I)</p>
+                        </div>
                     </div>
-                    <div class="glass-card fragment">
-                        <h3>Backward Scattering</h3>
-                        <p>Rebound mechanism (e.g., K + CH$_3$I)</p>
+                    <div class="fragment">
+                        <div id="scatteringPlot" style="width: 100%; height: 400px;"></div>
+
                     </div>
-                </div>
-                <div class="fragment">
-                    <img src="images/differential_cross_section_polar.png" alt="Scattering Pattern"
-                        style="height: 200px;">
-                </div>
             </section>
 
             <!-- Slide 4: Potential Energy Surfaces -->
@@ -223,7 +233,13 @@
                         </ul>
                     </div>
                     <div>
-                        <img src="images/pes_contour_leps.png" alt="PES Contour">
+                        <div id="pesPlot" style="width: 100%; height: 400px;"></div>
+                        <div style="text-align: center; margin-top: 10px;">
+                            <label>Collision Energy:</label>
+                            <input type="range" id="sliderEnergy" min="10" max="100" value="30" style="width: 150px;">
+                            <button id="btnRunTrajectory" class="btn"
+                                style="margin-top: 0; padding: 5px 15px; font-size: 0.8em;">Run Trajectory</button>
+                        </div>
                     </div>
                 </div>
             </section>

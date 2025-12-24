@@ -106,7 +106,7 @@ Keep these numbers handy.
 
 **Goal**: Hypersonic Vehicle Shield Design.
 
-1.  **Select Template**: **Template 1: Atmospheric Chemistry** or **Template 4: Chemical Reactor Design**.
+1.  **Select Template**: **Template 4: Chemical Reactor Design** (focus on combustion conditions).
 2.  **Scenario**: You are designing the heat shield logic for a Mars probe.
 3.  **The Zeldovich Problem**:
     *   During re-entry, the shockwave heats air to 10,000 K.

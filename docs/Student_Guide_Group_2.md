@@ -116,7 +116,7 @@ Keep these numbers handy.
 
 **Goal**: Isotope Separation.
 
-1.  **Select Template**: **Template 8: PES Constructor**.
+1.  **Select Template**: **Template 6: PES Constructor**.
 2.  **Scenario**: You are enriching Deuterium for a fusion reactor.
 3.  **Task**:
     *   Design a "Competitive Reaction" simulation where F atoms attack a mix of H₂ and D₂.

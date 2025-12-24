@@ -46,15 +46,39 @@ Keep these numbers handy. You will need to input them into the notebooks.
 
 | Parameter | Value | Unit | Notes |
 | :--- | :--- | :--- | :--- |
-4.  **Section 3 (Arrhenius)**:
-    *   Input your **Eₐ = 5.0 kJ/mol**.
-    *   **Observation**: Since 5.0 kJ/mol is small (approx $2 \times RT$ at 300K), your "Reactive Fraction" should be quite high (maybe >10%).
-    *   **Prediction**: Your reaction is FAST.
+| Activation Energy (E_a) | 5.0 | kJ/mol | Very low - fast reaction |
+| Cross-section (σ) | 0.30 | nm² | Physical size |
+| ΔH (reaction) | -133 | kJ/mol | Highly exothermic |
+| Barrier Type | Early | — | In entrance channel |
+| K_sato | 0.15 | — | For LEPS surface |
 
-> **✅ Expected Outcome**: You should calculate $k \approx 10^{11}$ M⁻¹s⁻¹, which is near the collision limit. This confirms F+H₂ is extremely fast.
+---
 
-5.  **Section 4 (Harpoon Mechanism)**:
-    *   Read this section. F + H₂ DOES NOT follow the harpoon mechanism (unlike K + Br₂), so your cross-section is just the physical size (0.30 nm²).
+## 📘 Notebook Walkthroughs
+
+## 📘 Notebook 01: Collision Theory
+**Link**: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/01_Collision_Theory.ipynb)
+
+### Your Mission
+Understand why F + H₂ is one of the fastest atom-diatom reactions known.
+
+### Step-by-Step
+1.  **Setup Cell**: Run the Colab setup cell at the top
+2.  **Section 2 (Maxwell-Boltzmann)**:
+    *   Explore the speed distribution at T = 300 K
+    *   Note: H₂ molecules are FAST (mean speed ~1800 m/s)
+3.  **Section 3 (Collision Frequency)**:
+    *   Input cross-section σ = 0.30 nm²
+    *   Set masses for F (19 g/mol) and H₂ (2.016 g/mol)
+4.  **Section 4 (Arrhenius)**:
+    *   Input your **E_a = 5.0 kJ/mol**
+    *   **Observation**: With low E_a, the reactive fraction is high (>10%)
+    *   **Prediction**: Your reaction is FAST
+5.  **Section 5 (Harpoon Mechanism)**:
+    *   Read this section. F + H₂ does NOT follow the harpoon mechanism
+    *   Your cross-section is just the physical size (0.30 nm²)
+
+> **✅ Expected Outcome**: You should calculate k ≈ 10¹¹ M⁻¹s⁻¹, near the collision limit. This confirms F+H₂ is extremely fast.
 
 ---
 
@@ -146,7 +170,7 @@ Explore the Marcus Inverted Region (General Class Activity).
 ### Your Mission
 **Design a Chemical Reactor for HF Production.**
 
-1.  **Select Templates**: Choose **Template 4: Chemical Reactor Design** and **Template 6: HF Chemical Laser**.
+1.  **Select Templates**: Choose **Template 4: Chemical Reactor Design** and **Template 8: HF Chemical Laser**.
 2.  **Scenario**: You are designing a continuous reactor to produce HF (industrial chemical and laser fuel).
 3.  **Tasks**:
     *   Input your rate constants $k$ calculated in NB01/NB03.

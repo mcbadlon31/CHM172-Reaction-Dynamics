@@ -39,6 +39,7 @@ The core of this course is differentiated instruction. Every student learns the 
 *   **[02 Diffusion Controlled](notebooks/02_Diffusion_Controlled.ipynb)**: Random walks and viscosity.
 *   **[03 Transition State](notebooks/03_Transition_State_Theory.ipynb)**: PES visualization and Eyring equation.
 *   **[04 Molecular Dynamics](notebooks/04_Molecular_Dynamics.ipynb)**: Trajectory simulations (Polanyi's Rules).
+*   **[05 Electron Transfer](notebooks/05_Electron_Transfer.ipynb)**: Marcus theory and the inverted region.
 *   **[06 Capstone Projects](notebooks/06_Integration_Projects.ipynb)**: Reactor Design, Laser Simulation, Atmospheric Models.
 
 ### 2. Student Resources

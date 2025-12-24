@@ -19,6 +19,31 @@
 ### 🧪 Your Mission
 You are the **Endothermic Team**. Unlike the easy, downhill reactions of Group 1, your reaction is **uphill**. It consumes heat ($\Delta H > 0$). This makes your reaction slow and sensitive. You must study the "Late Barrier" effect, a concept crucial for understanding enzyme catalysis and difficult chemical syntheses.
 
+### 📈 Energy Diagram: Uphill Battle
+
+```
+Energy
+  │
+  │        ┌───────────┐
+  │        │ E_a = 23 │   ┌───────────┐
+  │        │ kJ/mol  │   │ Products  │
+  │  ┌─────┘          └───┘ HCl + H   │
+  │  │ Reactants              ΔH = +4  │
+  │  │ Cl + H₂                 kJ/mol  │
+  └──┴───────────────────────────────┴─── Reaction Coordinate
+```
+
+> **Key Insight**: Products are HIGHER in energy than reactants. You need to put energy IN!
+
+### ⚖️ Barrier Comparison
+
+| Property | F + H₂ (Group 1) | Cl + H₂ (You) |
+|----------|------------------|---------------|
+| ΔH | -133 kJ/mol | +4 kJ/mol |
+| E_a | 5 kJ/mol | 23 kJ/mol |
+| Barrier | EARLY | LATE |
+| Favored energy | Translational | Vibrational |
+
 ### 🔑 Critical Parameters
 Keep these numbers handy.
 

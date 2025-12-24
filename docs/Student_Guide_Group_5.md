@@ -19,6 +19,30 @@
 ### 🧪 Your Mission
 You are the **Solution Team**. While everyone else is flying around in the gas phase, you are dealing with the real world of wet chemistry. Your reaction (Iodine recombination) is barrierless ($E_a \approx 0$). In the gas phase, it would occur at every collision. But in solution, the solvent molecules cage you in. You are **Diffusion Controlled**.
 
+### 🌊 Solvent Effects Visualization
+
+```
+GAS PHASE:                    SOLUTION PHASE:
+
+I•   →   I•                   ┌─────────────┐
+         ↓                    │ ○ ○ ○ ○ │
+        I₂                    │ ○ I• I• ○ │ ← CAGE
+   (instant!)                 │ ○ ○ ○ ○ │
+                              └─────────────┘
+                              Must diffuse through!
+```
+
+### 🧪 The Cage Effect
+
+| Phenomenon | Gas Phase | Solution Phase |
+|------------|-----------|----------------|
+| Collision rate | 10¹² M⁻¹s⁻¹ | 10¹⁰ M⁻¹s⁻¹ |
+| After collision | Fly apart | Trapped together |
+| Third body | Required (M) | Solvent acts as M |
+| Energy removal | M takes it | Solvent absorbs |
+
+> **Key Insight**: The cage slows approach BUT helps reaction by keeping partners together!
+
 ### 🔑 Critical Parameters
 Keep these numbers handy.
 

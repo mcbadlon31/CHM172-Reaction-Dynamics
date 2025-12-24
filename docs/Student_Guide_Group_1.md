@@ -25,6 +25,22 @@
 ### 🧪 Your Mission
 You are the **Baseline Team**. Your system, the reaction of fluorine atoms with hydrogen gas, is the "gold standard" of reaction dynamics. It is highly exothermic, fast, and famously powered the first chemical lasers. Your data will serve as the reference point against which all other groups (Isotope, Endothermic, etc.) will be compared.
 
+### 💡 Chemical Laser Background
+
+The F + H₂ reaction was used in the first **chemical lasers** because:
+
+1. **Population Inversion**: The reaction preferentially populates high vibrational states of HF (v=2,3)
+2. **Fast Pumping**: The exothermic reaction continuously "pumps" excited HF molecules
+3. **Clean Emission**: HF emits at 2.7-3.0 μm (infrared)
+
+```
+F + H₂ → HF(v=3) + H     (most probable)
+       → HF(v=2) + H     (less probable)
+       → HF(v=1) + H     (least probable)
+```
+
+> **Key Insight**: The "early barrier" means reactant kinetic energy is converted to product vibration!
+
 ### 🔑 Critical Parameters
 Keep these numbers handy. You will need to input them into the notebooks.
 

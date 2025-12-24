@@ -19,6 +19,23 @@
 ### 🧪 Your Mission
 You are the **Isotope Team**. Your system is chemically identical to Group 1 (Fluorine + Hydrogen), but physically heavier. You are using **Deuterium** ($^2\text{H}$ or $\text{D}$), the heavy isotope of hydrogen. Your goal is to measure the **Kinetic Isotope Effect (KIE)**—the change in reaction rate caused purely by mass differences.
 
+### 📊 Isotope Comparison Table
+
+| Property | H₂ | D₂ | Ratio |
+|----------|-----|-----|-------|
+| Mass | 2.016 g/mol | 4.028 g/mol | 0.50 |
+| Mean speed (300K) | 1782 m/s | 1260 m/s | √2 |
+| ZPE (vibration) | 26.1 kJ/mol | 18.5 kJ/mol | 1.41 |
+| Collision freq | Higher | Lower | √2 |
+
+> **Key Insight**: The √2 ratio appears everywhere because v ∝ 1/√m!
+
+### 🔬 Why Isotope Effects Matter
+
+1. **Reaction Mechanisms**: KIE tells you which bond breaks in the rate-limiting step
+2. **Quantum Tunneling**: H tunnels more than D (large KIE = tunneling contribution)
+3. **Isotope Separation**: Industry uses KIE to enrich uranium, deuterium
+
 ### 🔑 Critical Parameters
 Keep these numbers handy.
 

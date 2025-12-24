@@ -19,6 +19,31 @@
 ### 🧪 Your Mission
 You are the **High-T Engineers**. Your reaction is the rate-limiting step of the Zeldovich mechanism, responsible for producing thermal NOx in car engines and during spacecraft re-entry. It has a massive activation barrier. At room temperature, it effectively *never* happens. You operate at the extremes of physical chemistry: 2000K to 5000K.
 
+### 🔥 The Zeldovich Mechanism
+
+Thermal NOx formation in combustion:
+
+```
+Step 1 (YOUR REACTION - rate limiting):
+  O + N₂ → NO + N     E_a = 315 kJ/mol
+
+Step 2 (fast):
+  N + O₂ → NO + O     E_a = 26 kJ/mol
+
+Net: N₂ + O₂ → 2 NO
+```
+
+### 🚀 Real-World Applications
+
+| Context | Temperature | Why It Matters |
+|---------|-------------|----------------|
+| Car engines | 2000-2500 K | NOx emissions regulations |
+| Power plants | 1800-2200 K | EPA limits, catalytic reduction |
+| Scramjets | 3000-5000 K | Hypersonic flight chemistry |
+| Re-entry | 5000-8000 K | Heat shield design |
+
+> **Key Insight**: Your reaction is WHY air at room temperature is stable. The barrier protects us!
+
 ### 🔑 Critical Parameters
 Keep these numbers handy.
 

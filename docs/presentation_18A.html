@@ -1,19 +1,14 @@
 <!doctype html>
 <html lang="en">
+<!-- Professional Refresh: Grid Layout -->
 
 <head>
     <meta charset="utf-8">
     <title>Topic 18A: Collision Theory</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Professional Theme -->
     <link rel="stylesheet" href="presentation_style.css">
-
-    <!-- Reveal.js Core -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
-
-    <!-- Icons & Charts -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -24,10 +19,10 @@
 
             <!-- Slide 1: Title -->
             <section>
-                <div class="glass-panel" style="max-width: 800px; margin: 0 auto;">
+                <div class="glass-panel" style="max-width: 900px; margin: 0 auto;">
                     <h1>Topic 18A</h1>
                     <h3>Collision Theory</h3>
-                    <div style="width: 120px; height: 6px; background: var(--secondary); margin: 20px auto;"></div>
+                    <div style="width: 150px; height: 6px; background: var(--secondary); margin: 30px auto;"></div>
                     <p class="text-muted">Reaction Dynamics &bull; CHM172</p>
                 </div>
             </section>
@@ -43,13 +38,12 @@
                             <li class="fragment"><strong>Calculate</strong> collision frequency density ($Z_{AB}$).</li>
                             <li class="fragment"><strong>Derive</strong> the Arrhenius Equation from gas kinetic theory.
                             </li>
-                            <li class="fragment"><strong>Evaluate</strong> steric factors ($P$) and their physical
-                                meaning.</li>
+                            <li class="fragment"><strong>Evaluate</strong> steric factors ($P$).</li>
                         </ul>
                     </div>
                     <div>
                         <div class="glass-panel text-center">
-                            <i class="fas fa-atom fa-5x" style="color: var(--primary); margin-bottom: 20px;"></i>
+                            <i class="fas fa-atom fa-6x" style="color: var(--primary); margin-bottom: 30px;"></i>
                             <p>From Microscopic Motion<br>to Macroscopic Rates</p>
                         </div>
                     </div>
@@ -59,18 +53,26 @@
             <!-- Slide 3: Core Concepts -->
             <section>
                 <h2>The 3 Pillars of Reaction</h2>
-                <div class="cols" style="align-items: stretch;">
+                <div class="cols" style="gap: 20px;">
                     <div class="glass-panel text-left">
-                        <h3>1. Frequency <br><small class="text-muted">($Z_{AB}$)</small></h3>
+                        <h3>1. Frequency</h3>
                         <p class="text-small">Molecules must collide.</p>
+                        <hr>
+                        <span class="text-muted">$Z_{AB}$</span>
                     </div>
                     <div class="glass-panel text-left">
-                        <h3>2. Energy <br><small class="text-muted">($E_a$)</small></h3>
-                        <p class="text-small">Impact must be hard enough.</p>
+                        <h3>2. Energy</h3>
+                        <p class="text-small">Impact strength.</p>
+                        <hr>
+                        <span class="text-muted">$E_a$</span>
                     </div>
-                    <div class="glass-panel text-left">
-                        <h3>3. Orientation <br><small class="text-muted">($P$)</small></h3>
-                        <p class="text-small">Angles must be right.</p>
+                    <!-- Note: Grid handles 2 cols, so 3rd item wraps? No, manual adjustment needed for 3 items -->
+                    <!-- Let's use a nested grid for 3 items or just make 3rd item span -->
+                    <div class="glass-panel text-left" style="grid-column: span 2; width: 60%; justify-self: center;">
+                        <h3>3. Orientation</h3>
+                        <p class="text-small">Molecular Alignment.</p>
+                        <hr>
+                        <span class="text-muted">$P$</span>
                     </div>
                 </div>
             </section>
@@ -78,7 +80,6 @@
             <!-- Slide 4: Collision Density -->
             <section>
                 <h2>1. Collision Density ($Z_{AB}$)</h2>
-                <p>Number of collisions per volume per second.</p>
                 <div class="formula-box">
                     $$Z_{AB} = \sigma \left(\frac{8k_BT}{\pi \mu}\right)^{1/2} \mathcal{N}_A \mathcal{N}_B$$
                 </div>
@@ -98,17 +99,17 @@
             <section>
                 <h2>Interactive Collision Lab</h2>
                 <div class="cols">
-                    <div class="text-left input-group glass-panel" style="flex: 0 0 30%;">
+                    <div class="text-left input-group glass-panel">
                         <label><i class="fas fa-users"></i> Density</label>
                         <input type="range" id="sim-count" min="5" max="50" value="20">
-                        <br>
+                        <br><br>
                         <label><i class="fas fa-tachometer-alt"></i> Speed</label>
                         <input type="range" id="sim-speed" min="1" max="10" value="4">
                         <hr style="border-color: var(--glass-border); margin: 20px 0;">
                         <p class="text-small text-muted">Red particles are "fast" enough to react.</p>
                     </div>
-                    <div class="glass-panel" style="flex: 1; padding: 0; overflow: hidden; height: 500px;">
-                        <canvas id="collisionCanvas" width="800" height="500"></canvas>
+                    <div class="glass-panel" style="padding: 0; overflow: hidden;">
+                        <canvas id="collisionCanvas"></canvas> <!-- Will respect CSS aspect-ratio -->
                     </div>
                 </div>
             </section>
@@ -117,60 +118,53 @@
             <section>
                 <h2>2. Energy Requirements</h2>
                 <div class="cols">
-                    <div class="text-left" style="flex: 0 0 40%;">
-                        <p>Most collisions fail.</p>
-                        <div class="formula-box">
-                            $$f = e^{-E_a/RT}$$
-                        </div>
-                        <div class="input-group glass-panel">
-                            <label>Temp ($T$): <span id="disp-mb-temp">300</span> K</label>
-                            <input type="range" id="mb-temp" min="100" max="1000" value="300">
+                    <div class="text-left input-group glass-panel">
+                        <p class="text-small">Most collisions fail.</p>
+                        <div class="formula-box" style="margin: 1rem 0; padding: 0.5rem;">$$f = e^{-E_a/RT}$$</div>
 
-                            <label>Barrier ($E_a$): <span id="disp-mb-ea">25</span> kJ</label>
-                            <input type="range" id="mb-ea" min="10" max="80" value="25">
+                        <label>Temp ($T$): <span id="disp-mb-temp">300</span> K</label>
+                        <input type="range" id="mb-temp" min="100" max="1000" value="300">
+                        <br>
+                        <label>Barrier ($E_a$): <span id="disp-mb-ea">25</span> kJ</label>
+                        <input type="range" id="mb-ea" min="10" max="80" value="25">
 
-                            <div id="disp-mb-fraction" class="text-small" style="margin-top: 10px;">Calculating...</div>
-                        </div>
+                        <div id="disp-mb-fraction" class="highlight-box" style="margin-top: 10px;">Calculating...</div>
                     </div>
-                    <div class="glass-panel" style="flex: 1; height: 500px;">
+                    <div class="glass-panel">
                         <canvas id="mbChart"></canvas>
                     </div>
                 </div>
             </section>
 
-            <!-- Slide 7: Derivation -->
+            <!-- Slide 7: Derivation Steps -->
             <section>
                 <section>
                     <h2>Derivation Logic</h2>
                     <div class="glass-panel">
                         <h3>Rate = (Frequency) × (Success Fraction)</h3>
                     </div>
-                    <div class="cols text-left" style="margin-top: 2rem;">
-                        <div>
-                            <p><strong>Step 1:</strong> Sum collisions at each specific velocity $v$.</p>
-                        </div>
-                        <div>
-                            <p><strong>Step 2:</strong> Integrate over the Maxwell-Boltzmann distribution.</p>
-                        </div>
-                    </div>
-                    <div style="margin-top: 2rem;">
-                        <i class="fas fa-chevron-down fa-2x animate-bounce"></i>
-                        <p class="text-small">Detailed Math Below</p>
-                    </div>
+                    <p class="text-left" style="margin-top: 2rem;">
+                        To find the total rate, we must <strong>integrate</strong> over all possible collision
+                        velocities, weighted by their probability.
+                    </p>
+                    <br>
+                    <i class="fas fa-chevron-down fa-2x animate-bounce"></i>
                 </section>
 
                 <section>
-                    <h2>The Integral</h2>
+                    <h2>The Result</h2>
                     <div class="formula-box">
-                        $$k = \int_{v_{min}}^{\infty} \sigma v \cdot f(v) dv$$
-                    </div>
-                    <p class="fragment text-left">Which solves to the <strong>Collision Theory Rate Constant</strong>:
-                    </p>
-                    <div class="formula-box fragment">
                         $$k_{theory} = N_A \sigma \left(\frac{8k_BT}{\pi \mu}\right)^{1/2} e^{-E_a/RT}$$
                     </div>
-                    <div class="fragment highlight-box">
-                        This perfectly matches Arrhenius: $k = A e^{-E_a/RT}$
+                    <div class="cols text-left">
+                        <div class="glass-panel fragment">
+                            <h4>Pre-exponential ($A$)</h4>
+                            <p class="text-small">Frequency Factor.</p>
+                        </div>
+                        <div class="glass-panel fragment">
+                            <h4>Exponential</h4>
+                            <p class="text-small">Energy Factor.</p>
+                        </div>
                     </div>
                 </section>
             </section>
@@ -179,18 +173,18 @@
             <section>
                 <h2>3. Orientation ($P$)</h2>
                 <div class="cols">
-                    <div class="text-left" style="flex: 0 0 40%;">
+                    <div class="text-left glass-panel">
                         <p>Real molecules aren't spheres.</p>
-                        <div class="formula-box">$$k_{obs} = P \cdot k_{theory}$$</div>
+                        <div class="formula-box" style="margin: 1rem 0; padding: 0.5rem;">$$k_{obs} = P \cdot
+                            k_{theory}$$</div>
                         <ul class="text-small">
                             <li>$P < 1$: Steric Hindrance</li>
                             <li>$P > 1$: Harpoon Mechanism</li>
                         </ul>
                     </div>
-                    <div id="steric-game" class="glass-panel"
-                        style="flex: 1; height: 400px; position: relative; cursor: crosshair;">
+                    <div id="steric-game" class="glass-panel" style="position: relative; cursor: crosshair;">
                         <div style="position: absolute; top: 10px; left: 10px;pointer-events:none;">
-                            <span class="highlight-box">Game: Rotate to Align -></span>
+                            <span class="highlight-box">Align Blue to Red Target -></span>
                         </div>
 
                         <!-- Target -->
@@ -232,9 +226,7 @@
                     </div>
                 </div>
                 <br>
-                <div class="fragment">
-                    <a href="../docs/index.html" class="btn-action">Return to Dashboard</a>
-                </div>
+                <a href="../docs/index.html" class="btn-action">Return to Dashboard</a>
             </section>
 
         </div>
@@ -245,36 +237,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/math/math.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/notes/notes.min.js"></script>
 
-    <!-- Topic Specific Logic -->
+    <!-- Topic JS -->
     <script src="js/topic_18A.js"></script>
 
     <script>
         Reveal.initialize({
-            // Professional HD Resolution
-            width: 1920,
-            height: 1080,
-            margin: 0.1,
-            minScale: 0.2,
-            maxScale: 2.0,
-
-            // Navigation
-            controls: true,
-            progress: true,
-            center: true,
-            hash: true,
-
-            // Animation
-            transition: 'fade', // professional fade
-            transitionSpeed: 'default',
-
-            // Plugins
+            width: 1920, height: 1080, margin: 0.1, minScale: 0.2, maxScale: 2.0,
+            controls: true, progress: true, center: true, hash: true,
+            transition: 'fade', transitionSpeed: 'default',
             plugins: [RevealMath.KaTeX, RevealNotes]
-        });
-
-        // Force resize of canvas when slides change (Fixes 0x0 bug)
-        Reveal.on('slidechanged', event => {
-            // Dispatch resize event to trigger window listeners if any
-            window.dispatchEvent(new Event('resize'));
         });
     </script>
 </body>

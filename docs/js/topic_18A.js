@@ -13,6 +13,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('mbChart')) initMBExplorer();
     if (document.getElementById('collisionCanvas')) initCollisionSim();
     if (document.getElementById('steric-game')) initStericGame();
+
+    // Critical Fix for Reveal.js + Canvas: Re-layout when slide appears
+    if (window.Reveal) {
+        Reveal.on('slidechanged', event => {
+            console.log('Slide Changed: Triggering Resize');
+            window.dispatchEvent(new Event('resize'));
+
+            // Force Canvas Redraw if needed
+            const currentSlide = event.currentSlide;
+            const canvas = currentSlide.querySelector('canvas');
+            if (canvas) {
+                canvas.style.display = 'none';
+                void canvas.offsetWidth; // Trigger reflow
+                canvas.style.display = 'block';
+            }
+        });
+    }
 });
 
 // ==========================================================================

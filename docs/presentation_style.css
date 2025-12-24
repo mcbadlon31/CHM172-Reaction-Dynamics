@@ -74,22 +74,14 @@ body {
     margin: 1rem 0;
 }
 
-/* Robust Columns: Flex over Grid for Reveal safety */
+/* Robust Columns: Grid for strict 50/50 split */
 .cols {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    /* Top align contents */
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
+    align-items: center;
+    /* Vertical center */
     width: 100%;
-}
-
-.cols>div {
-    flex: 1;
-    /* Equal width by default */
-    min-width: 0;
-    /* Prevent flex overflow */
 }
 
 /* Math */
@@ -130,10 +122,10 @@ body {
 /* Interactive Elements */
 canvas {
     display: block;
-    width: 100%;
-    height: auto;
-    min-height: 300px;
-    /* Force visibility even if parent collapses */
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16/9;
+    /* Force aspect ratio */
     background: rgba(0, 0, 0, 0.2);
     border-radius: 8px;
 }
@@ -154,6 +146,8 @@ canvas {
 
 .btn-action:hover {
     background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
 .input-group label {

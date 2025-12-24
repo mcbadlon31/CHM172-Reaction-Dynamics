@@ -51,3 +51,6 @@ dist/
 # Sensitive information
 .env
 credentials.json
+
+# Instructor Materials
+instructor_resources/

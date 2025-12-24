@@ -41,7 +41,14 @@ The core of this course is differentiated instruction. Every student learns the 
 *   **[04 Molecular Dynamics](notebooks/04_Molecular_Dynamics.ipynb)**: Trajectory simulations (Polanyi's Rules).
 *   **[06 Capstone Projects](notebooks/06_Integration_Projects.ipynb)**: Reactor Design, Laser Simulation, Atmospheric Models.
 
-### 2. Instructor Resources
+### 2. Student Resources
+*   **[Quick Start Guide](docs/QUICK_START.md)**: Get running in 5 minutes.
+*   **[Equation Cheat Sheet](docs/CHEAT_SHEET.md)**: All key formulas for exams.
+*   **[Learning Pathway](docs/LEARNING_PATHWAY.md)**: Visual course flow and prerequisites.
+*   **[Student Guides](docs/)**: Group-specific walkthroughs (Groups 1-5).
+
+### 3. Instructor Resources
+*   **[Instructor Guide](docs/INSTRUCTOR_GUIDE.md)**: Schedule, assessment, setup.
 *   **Presentation**: 178-slide LaTeX/Beamer deck with embedded QR codes.
 *   **Master Keys**: Located in `instructor_resources/` (Hidden/Ignored by git).
 

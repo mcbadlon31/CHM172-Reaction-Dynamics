@@ -47,6 +47,9 @@ Keep these numbers handy.
     *   Set **Mass B = 4.03** (D₂).
     *   **Observe**: The Mean Speed ($v_{mean}$) will be **lower** than for H₁.
     *   **Record**: Calculate the ratio $\frac{v_{H2}}{v_{D2}}$. Is it $\sqrt{2} \approx 1.41$?
+
+> **✅ Expected Outcome**: Ratio should be 1.41 ± 0.02. This √2 factor comes directly from the mass ratio.
+
 3.  **Exercise 1.2**:
     *   Calculate your Collision Frequency $Z_{F,D2}$.
     *   It should be lower than Group 1's $Z_{F,H2}$ by a factor of $\sqrt{2}$.

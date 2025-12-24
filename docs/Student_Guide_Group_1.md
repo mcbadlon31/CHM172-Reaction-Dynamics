@@ -34,6 +34,9 @@ Keep these numbers handy. You will need to input them into the notebooks.
     *   Input your **Eₐ = 5.0 kJ/mol**.
     *   **Observation**: Since 5.0 kJ/mol is small (approx $2 \times RT$ at 300K), your "Reactive Fraction" should be quite high (maybe >10%).
     *   **Prediction**: Your reaction is FAST.
+
+> **✅ Expected Outcome**: You should calculate $k \approx 10^{11}$ M⁻¹s⁻¹, which is near the collision limit. This confirms F+H₂ is extremely fast.
+
 5.  **Section 4 (Harpoon Mechanism)**:
     *   Read this section. F + H₂ DOES NOT follow the harpoon mechanism (unlike K + Br₂), so your cross-section is just the physical size (0.30 nm²).
 
@@ -55,6 +58,8 @@ Compare your fast gas-phase reaction to what would happen if you put it in a bea
     *   Calculate the maximum diffusion-limited rate $k_{diff}$.
     *   **Comparison**: Compare this $k_{diff}$ ($\sim 10^{10}$ M⁻¹s⁻¹) with your Arrhenius rate from NB01.
     *   **Hypothesis**: Since your reaction is very fast ($E_a$ is low), it might actually be *slowed down* by the solvent (Collision rate drops from $10^{12}$ to $10^{10}$).
+
+> **✅ Expected Outcome**: $k_{diff} \approx 7 \times 10^{9}$ M⁻¹s⁻¹ in water. This is ~100× slower than gas phase - the solvent is a bottleneck!
 
 ---
 
@@ -78,6 +83,8 @@ Visualize the "landscape" (Potential Energy Surface) of your reaction.
         *   Locate the "Saddle Point" (Transition State).
         *   Is it in the **Entrance Channel** (Reactants close, Products far)? This is an **EARLY BARRIER**.
         *   **Record**: Verify the barrier height is $\sim 5$ kJ/mol.
+
+> **✅ Expected Outcome**: The saddle point should appear close to the reactant valley (lower-left of contour plot). This "early barrier" is why translational energy promotes reaction.
 
 ---
 

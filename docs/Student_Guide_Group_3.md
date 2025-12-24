@@ -50,6 +50,8 @@ Keep these numbers handy.
     *   **Observe**: At 300K, the fraction $\exp(-E_a/RT)$ is tiny! ($e^{-9.2} \approx 0.0001$).
     *   **Action**: Increase T to 800 K. How much does the rate increase? This demonstrates why endothermic reactions **require heat**.
 
+> **✅ Expected Outcome**: At 300K, fraction ≈ 0.01%. At 800K, fraction ≈ 5%. Rate increases ~500× with temperature doubling!
+
 ### 📘 Notebook 02: Diffusion Controlled Reactions
 **Link**: [Open Notebook](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/02_Diffusion_Controlled.ipynb)
 

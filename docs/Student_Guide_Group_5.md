@@ -65,6 +65,8 @@ Keep these numbers handy.
         *   Calculate $k_{diff}$ for Glycerol ($\eta = 900$ cP).
     *   **Record**: Plot Rate $k$ vs Viscosity $\eta$. It should be linear ($1/\eta$).
 
+> **✅ Expected Outcome**: Your plot should show k_diff inversely proportional to η. In glycerol, reaction is ~1000× slower than hexane!
+
 ### 📘 Notebook 04: Molecular Dynamics
 **Link**: [Open Notebook](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/04_Molecular_Dynamics.ipynb)
 

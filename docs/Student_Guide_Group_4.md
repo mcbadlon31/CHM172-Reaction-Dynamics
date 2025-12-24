@@ -49,6 +49,9 @@ Keep these numbers handy.
     *   **Result**: The reactive fraction is essentially `0.0`.
     *   **Action**: Move the Temperature slider. How hot do you have to get before the fraction reaches even 0.001% ($10^{-5}$)?
     *   **Answer**: You probably need T > 2000 K.
+
+> **✅ Expected Outcome**: At 2000K, exp(-Ea/RT) ≈ 10⁻⁸. At 4000K, it jumps to 10⁻⁴. This exponential sensitivity is why combustion chemistry is so temperature-critical.
+
 3.  **Insight**: This is good! If this reaction happened at 300K, our atmosphere (O2 + N2) would slowly turn into nitric acid oceans. The high barrier protects life on Earth.
 
 ### 📘 Notebook 03: Transition State Theory

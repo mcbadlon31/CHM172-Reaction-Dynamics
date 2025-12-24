@@ -1,133 +1,90 @@
-# 🔴 Group 3: The Endothermic Team (Chlorine + Hydrogen)
+# Student Project Guide - Group 3
+## The Endothermic Team: Uphill Dynamics
 
-## 🔬 System Identity
-*   **Reaction**: **Cl + H₂ → HCl + H**
-*   **Context**: This reaction is the opposite of the "easy" ones. It is **Endothermic** (uphill in energy). It doesn't want to happen. You have to force it with heat.
+**System**: $\text{Cl} \cdot + \text{H}_2 \rightarrow \text{HCl} + \text{H} \cdot$
 
-## 🧪 Your Parameters
-**Use these EXACT values for all calculations in the notebooks.**
+### 🧪 Your Mission
+You are the **Endothermic Team**. Unlike the easy, downhill reactions of Group 1, your reaction is **uphill**. It consumes heat ($\Delta H > 0$). This makes your reaction slow and sensitive. You must study the "Late Barrier" effect, a concept crucial for understanding enzyme catalysis and difficult chemical syntheses.
+
+### 🔑 Critical Parameters
+Keep these numbers handy.
 
 | Parameter | Value | Unit | Notes |
 | :--- | :--- | :--- | :--- |
-| **Mass A (Cl)** | 35.45 | amu | Chlorine atom |
-| **Mass B (H₂)** | 2.016 | amu | Hydrogen molecule |
-| **Radius A** | 0.18 | nm | Larger than Fluorine |
-| **Radius B** | 0.15 | nm | Standard H₂ |
-| **Collision Cross-section (σ)** | 0.35 | nm² | Larger target |
-| **Activation Energy (Eₐ)** | 23.0 | kJ/mol | **Endothermic** Barrier! |
-| **Temperature (T)** | 600 | K | Needs heat to run |
+| **Mass A (Cl)** | 35.45 | g/mol | Chlorine atom |
+| **Mass B (H₂)** | 2.016 | g/mol | Hydrogen molecule |
+| **Diameter A (Cl)** | 0.35 | nm | Much larger than F |
+| **Diameter B (H₂)** | 0.29 | nm | Kinetic diameter |
+| **Activation Energy ($E_a$)** | 23.0 | kJ/mol | High barrier (Very Slow at RT) |
+| **Enthalpy ($\Delta H$)** | +5.0 | kJ/mol | **Endothermic** (Uphill) |
+| **Temp Range** | 400 - 800 | K | Requires heating to run |
 
 ---
 
-## 📘 Notebook 00: Setup & Introduction
-**Link**: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/00_Setup_and_Introduction.ipynb)
+## 📘 Notebook Walkthroughs
 
-1.  **Launch**: Click the badge above.
-2.  **Save**: `File > Save a copy in Drive`.
-3.  **Setup**: Run the "GOOGLE COLAB SETUP" cell.
-4.  **Practice**: Run the Python Basics cells.
+### 📘 Notebook 01: Collision Theory
+**Link**: [Open Notebook](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/01_Collision_Theory.ipynb)
 
----
+**Goal**: Why is it so slow?
 
-## 📘 Notebook 01: Collision Theory
-**Link**: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/01_Collision_Theory.ipynb)
+1.  **Exercise 1.1 (Collision Freq)**:
+    *   Set **T = 300 K**.
+    *   Set **Mass** and **Sigmas** for Cl + H₂.
+    *   **Record**: $Z_{AB}$ is likely similar to Group 1.
+2.  **Exercise 2.2 (Reactive Fraction)**:
+    *   **Crucial Step**: Input your $E_a = 23$ kJ/mol.
+    *   **Observe**: At 300K, the fraction $\exp(-E_a/RT)$ is tiny! ($e^{-9.2} \approx 0.0001$).
+    *   **Action**: Increase T to 800 K. How much does the rate increase? This demonstrates why endothermic reactions **require heat**.
 
-### Your Mission
-Find the temperature required to make this reaction go.
+### 📘 Notebook 02: Diffusion Controlled Reactions
+**Link**: [Open Notebook](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/02_Diffusion_Controlled.ipynb)
 
-### Step-by-Step
-1.  **Section 1 (Collision Frequency)**:
-    *   Input your Masses and Radii.
-    *   Set **T = 300 K**. Record $Z_{coll}$.
-2.  **Section 2 (Maxwell-Boltzmann)**:
-    *   Input **Eₐ = 23.0 kJ/mol**.
-    *   **Observation**: At 300K, what is the "Reactive Fraction"? It should be tiny!
-    *   **Task**: Increase the Temperature slider. At what T does the fraction cross 1%? (Answer is likely > 500K).
-    *   **Conclusion**: This is why we assigned you **600 K** as your standard temperature. At room temperature, this reaction is dead.
-3.  **Section 3 (Arrhenius)**:
-    *   Use the Arrhenius Plot widget. Notice how steep the slope is compared to $E_a=5$. High barrier means high sensitivity to Temperature.
+**Goal**: Viscosity check.
 
----
+1.  **Hypothesis**: Since your reaction is chemically slow (high $E_a$), diffusion is likely **not** the rate-limiting step. Even in a thick solvent, the reagents will collide many times before reaction occurs.
+2.  **Simulation**: Run the random walk. Confirm that $k_{diff} \gg k_{chem}$.
 
-## 📘 Notebook 02: Diffusion Controlled Reactions
-**Link**: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/02_Diffusion_Controlled.ipynb)
+### 📘 Notebook 03: Transition State Theory
+**Link**: [Open Notebook](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/03_Transition_State_Theory.ipynb)
 
-### Your Mission
-Confirm that diffusion is NOT your problem.
+**Goal**: The Late Barrier.
 
-### Step-by-Step
-1.  **Section 3 (Smoluchowski Limit)**:
-    *   Calculate $k_{diff} \approx 10^{10}$ M⁻¹s⁻¹.
-    *   Calculate your Arrhenius rate $k_{chem}$ using $E_a=23$ at 300K. It will be very small ($10^6$ or less).
-    *   **Comparison**: $k_{chem} \ll k_{diff}$.
-    *   **Conclusion**: Your reaction is strictly **Activation Controlled**. The solvent doesn't matter because the chemistry is the bottleneck.
-
----
-
-## 📘 Notebook 03: Transition State Theory
-**Link**: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/03_Transition_State_Theory.ipynb)
-
-### Your Mission
-Visualize the **Late Barrier**.
-
-### Step-by-Step
 1.  **Investigation 4 (LEPS Surface)**:
-    *   **Code Update**: In the LEPS cell, change the system definition:
-        ```python
-        # CHANGE THIS LINE in the code:
-        surface = LEPSSurface('H2', 'Cl', 'HCl', K_sato=0.15)
-        # Note: 'H2' is AB, 'Cl' is C.
-        ```
-    *   **Run Plot**: Look at the Saddle Point.
-    *   **Observation**:
-        *   Reactant Valley (Bottom) is low.
-        *   Product Valley (Left) is *higher* in energy (Endothermic).
-        *   The Saddle Point is shifted into the "Product Valley" (Exit channel). This is a **LATE BARRIER**.
-    *   **Polanyi's Prediction**: For late barriers, **Vibrational Energy** is required to cross it.
+    *   Find the LEPS code.
+    *   The notebook defaults to HI (which is related to your Cl system).
+    *   **Visual Analysis**: Look at the Saddle Point.
+    *   **The Difference**: Unlike Group 1 (Early), your Saddle Point is in the **Exit Channel**.
+    *   This means the bond is already stretched, and the H-Cl bond is forming *before* you reach the top of the hill.
+    *   This is a **Late Barrier**.
 
----
+### 📘 Notebook 04: Molecular Dynamics
+**Link**: [Open Notebook](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/04_Molecular_Dynamics.ipynb)
 
-## 📘 Notebook 04: Molecular Dynamics
-**Link**: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/04_Molecular_Dynamics.ipynb)
+**Goal**: Polanyi's Rules for Endothermic Reactions.
 
-### Your Mission
-Observe the "Rebound" Mechanism.
+1.  **Exercise 2.1 (Polanyi Rules)**:
+    *   This is the most important simulation for your group.
+    *   **Scenario A**: High Translational Kinetic Energy (Fast collision).
+    *   **Scenario B**: High Vibrational Energy (H₂ is vibrating wildly).
+    *   **Prediction**: Polanyi's Rules state that for a **Late Barrier**, **VIBRATION** is more effective than translation.
+    *   **Task**: Run both scenarios. Count the reactions using the `reac_count` variable. Confirm if vibrating H₂ reacts more often than fast H₂.
 
-### Step-by-Step
-1.  **Exercise 1.1 (Scattering)**:
-    *   Look for **Reaction C** (Cl + HBr → HCl + Br... similar kinematics to yours).
-    *   **Observe**: Peaked at 180° (Backward Scattering).
-    *   **Mechanism**: The Cl atom hits the H, and they bounce back the way they came (Rebound). It's a "hard" collision.
-2.  **Exercise 2.1 (Polanyi's Rules)**:
-    *   **Test**: Compare the effect of Velocity vs Vibration.
-    *   **Expectation**: Since you have a **Late Barrier**, speeding up the Cl atom (Velocity) just makes it bounce off the wall. Exciting the H₂ bond (Vibration) helps it stretch and break when Cl arrives.
-    *   **Conclusion**: To make this reaction go, you want **Hot H₂** (Vibrational excitation), not just fast Cl.
+### 📘 Notebook 06: Capstone Project
+**Link**: [Open Notebook](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/06_Integration_Projects.ipynb)
 
----
+**Goal**: Reactor Heating Design.
 
-## 📘 Notebook 05: Electron Transfer
-**Link**: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/05_Electron_Transfer.ipynb)
-
-1.  **Exercise 3.1**: Same task as everyone else. Find the peak of the Marcus parabola. Note that for your endothermic chemical reaction, you are effectively on the "Normal" side of the curve, "uphill".
-
----
-
-## 🏆 Notebook 06: Capstone Project
-**Link**: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/06_Integration_Projects.ipynb)
-
-### Your Mission
-**Reactor Design for an Endothermic Process.**
-
-1.  **Select Template**: Choose **Template 4: Chemical Reactor Design**.
+1.  **Select Template**: **Chemical Reactor Design**.
 2.  **Scenario**: You are designing a reactor to make HCl.
-3.  **Challenge**:
-    *   The reaction *consumes* heat ($\Delta H > 0$).
-    *   As the reaction proceeds, the temperature drops.
-    *   If T drops, the rate ($k$) crashes because $E_a$ is high (23 kJ/mol).
-4.  **Task**:
-    *   Modify the code to model "Adiabatic Cooling". (Or simply explain it in text).
-    *   Compare PFR vs CSTR.
-    *   **Recommendation**: A CSTR might be better because you can easily jacket it with a heater to maintain T=600K. A PFR might get cold at the end!
+3.  **Optimization**:
+    *   You have a cost function: Heating is expensive ($), but your reaction needs T > 600K.
+    *   Find the "Sweet Spot": The temperature where the reaction is fast enough to make reasonable profit, but not so hot that fuel costs zero out your revenue.
+    *   **Safety**: Unlike Group 1, you don't have a runaway risk (reaction consumes heat). Your risk is the fire going out!
 
-### Final Report
-Focus on the difficulty of **Endothermic** reactions. You need high T (NB01), you need vibrational energy (NB04), and you need to supply heat in the reactor (NB06).
+---
+
+### 📝 Final Report Checklist
+1.  **Polanyi confirmation**: Did vibration help more than translation? Show the data.
+2.  **Barrier Position**: Sketch the PES along the reaction coordinate. Mark "Late Barrier".
+3.  **Temperature**: What is the minimum T required to get 1% yield?

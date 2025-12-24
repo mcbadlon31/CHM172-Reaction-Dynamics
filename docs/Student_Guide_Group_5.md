@@ -1,125 +1,92 @@
-# 🟠 Group 5: The Solution Phase Team (Viscous Dynamics)
+# Student Project Guide - Group 5
+## The Solution Phase Team: Viscous Dynamics
 
-## 🔬 System Identity
-*   **Reaction**: **I + I → I₂ (in Solvent)**
-*   **Context**: You are the "Odd Ones Out". Groups 1-4 are studying gas-phase collisions where atoms fly freely. You are studying atoms swimming through "treacle" (solvent). Your reaction has NO barrier. If the atoms meet, they react. The only problem is... getting them to meet.
+**System**: $\text{I} \cdot + \text{I} \cdot \rightarrow \text{I}_2$ (in Solvent)
 
-## 🧪 Your Parameters
-**Use these EXACT values for all calculations in the notebooks.**
+### 🧪 Your Mission
+You are the **Solution Team**. While everyone else is flying around in the gas phase, you are dealing with the real world of wet chemistry. Your reaction (Iodine recombination) is barrierless ($E_a \approx 0$). In the gas phase, it would occur at every collision. But in solution, the solvent molecules cage you in. You are **Diffusion Controlled**.
+
+### 🔑 Critical Parameters
+Keep these numbers handy.
 
 | Parameter | Value | Unit | Notes |
 | :--- | :--- | :--- | :--- |
-| **Mass A (I)** | 126.9 | amu | Iodine atom (Heavy!) |
-| **Mass B (I)** | 126.9 | amu | Iodine atom |
-| **Radius A** | 0.22 | nm | Large atom |
-| **Radius B** | 0.22 | nm | Large atom |
-| **Collision Cross-section** | 0.60 | nm² | Large target |
-| **Activation Energy (Eₐ)** | 0.5 | kJ/mol | **Effectively Zero** |
-| **Viscosity (η)** | **Variable** | cP | Your main variable! |
+| **Mass A (I)** | 126.9 | g/mol | Heavy! |
+| **Mass B (I)** | 126.9 | g/mol | Symmetric reaction |
+| **Radius A (I)** | 0.22 | nm | Large atom |
+| **Solvent** | CCl₄ / Hexane | - | The "Third Body" |
+| **Viscosity ($\eta$)** | 0.9 | cP | Standard solvent viscosity |
+| **Activation Energy ($E_a$)** | ~0 | kJ/mol | Barrierless |
+| **Enthalpy ($\Delta H$)** | -151 | kJ/mol | Bond formation |
 
 ---
 
-## 📘 Notebook 00: Setup & Introduction
-**Link**: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/00_Setup_and_Introduction.ipynb)
+## 📘 Notebook Walkthroughs
 
-1.  **Launch**: Click the badge above.
-2.  **Save**: `File > Save a copy in Drive`.
-3.  **Setup**: Run the "GOOGLE COLAB SETUP" cell.
-4.  **Practice**: Run the Python Basics cells.
+### 📘 Notebook 01: Collision Theory
+**Link**: [Open Notebook](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/01_Collision_Theory.ipynb)
 
----
+**Goal**: The Gas Phase Baseline.
 
-## 📘 Notebook 01: Collision Theory
-**Link**: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/01_Collision_Theory.ipynb)
+1.  **Exercise 1.1**:
+    *   Calculate $Z_{AA}$ for Iodine gas at 300K.
+    *   **Result**: It will be huge ($10^{11}$).
+    *   **Question**: Since $E_a \approx 0$, the gas phase rate should be $10^{11}$. But wait! If two iodine atoms hit, they form a vibrationally hot $I_2^*$ molecule that immediately flies apart unless a **third body** ($M$) takes away the energy.
+    *   **Conclusion**: Simple bimolecular collision theory FAILS for gas-phase recombination. You need 3-body collision theory.
 
-### Your Mission
-Establish the "Gas Phase Limit".
+### 📘 Notebook 02: Diffusion Controlled Reactions
+**Link**: [Open Notebook](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/02_Diffusion_Controlled.ipynb)
 
-### Step-by-Step
-1.  **Section 1 (Collision Frequency)**:
-    *   Calculate $Z_{coll}$ for Iodine gas at 300K.
-    *   **Result**: It's huge ($\sim 10^{11}$).
-2.  **Section 3 (Arrhenius)**:
-    *   Input **Eₐ = 0.5 kJ/mol**.
-    *   **Result**: The Reactive Fraction is nearly 100%. Carbon (or Iodine) radicals *always* react if they touch.
-    *   **Concept**: This establishes your **Maximum Possible Rate**. The solvent can only slow you down from here.
+**Goal**: **YOUR MAIN NOTEBOOK**.
 
----
+1.  **Investigation 1 (Random Walk)**:
+    *   This is your visual. Watch the particle "jitter".
+    *   **Task**: Run the simulation with "Steps = 1000".
+    *   Calculate the RMS displacement.
+2.  **Investigation 2 (Stokes-Einstein)**:
+    *   **Formula**: $k_{diff} = \frac{8RT}{3\eta}$ (Smoluchowski-Stokes-Einstein).
+    *   **Observe**: The variable is **Viscosity ($\eta$)**, NOT temperature (mostly), and NOT mass!
+    *   **Task**:
+        *   Calculate $k_{diff}$ for Hexane ($\eta = 0.3$ cP).
+        *   Calculate $k_{diff}$ for CCl$_4$ ($\eta = 0.9$ cP).
+        *   Calculate $k_{diff}$ for Glycerol ($\eta = 900$ cP).
+    *   **Record**: Plot Rate $k$ vs Viscosity $\eta$. It should be linear ($1/\eta$).
 
-## 📘 Notebook 02: Diffusion Controlled Reactions
-**Link**: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/02_Diffusion_Controlled.ipynb)
+### 📘 Notebook 04: Molecular Dynamics
+**Link**: [Open Notebook](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/04_Molecular_Dynamics.ipynb)
 
-### Your Mission
-**THIS IS YOUR MAIN NOTEBOOK.** Prove the Stokes-Einstein relation.
+**Goal**: The Cage Effect.
 
-### Step-by-Step
-1.  **Section 2 (Stokes-Einstein)**:
-    *   **Task 1**: Calculate Diffusion Coefficient $D$ for Iodine in:
-        *   **Hexane** ($\eta = 0.3$ cP).
-        *   **Water** ($\eta = 0.89$ cP).
-        *   **Glycerol** ($\eta = 1000$ cP).
-    *   **Record**: Note how $D$ drops by 4 orders of magnitude!
-2.  **Section 3 (Smoluchowski Limit)**:
-    *   Calculate $k_{diff} = 4 \pi (R_A+R_B) (D_A+D_B)$.
-    *   **Comparison**: The experimental rate constant in Hexane is $7 \times 10^9$ M⁻¹s⁻¹. Does your calculation match? (Use proper units!).
-    *   **Graph**: Create a plot of $k_{obs}$ vs $1/\eta$.
-        *   If it is a straight line through zero, you have proven Diffusion Control ($k \propto D \propto 1/\eta$).
+1.  **Scenario**: The notebook simulates gas phase. Imagine it filled with inert balls.
+2.  **Thought Experiment**:
+    *   In gas phase, if I-I separate, they are gone forever.
+    *   In solution, if I-I separate, they hit a solvent wall and might bounce back!
+    *   This is **Geminate Recombination**.
+    *   **Result**: This actually *helps* recombination (unlike diffusion which slows the approach).
 
----
+### 📘 Notebook 05: Electron Transfer
+**Link**: [Open Notebook](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/05_Electron_Transfer.ipynb)
 
-## 📘 Notebook 03: Transition State Theory
-**Link**: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/03_Transition_State_Theory.ipynb)
+**Goal**: Solvent Reorganization.
 
-### Your Mission
-Understand "Viscosity Activation".
+1.  **Relevance**: While you aren't doing electron transfer, the **Solvent Reorganization Energy ($\lambda$)** discussed here is analogous to the "viscous drag" you study.
+2.  **Task**: Read the section on how solvents rearrange around a charge. This is similar to how solvents must move out of the way for I and I to meet.
 
-### Step-by-Step
-1.  **Concept**: Usually $k$ increases with T because more molecules gain $E_a$.
-2.  **Your Case**: Your $E_a \approx 0$. But your rate *still* increases with T. Why?
-    *   **Reason**: Because Viscosity ($\eta$) decreases as T increases! (Hot oil is thinner than cold oil).
-3.  **Task**:
-    *   Look at the "Eyring Plot".
-    *   For diffusion reactions, the slope of $\ln(k)$ vs $1/T$ gives the **Activation Energy of Viscous Flow**, not the bond breaking energy.
+### 📘 Notebook 06: Capstone Project
+**Link**: [Open Notebook](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/06_Integration_Projects.ipynb)
 
----
+**Goal**: Solvent Optimization.
 
-## 📘 Notebook 04: Molecular Dynamics
-**Link**: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/04_Molecular_Dynamics.ipynb)
-
-### Your Mission
-Visualize the Cage Effect.
-
-### Step-by-Step
-1.  **Section 4.1 (Cage Effect)**:
-    *   Watch the animation of the particle in the box of solvent.
-    *   **Observe**: The Iodine atom bounces back and forth many times before escaping the "solvent cage".
-    *   **Recombination**: If another Iodine atom was in the same cage, they would hit each other 100 times in a picosecond. Reaction is guaranteed (Geminate Recombination).
-    *   **Separation**: If they are in *different* cages, they might wander for seconds before finding each other. This is diffusion control.
+1.  **Select Template**: **Build Your Own Reaction**.
+2.  **Scenario**: Industrial synthesis of $I_2$.
+3.  **Optimization**:
+    *   You need to check if the reaction is **faster** in a low-viscosity solvent (Hexane) or high-viscosity (Medical Oil).
+    *   **Trade-off**: Low viscosity = Fast diffusion (Good). High viscosity = High cage effect (Good for keeping them together once met).
+    *   Which effect wins? (Hint: Usually Diffusion wins).
 
 ---
 
-## 📘 Notebook 05: Electron Transfer
-**Link**: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/05_Electron_Transfer.ipynb)
-
-1.  **Exercise 3.1**: Find the "Inverted Region" peak.
-2.  **Solvent Role**: Note that "Reorganization Energy" $\lambda$ comes mainly from the **Solvent** rearranging around the charge. For Group 5, the solvent is everything!
-
----
-
-## 🏆 Notebook 06: Capstone Project
-**Link**: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/06_Integration_Projects.ipynb)
-
-### Your Mission
-**Enzyme Kinetics in Viscous Media.**
-
-1.  **Select Template**: Choose **Template 2: Enzyme Kinetics**.
-2.  **Context**: Enzymes are big proteins. Substrates must diffuse to them.
-3.  **Task**:
-    *   The code simulates Michaelis-Menten Kinetics: $E + S \rightleftharpoons ES \to E + P$.
-    *   The formation step ($k_1$) is **Diffusion Controlled**.
-    *   **Modify**: Introduce a `viscosity` parameter. Make $k_1 = k_{base} / \eta$.
-    *   **Predict**: As you increase viscosity (like in a crowded cell cytoplasm), does the reaction rate saturate?
-    *   **Scenario**: What happens if the cytoplasm "freezes" (Glass transition)?
-
-### Final Report
-Focus on the **Power of the Medium**. Chemical reactivity isn't just about the intrinsic nature of the reactants (Group 1-4 view), but about the environment they swim in.
+### 📝 Final Report Checklist
+1.  **The Viscosity Plot**: Show your plot of $k$ vs $\eta$.
+2.  **Gas vs Liquid**: Compare your $k_{diff}$ to the Group 1 gas phase rate. Is solution chemistry slower? (Usually yes, by 10-100x).
+3.  **The Third Body**: Explain why the solvent acts as the "Third Body" to remove excess energy.

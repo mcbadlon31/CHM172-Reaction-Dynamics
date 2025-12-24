@@ -1,51 +1,16 @@
-# 🟢 Group 1: The Baseline Team (Fluorine + Hydrogen)
+# Student Project Guide - Group 1
+## The Baseline Team: Exothermic Dynamics
 
-## 🔬 System Identity
-*   **Reaction**: **F + H₂ → HF + H**
-*   **Context**: This is the "classic" reaction dynamics case study. It is highly exothermic, fast, and famously used in HF chemical lasers. Your data will serve as the "Standard Model" for the class.
+**System**: $\text{F} \cdot + \text{H}_2 \rightarrow \text{HF} + \text{H} \cdot$
 
-## 🧪 Your Parameters
-**Use these EXACT values for all calculations in the notebooks.**
+### 🧪 Your Mission
+You are the **Baseline Team**. Your system, the reaction of fluorine atoms with hydrogen gas, is the "gold standard" of reaction dynamics. It is highly exothermic, fast, and famously powered the first chemical lasers. Your data will serve as the reference point against which all other groups (Isotope, Endothermic, etc.) will be compared.
+
+### 🔑 Critical Parameters
+Keep these numbers handy. You will need to input them into the notebooks.
 
 | Parameter | Value | Unit | Notes |
 | :--- | :--- | :--- | :--- |
-| **Mass A (F)** | 19.0 | amu | Fluorine atom |
-| **Mass B (H₂)** | 2.016 | amu | Hydrogen molecule |
-| **Radius A** | 0.15 | nm | Estimated Van der Waals radius |
-| **Radius B** | 0.15 | nm | Estimated Van der Waals radius |
-| **Collision Cross-section (σ)** | 0.30 | nm² | Derived from radii ($\pi (r_A+r_B)^2$) |
-| **Activation Energy (Eₐ)** | 5.0 | kJ/mol | Low barrier (Exothermic) |
-| **Temperature (T)** | 300 | K | Room temperature |
-
----
-
-## 📘 Notebook 00: Setup & Introduction
-**Link**: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/00_Setup_and_Introduction.ipynb)
-
-1.  **Launch**: Click the badge above.
-2.  **Save**: Go to `File > Save a copy in Drive`. This is YOUR logbook.
-3.  **Setup**: Run the "GOOGLE COLAB SETUP" cell. Wait for `[SUCCESS] Colab setup complete!`.
-4.  **Practice**: Run the Python Basics cells to ensure you can execute code.
-
----
-
-## 📘 Notebook 01: Collision Theory
-**Link**: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/01_Collision_Theory.ipynb)
-
-### Your Mission
-Determine the "theoretical maximum" rate of your reaction if it were purely a simple collision process.
-
-### Step-by-Step
-1.  **Setup**: Run setup cells.
-2.  **Section 1 (Collision Frequency)**:
-    *   Find the calculator cell (usually labeled "Interact" or "Calculate").
-    *   Input **Mass A = 19.0**, **Mass B = 2.016**.
-    *   Input **Radius A = 0.15**, **Radius B = 0.15**.
-    *   Set **T = 300 K**.
-    *   **Record**: What is $Z_{AB}$ (Collision Frequency)? It should be huge ($\sim 10^{10}$ or more).
-3.  **Section 2 (Maxwell-Boltzmann)**:
-    *   Input **Temperature = 300 K**.
-    *   Observe the "Sensitive Tail": A small fraction of molecules have high energy.
 4.  **Section 3 (Arrhenius)**:
     *   Input your **Eₐ = 5.0 kJ/mol**.
     *   **Observation**: Since 5.0 kJ/mol is small (approx $2 \times RT$ at 300K), your "Reactive Fraction" should be quite high (maybe >10%).

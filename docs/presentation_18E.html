@@ -1,180 +1,218 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>Topic 18E: Electron Transfer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Professional Theme -->
     <link rel="stylesheet" href="presentation_style.css">
-    
+
     <!-- Reveal.js Core -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
-    
+
     <!-- Icons & Charts -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <div class="reveal">
         <div class="slides">
+
             <!-- Slide 1: Title -->
             <section>
-                <h1>Topic 18E</h1>
-                <h3>Electron Transfer</h3>
-                <p class="text-muted">Reaction Dynamics &bull; Physical Chemistry</p>
-                <div class="glass-card" style="display: inline-block; margin-top: 2rem;">
-                    <p>Marcus Theory &amp; Biological Systems</p>
+                <div class="glass-panel" style="display: inline-block; padding: 3rem;">
+                    <h1>Topic 18E</h1>
+                    <h3>Electron Transfer</h3>
+                    <div style="width: 100px; height: 4px; background: var(--secondary); margin: 1rem auto;"></div>
+                    <p class="text-muted">Reaction Dynamics &bull; CHM172</p>
                 </div>
             </section>
 
-            <!-- Slide 2: Overview -->
+            <!-- Slide 2: Learning Objectives -->
             <section>
-                <h2>Electron Transfer (ET)</h2>
-                <div class="glass-card text-left">
-                    <p>The simplest class of reactions: just electron movement.</p>
-                    <div class="formula-box">
-                        $$D + A \to D^+ + A^-$$
+                <h2>Learning Objectives</h2>
+                <div class="cols">
+                    <div class="text-left">
+                        <ul>
+                            <li class="fragment"><strong>Explain</strong> the Franck-Condon principle in the context of
+                                ET.</li>
+                            <li class="fragment"><strong>Define</strong> Inner and Outer sphere reorganization energy
+                                ($\lambda$).</li>
+                            <li class="fragment"><strong>Predict</strong> rates using the Marcus Equation.</li>
+                            <li class="fragment"><strong>Analyze</strong> the "Inverted Region" and its biological
+                                significance.</li>
+                        </ul>
                     </div>
-                    <ul>
-                        <li><strong>Biology:</strong> Photosynthesis, Respiration.</li>
-                        <li><strong>Chemistry:</strong> Redox, Batteries.</li>
-                        <li><strong>Marcus Theory:</strong> Nobel Prize 1992.</li>
-                    </ul>
+                    <div>
+                        <div class="glass-panel text-center">
+                            <i class="fas fa-bolt fa-5x" style="color: var(--primary); margin-bottom: 20px;"></i>
+                            <p>The Simplest Reaction:<br>Electron Tunneling</p>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <!-- Slide 3: Franck-Condon Principle -->
             <section>
-                <h2>Franck-Condon Principle</h2>
-                <div class="cols">
+                <h2>1. The Franck-Condon Principle</h2>
+                <div class="glass-panel text-left">
+                    <p><strong>Fact:</strong> Electrons move ($10^{-16}$ s) much faster than nuclei ($10^{-13}$ s).</p>
+                    <p><strong>Consequence:</strong> ET occurs at fixed nuclear geometry.</p>
+                </div>
+                <div class="cols fragment">
                     <div class="text-left">
-                        <p>Electrons move much faster than nuclei.</p>
-                        <div class="highlight-box">
-                            <strong>Key Consequence:</strong><br>
-                            ET occurs at <strong>fixed nuclear geometry</strong>.<br>
-                            Nuclei must reorganize <em>before</em> the electron jumps.
-                        </div>
+                        <ul class="text-small">
+                            <li>Reactants must "distort" to a transition geometry <em>before</em> the electron jumps.
+                            </li>
+                            <li>The energy cost to do this is $\lambda$ (Lambda).</li>
+                        </ul>
                     </div>
                     <div>
-                        <img src="images/marcus_parabolas_annotated.png" alt="Marcus Parabolas">
+                        <div class="glass-panel" style="padding: 10px;">
+                            <img src="images/marcus_parabolas_annotated.png" alt="Parabolas"
+                                style="width: 100%; border-radius: 8px;">
+                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- Slide 4: Reorganization Energy -->
             <section>
-                <h2>Reorganization Energy ($\lambda$)</h2>
-                <p>The energy cost to rearrange nuclei.</p>
+                <h2>2. Reorganization Energy ($\lambda$)</h2>
+                <p>The energy required to rearrange the nuclei.</p>
                 <div class="formula-box">
-                    $$\lambda = \lambda_{\text{in}} + \lambda_{\text{out}}$$
+                    $$\lambda = \lambda_{in} + \lambda_{out}$$
                 </div>
-                <div class="cols text-small">
-                    <div class="glass-card fragment">
-                        <h3>Inner Sphere ($\lambda_{\text{in}}$)</h3>
-                        <p>Bond lengths and angles changes.</p>
+                <div class="cols">
+                    <div class="glass-panel text-left">
+                        <h4 style="color: var(--accent)">Inner Sphere ($\lambda_{in}$)</h4>
+                        <p class="text-small">Changes in bond lengths/angles of the reactants.</p>
+                        <i class="fas fa-compress-arrows-alt fa-2x" style="color: var(--text-muted);"></i>
                     </div>
-                    <div class="glass-card fragment">
-                        <h3>Outer Sphere ($\lambda_{\text{out}}$)</h3>
-                        <p>Solvent reorientation.</p>
+                    <div class="glass-panel text-left">
+                        <h4 style="color: var(--secondary)">Outer Sphere ($\lambda_{out}$)</h4>
+                        <p class="text-small">Reorientation of the solvent shell.</p>
+                        <i class="fas fa-water fa-2x" style="color: var(--text-muted);"></i>
                     </div>
                 </div>
             </section>
 
             <!-- Slide 5: The Marcus Equation -->
             <section>
-                <h2>The Marcus Equation</h2>
-                <p>Activation energy depends on driving force ($\Delta_r G^\circ$) and reorganization ($\lambda$):</p>
-                <div class="formula-box">
-                    $$\Delta G^\ddagger = \frac{(\Delta_r G^\circ + \lambda)^2}{4\lambda}$$
-                </div>
-                <div class="fragment">
-                    <p>Rate constant:</p>
-                    <div class="formula-box">
-                        $$k_{ET} \propto \exp\left(-\frac{\Delta G^\ddagger}{RT}\right)$$
-                    </div>
-                </div>
-            </section>
-
-            <!-- Slide 6: Three Regimes -->
-            <section>
-                <h2>Three Regimes of ET</h2>
+                <h2>3. The Marcus Equation</h2>
                 <div class="cols">
-                    <div class="text-left text-small">
-                        <ol>
-                            <li class="fragment"><strong>Normal Region:</strong><br>Rate increases with driving force.
-                            </li>
-                            <li class="fragment"><strong>Barrierless:</strong><br>Maximum rate at $-\Delta_r G^\circ =
-                                \lambda$.</li>
-                            <li class="fragment"><strong>Inverted Region:</strong><br>Rate <em>decreases</em> with
-                                driving force!</li>
-                        </ol>
+                    <div class="text-left">
+                        <p>Nobel Prize (1992). The activation energy depends on driving force ($\Delta G^\circ$).</p>
+                        <div class="formula-box">
+                            $$\Delta G^\ddagger = \frac{(\Delta G^\circ + \lambda)^2}{4\lambda}$$
+                        </div>
+                        <p class="text-small text-muted">A parabola inside a parabola!</p>
                     </div>
-                    <div>
-                        <img src="images/marcus_regimes_comparison.png" alt="Marcus Regimes">
+                    <div class="glass-panel text-left">
+                        <p><strong>Rate Constant:</strong></p>
+                        <div class="formula-box">
+                            $$k_{ET} \propto \exp\left(-\frac{\Delta G^\ddagger}{RT}\right)$$
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Slide 7: The Inverted Region -->
+            <!-- Slide 6: The Inverted Region -->
             <section>
-                <h2>The Inverted Region</h2>
-                <div class="glass-card text-left">
-                    <h3>Counter-Intuitive!</h3>
-                    <p>Making a reaction <em>more</em> exergonic can slow it down.</p>
-                    <p><strong>Why?</strong> The surfaces intersect at high energy because the product well is "too
-                        deep".</p>
+                <h2>4. The Inverted Region</h2>
+                <div class="cols">
+                    <div class="text-left" style="flex: 1;">
+                        <ol class="text-small">
+                            <li><strong>Normal:</strong> $-\Delta G < \lambda$. Faster as $\Delta G$ drops.</li>
+                            <li><strong>Barrierless:</strong> $-\Delta G = \lambda$. Maximum speed.</li>
+                            <li><strong>Inverted:</strong> $-\Delta G > \lambda$. <strong>Slower</strong> as $\Delta G$
+                                drops!</li>
+                        </ol>
+                        <div class="glass-panel fragment">
+                            <h4 style="color: #ef4444">Counter-Intuitive!</h4>
+                            <p class="text-small">Driving the reaction harder makes it go slower.</p>
+                        </div>
+                    </div>
+                    <div style="flex: 1.5;">
+                        <img src="images/marcus_regimes_comparison.png" alt="Regimes"
+                            style="width: 100%; border-radius: 8px;">
+                    </div>
                 </div>
-                <div class="highlight-box fragment">
-                    <strong>Biological Use:</strong><br>
-                    Nature uses the inverted region to prevent wasteful back-electron transfer in photosynthesis.
+            </section>
+
+            <!-- Slide 7: Biological Relevance -->
+            <section>
+                <h2>Biological Relevance</h2>
+                <div class="glass-panel">
+                    <h3>Photosynthesis</h3>
+                </div>
+                <div class="cols text-left">
+                    <div>
+                        <p><strong>Goal:</strong> Separate charge ($D^+ \dots A^-$) to store energy.</p>
+                        <p><strong>Danger:</strong> Charge recombination (Back-reaction) wastes energy.</p>
+                    </div>
+                    <div class="fragment">
+                        <div class="highlight-box">
+                            <strong>Solution:</strong><br>
+                            Nature pushes the wasteful back-reaction into the <strong>Inverted Region</strong> so it
+                            becomes slow!
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <!-- Slide 8: Distance Dependence -->
             <section>
-                <h2>Distance Dependence</h2>
+                <h2>5. Distance Dependence</h2>
                 <div class="cols">
                     <div class="text-left">
-                        <p>Electron must tunnel through the medium.</p>
+                        <p>The electron tunnels through the medium.</p>
                         <div class="formula-box">
-                            $$k_{ET} \propto \exp(-\beta r)$$
+                            $$k_{ET} \propto e^{-\beta r}$$
                         </div>
-                        <p class="text-small">Rate drops exponentially with distance.</p>
-                    </div>
-                    <div>
-                        <img src="images/distance_decay.png" alt="Distance Decay">
-                    </div>
-                </div>
-            </section>
-
-            <!-- Slide 9: Interactive Resources -->
-            <section>
-                <h2>Interactive Learning</h2>
-                <div class="cols">
-                    <div class="text-left">
-                        <p>Explore these concepts in the Jupyter Notebook:</p>
-                        <ul>
-                            <li>Marcus Parabola Explorer</li>
-                            <li>Reorganization Calculator</li>
-                            <li>Inverted Region Visualizer</li>
-                            <li>Biological ET Chains</li>
+                        <ul class="text-small">
+                            <li><strong>$\beta$:</strong> Decay constant (medium dependent).</li>
+                            <li><strong>$r$:</strong> Separation distance.</li>
+                            <li>Effective only over short range ($< 15$ Å).</li>
                         </ul>
-                        <a href="https://colab.research.google.com/github/mcbadlon31/Reaction-Dynamics-Physical-Chemistry/blob/main/notebooks/05_Electron_Transfer.ipynb"
-                            target="_blank" class="btn-action">Open in Colab</a>
                     </div>
-                    <div>
-                        <div class="glass-card" style="padding: 10px; display: inline-block; background: white;">
-                            <img src="images/05_Electron_Transfer.png" alt="QR Code"
-                                style="box-shadow: none; margin: 0; width: 200px;">
-                        </div>
-                        <p class="text-small text-muted">Scan to open on mobile</p>
+                    <div class="glass-panel text-center">
+                        <img src="images/distance_decay.png" alt="Tunneling" style="width: 80%;">
+                        <p class="text-small text-muted">Exponential Decay</p>
                     </div>
                 </div>
             </section>
 
-        <
+            <!-- Slide 9: Summary -->
+            <section>
+                <h2>Summary</h2>
+                <div class="cols">
+                    <div>
+                        <div class="glass-panel text-left">
+                            <h3 style="color: var(--secondary)">Marcus Theory</h3>
+                            <div class="formula-box">$$\Delta G^\ddagger = \frac{(\Delta G^\circ +
+                                \lambda)^2}{4\lambda}$$</div>
+                        </div>
+                    </div>
+                    <div class="text-left">
+                        <p><strong>Key Concepts:</strong></p>
+                        <ul>
+                            <li><strong>Reorganization:</strong> Nuclei represent the "barrier".</li>
+                            <li><strong>Inverted Region:</strong> Too much driving force slows you down.</li>
+                            <li><strong>Tunneling:</strong> Rate drops with distance.</li>
+                        </ul>
+                    </div>
+                </div>
+                <br>
+                <div class="fragment">
+                    <a href="../docs/index.html" class="btn-action">Return to Dashboard</a>
+                </div>
+            </section>
+
         </div>
     </div>
 
@@ -182,7 +220,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/math/math.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/notes/notes.min.js"></script>
-    
+
     <!-- Topic Specific Logic -->
     <script src="js/topic_18E.js"></script>
 
@@ -200,14 +238,15 @@
             progress: true,
             center: true,
             hash: true,
-            
+
             // Animation
             transition: 'fade', // professional fade
             transitionSpeed: 'default',
-            
+
             // Plugins
-            plugins: [ RevealMath.KaTeX, RevealNotes ]
+            plugins: [RevealMath.KaTeX, RevealNotes]
         });
     </script>
 </body>
+
 </html>

@@ -1,290 +1,201 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>Topic 18B: Diffusion-Controlled Reactions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Professional Theme -->
     <link rel="stylesheet" href="presentation_style.css">
-    
+
     <!-- Reveal.js Core -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
-    
+
     <!-- Icons & Charts -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <div class="reveal">
         <div class="slides">
+
             <!-- Slide 1: Title -->
             <section>
-                <h1>Topic 18B</h1>
-                <h3>Diffusion-Controlled Reactions</h3>
-                <p class="text-muted">Reaction Dynamics &bull; Physical Chemistry</p>
-                <div class="glass-card" style="display: inline-block; margin-top: 2rem;">
-                    <p>Reactions in Liquid Solutions</p>
+                <div class="glass-panel" style="display: inline-block; padding: 3rem;">
+                    <h1>Topic 18B</h1>
+                    <h3>Diffusion Control</h3>
+                    <div style="width: 100px; height: 4px; background: var(--secondary); margin: 1rem auto;"></div>
+                    <p class="text-muted">Reaction Dynamics &bull; CHM172</p>
                 </div>
             </section>
 
-            <!-- Slide 2: Gas vs Liquid -->
+            <!-- Slide 2: Learning Objectives -->
             <section>
-                <h2>Gas vs. Liquid Phase</h2>
+                <h2>Learning Objectives</h2>
                 <div class="cols">
                     <div class="text-left">
-                        <div class="highlight-box">
+                        <ul>
+                            <li class="fragment"><strong>Contrast</strong> gas phase vs. solution phase dynamics (Cage
+                                Effect).</li>
+                            <li class="fragment"><strong>Derive</strong> the Smoluchowski limit for maximum reaction
+                                rate.</li>
+                            <li class="fragment"><strong>Apply</strong> Fick's laws of diffusion to chemical kinetics.
+                            </li>
+                            <li class="fragment"><strong>Calculate</strong> viscosity effects on reaction rates ($k_d
+                                \propto T/\eta$).</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="glass-panel text-center">
+                            <i class="fas fa-water fa-5x" style="color: var(--secondary); margin-bottom: 20px;"></i>
+                            <p>From Random Walks<br>to Reaction Rates</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 3: The Cage Effect -->
+            <section>
+                <h2>1. The Cage Effect</h2>
+                <div class="cols">
+                    <div class="text-left">
+                        <div class="highlight-box" style="margin-bottom: 2rem;">
                             <strong>Gas Phase:</strong><br>
-                            Molecules fly freely. Single collisions. Low density.
+                            Hit and Run. A collision lasts $\sim 10^{-13}$ s.
                         </div>
-                        <div class="highlight-box fragment">
+                        <div class="highlight-box">
                             <strong>Liquid Phase:</strong><br>
-                            Molecules are crowded. <strong>Cage Effect</strong>. Diffusion limits encounter rate.
+                            Trapped! Solvents form a "cage". Partners collide $100\times$ before escaping.
                         </div>
-                        <div style="margin-top: 20px;">
-                            <button id="btnGas" class="btn-action" style="font-size: 0.8em; margin-right: 10px;">Gas
-                                Phase</button>
-                            <button id="btnLiquid" class="btn-action" style="font-size: 0.8em;">Liquid Phase</button>
+                        <div style="margin-top: 2rem;">
+                            <button id="btnGas" class="btn-action" style="margin-right: 1rem;">Gas Phase</button>
+                            <button id="btnLiquid" class="btn-action">Liquid Phase</button>
                         </div>
                     </div>
-                    <div>
-                        <!-- Canvas for Cage Effect Simulation -->
-                        <div class="glass-card" style="padding: 0; overflow: hidden;">
-                            <canvas id="cageCanvas" style="width: 100%; height: 300px; background: #0f172a;"></canvas>
-                        </div>
+                    <div class="glass-panel"
+                        style="padding: 0; overflow: hidden; height: 400px; display: flex; align-items: center; justify-content: center;">
+                        <canvas id="cageCanvas" style="width: 100%; height: 100%; background: #0f172a;"></canvas>
                     </div>
                 </div>
             </section>
 
-            <!-- Slide 3: Encounter Pairs -->
+            <!-- Slide 4: Mechanism -->
             <section>
-                <h2>The Encounter Pair</h2>
-                <div class="glass-card text-left">
-                    <p>When A and B meet in solution, they are trapped in a solvent cage.</p>
-                    <ul>
-                        <li>They undergo $\sim 100-1000$ collisions before separating.</li>
-                        <li>This cluster is called an <strong>Encounter Pair</strong>.</li>
-                    </ul>
+                <h2>2. Two-Step Mechanism</h2>
+                <p>Reaction requires diffusion <strong>into</strong> the cage, then chemistry.</p>
+                <div class="formula-box">
+                    $$A + B \underset{k_{-d} \text{ (Escape)}}{\overset{k_d \text{ (Entry)}}{\rightleftharpoons}} [AB]
+                    \xrightarrow{k_a \text{ (React)}} P$$
                 </div>
-                <div class="cols">
-                    <div class="text-small text-muted">
-                        Cage lifetime: $\sim 10^{-11}$ s<br>
-                        Collision freq in cage: $\sim 10^{13}$ s$^{-1}$
-                    </div>
-                    <div>
-                        <img src="images/encounter_pair_dynamics.png" alt="Encounter Dynamics">
-                    </div>
-                </div>
-            </section>
-
-            <!-- Slide 4: Two Limiting Regimes -->
-            <section>
-                <h2>Two Limiting Regimes</h2>
                 <div class="cols text-small">
-                    <div class="glass-card fragment">
-                        <h3>Diffusion Control</h3>
-                        <p><strong>Fast Reaction</strong></p>
-                        <ul>
-                            <li>Every encounter $\to$ Reaction</li>
-                            <li>Rate limited by transport (diffusion)</li>
-                            <li>$k \approx 10^{10}$ M$^{-1}$s$^{-1}$</li>
-                            <li>Low $E_a$ ($\sim$ viscosity)</li>
-                        </ul>
+                    <div class="glass-panel text-left">
+                        <h4>Limit 1: Diffusion Control</h4>
+                        <p>Chemistry is fast ($k_a \gg k_{-d}$).</p>
+                        <p>Rate depends on how fast they meet.</p>
+                        <span class="text-muted">High Viscosity, Low Activation Energy</span>
                     </div>
-                    <div class="glass-card fragment">
-                        <h3>Activation Control</h3>
-                        <p><strong>Slow Reaction</strong></p>
-                        <ul>
-                            <li>Many encounters, few reactions</li>
-                            <li>Rate limited by energy barrier</li>
-                            <li>$k \ll 10^{10}$ M$^{-1}$s$^{-1}$</li>
-                            <li>High $E_a$</li>
-                        </ul>
+                    <div class="glass-panel text-left">
+                        <h4>Limit 2: Activation Control</h4>
+                        <p>Chemistry is slow ($k_a \ll k_{-d}$).</p>
+                        <p>Rate depends on barrier height.</p>
+                        <span class="text-muted">Low Viscosity, High Activation Energy</span>
                     </div>
                 </div>
             </section>
 
-            <!-- Slide 5: Reaction Scheme -->
+            <!-- Slide 5: Smoluchowski Limit -->
             <section>
-                <h2>The Two-Step Mechanism</h2>
-                <div class="formula-box">
-                    $$A + B \underset{k_{-d}}{\overset{k_d}{\rightleftharpoons}} [AB] \xrightarrow{k_a} P$$
-                </div>
-                <div class="text-left text-small">
-                    <ol>
-                        <li><strong>Diffusion Together ($k_d$):</strong> Formation of encounter pair.</li>
-                        <li><strong>Diffusion Apart ($k_{-d}$):</strong> Breakup of encounter pair.</li>
-                        <li><strong>Reaction ($k_a$):</strong> Chemical transformation within cage.</li>
-                    </ol>
-                </div>
-            </section>
+                <section>
+                    <h2>3. The Smoluchowski Limit</h2>
+                    <p>What is the physical speed limit of chemistry?</p>
+                    <div class="glass-panel">
+                        <p>If every encounter leads to reaction immediately:</p>
+                        <div class="formula-box">
+                            $$k_{max} = 4 \pi (R_A + R_B) (D_A + D_B) N_A$$
+                        </div>
+                    </div>
+                    <p class="fragment text-muted">Combining with Stokes-Einstein ($D \sim 1/r$)...</p>
+                    <div class="fragment">
+                        <i class="fas fa-arrow-down fa-2x"></i>
+                        <p class="text-small">Derivation Below</p>
+                    </div>
+                </section>
 
-            <!-- Slide 6: Steady-State Rate Law -->
-            <section>
-                <h2>Steady-State Rate Law</h2>
-                <p>Applying the steady-state approximation to [AB]:</p>
-                <div class="formula-box">
-                    $$k_{eff} = \frac{k_a k_d}{k_{-d} + k_a}$$
-                </div>
-                <div class="fragment glass-card">
-                    <p><strong>Resistance Form:</strong></p>
+                <section>
+                    <h2>Derivation: Stokes-Einstein</h2>
+                    <p>Substitute $D = \frac{k_B T}{6\pi \eta r}$:</p>
                     <div class="formula-box">
-                        $$\frac{1}{k_{eff}} = \frac{1}{k_d} + \frac{1}{K k_a}$$
+                        $$k_{max} \approx \frac{8 R T}{3 \eta}$$
                     </div>
-                    <p class="text-small text-muted">Like electrical resistors in series, the slowest step dominates.
-                    </p>
-                </div>
+                    <div class="text-left">
+                        <p><strong>Key Insight:</strong> Rate is independent of molecular size!</p>
+                        <ul>
+                            <li>Big molecules move slow (small D), but are big targets (large R).</li>
+                            <li>The effects cancel out.</li>
+                        </ul>
+                    </div>
+                </section>
             </section>
 
-            <!-- Slide 7: Fick's Laws -->
+            <!-- Slide 6: Calculator -->
             <section>
-                <h2>Diffusion Theory</h2>
+                <h2>Interactive Rate Calculator</h2>
                 <div class="cols">
-                    <div class="text-left">
-                        <p><strong>Fick's First Law:</strong></p>
-                        <div class="formula-box">$$J = -D \frac{\partial c}{\partial x}$$</div>
-                        <p class="text-small">Flux is proportional to concentration gradient.</p>
+                    <div class="text-left" style="flex: 1;">
+                        <p>Calculate $k_{diff}$ based on viscosity.</p>
+                        <div class="glass-panel input-group">
+                            <label><i class="fas fa-thermometer-half"></i> Temperature ($T$): <span
+                                    id="displayT">298</span> K</label>
+                            <input type="range" id="inputT" min="200" max="400" value="298">
+
+                            <label style="margin-top: 20px;"><i class="fas fa-tint"></i> Viscosity ($\eta$): <span
+                                    id="displayEta">0.89</span> cP</label>
+                            <input type="range" id="inputEta" min="0.1" max="10" value="0.89" step="0.1">
+                        </div>
                     </div>
-                    <div class="text-left">
-                        <p><strong>Stokes-Einstein Relation:</strong></p>
-                        <div class="formula-box">$$D = \frac{k_B T}{6\pi \eta r}$$</div>
-                        <p class="text-small">Connects diffusion ($D$) to viscosity ($\eta$) and size ($r$).</p>
+                    <div class="glass-panel text-center"
+                        style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                        <p class="text-muted">Diffusion Limit Rate Constant</p>
+                        <div style="font-size: 3em; font-weight: bold; color: var(--secondary);">
+                            <span id="resultKd">7.4</span>
+                        </div>
+                        <p>$\times 10^9$ M$^{-1}$s$^{-1}$</p>
+                        <div class="highlight-box" style="margin-top: 2rem;">
+                            Water ($\eta \approx 1$): $k \approx 7 \times 10^9$<br>
+                            Honey ($\eta \approx 1000$): $k \approx 7 \times 10^6$
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Slide 8: Smoluchowski Limit -->
+            <!-- Slide 7: Summary -->
             <section>
-                <h2>Smoluchowski Limit</h2>
-                <p>Deriving the maximum possible rate ($k_d$):</p>
-                <div class="formula-box">
-                    $$k_d = 4\pi R^* D N_A$$
+                <h2>Summary</h2>
+                <div class="cols">
+                    <div>
+                        <div class="glass-panel text-left">
+                            <h3 style="color: var(--secondary)">Smoluchowski Equation</h3>
+                            <div class="formula-box">$$k_d = \frac{8RT}{3\eta}$$</div>
+                        </div>
+                    </div>
+                    <div class="text-left">
+                        <p><strong>Takeaways:</strong></p>
+                        <ul>
+                            <li><strong>Cage Effect</strong> enables multiple collisions per encounter.</li>
+                            <li><strong>Diffusion Limit</strong> is set by solvent viscosity, not molecule size.</li>
+                            <li><strong>Limit Value</strong>: $\approx 10^{10}$ M$^{-1}$s$^{-1}$ in water.</li>
+                        </ul>
+                    </div>
                 </div>
+                <br>
                 <div class="fragment">
-                    <p>Substituting Stokes-Einstein ($D \approx k_BT/6\pi\eta r$):</p>
-                    <div class="formula-box">
-                        $$k_d \approx \frac{8RT}{3\eta}$$
-                    </div>
+                    <a href="../docs/index.html" class="btn-action">Return to Dashboard</a>
                 </div>
+            </section>
 
-                <div id="smoluchowski-calc" class="glass-card text-small fragment">
-                    <h4>Interactive Calculator</h4>
-                    <label>Temperature ($T$): <span id="displayT">298</span> K</label>
-                    <input type="range" id="inputT" min="200" max="400" value="298" step="1" style="width: 100%;">
-
-                    <label>Viscosity ($\eta$): <span id="displayEta">0.89</span> mPa&middot;s</label>
-                    <input type="range" id="inputEta" min="0.1" max="10" value="0.89" step="0.1" style="width: 100%;">
-
-                    <div class="highlight-box" style="margin-top: 10px; text-align: center;">
-                        $k_d \approx$ <span id="resultKd" style="font-weight: bold; color: var(--secondary-color);">7.4
-                            &times;
-                            10<sup>9</sup></span> M$^{-1}$s$^{-1}$
-                    </div>
-                    <p class="text-muted" style="font-size: 0.8em; margin-top: 5px;">Remarkably independent of
-                        molecular size!</p>
-                </div>
-                Remarkably independent of molecular size!
-        </div>
-        </section>
-
-        <!-- Slide 9: Temperature Dependence -->
-        <section>
-            <h2>Temperature Dependence</h2>
-            <div class="cols">
-                <div class="text-left">
-                    <p>For diffusion-controlled reactions:</p>
-                    <div class="formula-box">$$k_d \propto \frac{T}{\eta(T)}$$</div>
-                    <p>Since viscosity $\eta$ decreases with $T$, rate increases.</p>
-                    <p class="text-small fragment">Apparent $E_a \approx 10-20$ kJ/mol (viscosity activation
-                        energy).</p>
-                </div>
-                <div>
-                    <div id="viscosityPlot" style="width: 100%; height: 400px;"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 10: Experimental Data -->
-        <section>
-            <h2>Experimental Verification</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Reaction</th>
-                        <th>$k$ (M$^{-1}$s$^{-1}$)</th>
-                        <th>Type</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>H$^+$ + OH$^-$</td>
-                        <td>$1.4 \times 10^{11}$</td>
-                        <td>Fast (Grotthuss)</td>
-                    </tr>
-                    <tr>
-                        <td>Radical Recombination</td>
-                        <td>$\sim 10^{10}$</td>
-                        <td>Diffusion Limit</td>
-                    </tr>
-                    <tr>
-                        <td>Enzyme-Substrate</td>
-                        <td>$\sim 10^8 - 10^9$</td>
-                        <td>Near Limit</td>
-                    </tr>
-                    <tr>
-                        <td>Sucrose Hydrolysis</td>
-                        <td>$10^{-5}$</td>
-                        <td>Activation Controlled</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- Slide 11: Reaction-Diffusion Coupling -->
-        <section>
-            <h2>Reaction-Diffusion Coupling</h2>
-            <p>When reaction and diffusion compete:</p>
-            <div class="formula-box">
-                $$\lambda = \sqrt{\frac{D}{k}}$$
-            </div>
-            <div class="cols">
-                <div class="text-left text-small">
-                    <p><strong>$\lambda$ (Reaction-Diffusion Length):</strong><br>
-                        Distance a molecule diffuses before reacting.</p>
-                    <p>Important for biological patterns and catalysis.</p>
-                </div>
-                <div>
-                    <img src="images/smoluchowski_profile.png" alt="Concentration Profile">
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 12: Interactive Resources -->
-        <section>
-            <h2>Interactive Learning</h2>
-            <div class="cols">
-                <div class="text-left">
-                    <p>Explore these concepts in the Jupyter Notebook:</p>
-                    <ul>
-                        <li>Cage Effect Simulator</li>
-                        <li>Smoluchowski Calculator</li>
-                        <li>Viscosity Effects</li>
-                    </ul>
-                    <a href="https://colab.research.google.com/github/mcbadlon31/Reaction-Dynamics-Physical-Chemistry/blob/main/notebooks/02_Diffusion_Controlled.ipynb"
-                        target="_blank" class="btn-action">Open in Colab</a>
-                </div>
-                <div>
-                    <div class="glass-card" style="padding: 10px; display: inline-block; background: white;">
-                        <img src="images/02_Diffusion_Controlled.png" alt="QR Code"
-                            style="box-shadow: none; margin: 0; width: 200px;">
-                    </div>
-                    <p class="text-small text-muted">Scan to open on mobile</p>
-                </div>
-            </div>
-        </section>
-
-    <
         </div>
     </div>
 
@@ -292,7 +203,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/math/math.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/notes/notes.min.js"></script>
-    
+
     <!-- Topic Specific Logic -->
     <script src="js/topic_18B.js"></script>
 
@@ -310,14 +221,15 @@
             progress: true,
             center: true,
             hash: true,
-            
+
             // Animation
             transition: 'fade', // professional fade
             transitionSpeed: 'default',
-            
+
             // Plugins
-            plugins: [ RevealMath.KaTeX, RevealNotes ]
+            plugins: [RevealMath.KaTeX, RevealNotes]
         });
     </script>
 </body>
+
 </html>

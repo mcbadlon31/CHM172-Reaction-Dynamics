@@ -1,282 +1,225 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>Topic 18C: Transition-State Theory</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Professional Theme -->
     <link rel="stylesheet" href="presentation_style.css">
-    
+
     <!-- Reveal.js Core -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
-    
+
     <!-- Icons & Charts -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <div class="reveal">
         <div class="slides">
+
             <!-- Slide 1: Title -->
             <section>
-                <h1>Topic 18C</h1>
-                <h3>Transition-State Theory</h3>
-                <p class="text-muted">Reaction Dynamics &bull; Physical Chemistry</p>
-                <div class="glass-card" style="display: inline-block; margin-top: 2rem;">
-                    <p>The Activated Complex</p>
+                <div class="glass-panel" style="display: inline-block; padding: 3rem;">
+                    <h1>Topic 18C</h1>
+                    <h3>Transition-State Theory</h3>
+                    <div style="width: 100px; height: 4px; background: var(--secondary); margin: 1rem auto;"></div>
+                    <p class="text-muted">Reaction Dynamics &bull; CHM172</p>
                 </div>
             </section>
 
-            <!-- Slide 2: Overview -->
+            <!-- Slide 2: Learning Objectives -->
             <section>
-                <h2>The Big Idea</h2>
-                <div class="glass-card text-left">
-                    <p>Focus on the species at the top of the energy barrier: the <strong>Activated Complex
-                            ($C^\ddagger$)</strong>.</p>
+                <h2>Learning Objectives</h2>
+                <div class="cols">
+                    <div class="text-left">
+                        <ul>
+                            <li class="fragment"><strong>Define</strong> the structure and lifetime of the Activated
+                                Complex ($C^\ddagger$).</li>
+                            <li class="fragment"><strong>Interpret</strong> activation enthalpy ($\Delta^\ddagger
+                                H^\circ$) and entropy ($\Delta^\ddagger S^\circ$).</li>
+                            <li class="fragment"><strong>Analyze</strong> Kinetic Isotope Effects (KIE) via Zero-Point
+                                Energy.</li>
+                            <li class="fragment"><strong>Predict</strong> the effect of ionic strength on reaction
+                                rates.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="glass-panel text-center">
+                            <i class="fas fa-mountain fa-5x" style="color: var(--accent); margin-bottom: 20px;"></i>
+                            <p>Crossing the Energy Barrier</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 3: The Activated Complex -->
+            <section>
+                <h2>1. The Activated Complex</h2>
+                <div class="glass-panel text-left">
+                    <p>Often called the <strong>Transition State (TS)</strong>.</p>
                     <div class="formula-box">
-                        $$A + B \underset{K^\ddagger}{\rightleftharpoons} C^\ddagger \xrightarrow{k^\ddagger} P$$
+                        $$A + B \underset{K^\ddagger}{\rightleftharpoons} [AB]^\ddagger \xrightarrow{k^\ddagger} P$$
                     </div>
-                    <p>Assumes $C^\ddagger$ is in quasi-equilibrium with reactants.</p>
-                </div>
-            </section>
-
-            <!-- Slide 3: The Eyring Equation -->
-            <section>
-                <h2>The Eyring Equation</h2>
-                <p>Deriving the rate constant from statistical mechanics:</p>
-                <div class="formula-box">
-                    $$k_r = \kappa \frac{k_B T}{h} e^{-\Delta^\ddagger G^\circ / RT}$$
-                </div>
-                <div class="cols text-small">
-                    <div class="highlight-box">
-                        <strong>$k_BT/h$:</strong> Universal Frequency Factor ($\approx 6 \times 10^{12}$ s$^{-1}$)
-                    </div>
-                    <div class="highlight-box">
-                        <strong>$\Delta^\ddagger G^\circ$:</strong> Gibbs Energy of Activation
-                    </div>
-                </div>
-            </section>
-
-            <!-- Slide 4: Thermodynamic Formulation -->
-            <section>
-                <h2>Thermodynamic Formulation</h2>
-                <p>Expanding $\Delta^\ddagger G^\circ = \Delta^\ddagger H^\circ - T\Delta^\ddagger S^\circ$:</p>
-                <div class="formula-box">
-                    $$k_r = \frac{k_B T}{h} e^{\Delta^\ddagger S^\circ / R} e^{-\Delta^\ddagger H^\circ / RT}$$
-                </div>
-                <div class="cols text-small">
-                    <div class="glass-card fragment">
-                        <h3>Enthalpy ($\Delta^\ddagger H^\circ$)</h3>
-                        <p>Corresponds to Activation Energy ($E_a$)</p>
-                    </div>
-                    <div class="glass-card fragment">
-                        <h3>Entropy ($\Delta^\ddagger S^\circ$)</h3>
-                        <p>Corresponds to Pre-exponential Factor ($A$)</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Slide: Common Misconception -->
-            <section>
-                <h2>Misconception Alert!</h2>
-                <div class="glass-card" style="border-left: 4px solid #ef4444;">
-                    <p><strong>Myth:</strong> "The Transition State is a short-lived intermediate that can be isolated."
-                    </p>
-                </div>
-                <div class="fragment">
-                    <p class="text-left"><strong>Reality:</strong></p>
-                    <ul class="text-small">
-                        <li>The TS is a <strong>maximum</strong> on the potential energy surface (a saddle point).</li>
-                        <li>It lasts for only a single molecular vibration ($\sim 10^{-13}$ s) and has
-                            <strong>zero</strong>
-                            lifetime.</li>
-                        <li>It is a "pass" over a mountain, not a "valley" (intermediate).</li>
-                    </ul>
-                    <div class="highlight-box" style="margin-top: 1rem;">
-                        <strong>Analogy:</strong> A ball at the very peak of a hill. It doesn't stop; it rolls one way
-                        or the other immediately.
-                    </div>
-                </div>
-            </section>
-
-            <!-- Slide 5: Eyring Plot -->
-            <section>
-                <h2>The Eyring Plot</h2>
-                <div class="cols">
-                    <div class="text-left">
-                        <p>Linearize the equation:</p>
-                        <div class="formula-box">
-                            $$\ln\left(\frac{k}{T}\right) = -\frac{\Delta^\ddagger H^\circ}{R}\frac{1}{T} +
-                            \ln\left(\frac{k_B}{h}\right) + \frac{\Delta^\ddagger S^\circ}{R}$$
-                        </div>
-                        <label>Enthalpy $\Delta^\ddagger H^\circ$ (kJ/mol): <span id="displayH">50</span></label>
-                        <input type="range" id="sliderH" min="20" max="100" value="50" step="1" style="width: 100%;">
-
-                        <label>Entropy $\Delta^\ddagger S^\circ$ (J/mol K): <span id="displayS">-50</span></label>
-                        <input type="range" id="sliderS" min="-200" max="50" value="-50" step="5" style="width: 100%;">
-
-                    </div>
-                    <div>
-                        <div id="eyringPlot" style="width: 100%; height: 400px;"></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Slide 6: Activation Entropy -->
-            <section>
-                <h2>Activation Entropy ($\Delta^\ddagger S^\circ$)</h2>
-                <div class="cols">
-                    <div class="text-left">
-                        <div class="highlight-box">
-                            <strong>$\Delta^\ddagger S^\circ < 0$ (Associative):</strong><br>
-                                    TS is more ordered (e.g., dimerization).
-                        </div>
-                        <div class="highlight-box fragment">
-                            <strong>$\Delta^\ddagger S^\circ > 0$ (Dissociative):</strong><br>
-                            TS is more disordered (e.g., bond breaking).
-                        </div>
-                        <div style="margin-top: 20px;">
-                            <button id="btnAssoc" class="btn-action"
-                                style="font-size: 0.8em; margin-right: 10px;">Associative</button>
-                            <button id="btnDissoc" class="btn-action" style="font-size: 0.8em;">Dissociative</button>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="glass-card" style="padding: 0; overflow: hidden;">
-                            <canvas id="entropyCanvas"
-                                style="width: 100%; height: 300px; background: #0f172a;"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Slide 7: Kinetic Salt Effect -->
-            <section>
-                <h2>Kinetic Salt Effect</h2>
-                <p>For ions in solution, ionic strength ($I$) affects the rate.</p>
-                <div class="formula-box">
-                    $$\log(k) = \log(k_0) + 2A z_A z_B \sqrt{I}$$
-                </div>
-                <div class="cols">
-                    <div class="text-left text-small">
-                        <p>Select Charges:</p>
-                        <label>Reactant A ($z_A$):</label>
-                        <select id="selectZa"
-                            style="background: #334155; color: white; border: none; padding: 5px; border-radius: 5px;">
-                            <option value="2">+2</option>
-                            <option value="1" selected>+1</option>
-                            <option value="0">0</option>
-                            <option value="-1">-1</option>
-                            <option value="-2">-2</option>
-                        </select>
-                        <br><br>
-                        <label>Reactant B ($z_B$):</label>
-                        <select id="selectZb"
-                            style="background: #334155; color: white; border: none; padding: 5px; border-radius: 5px;">
-                            <option value="2">+2</option>
-                            <option value="1" selected>+1</option>
-                            <option value="0">0</option>
-                            <option value="-1">-1</option>
-                            <option value="-2">-2</option>
-                        </select>
-                        <div class="highlight-box" style="margin-top: 20px;">
-                            Like charges ($z_A z_B > 0$): Rate $\uparrow$ with $I$<br>
-                            Opposite charges ($z_A z_B < 0$): Rate $\downarrow$ with $I$ </div>
-                        </div>
+                    <div class="cols">
                         <div>
-                            <div id="saltEffectPlot" style="width: 100%; height: 350px;"></div>
+                            <p><strong>Properties:</strong></p>
+                            <ul>
+                                <li>Located at the barrier peak (saddle point).</li>
+                                <li>Quasi-equilibrium with reactants.</li>
+                                <li>Vibrational frequency $\nu^\ddagger \to$ Transition.</li>
+                            </ul>
+                        </div>
+                        <div class="highlight-box">
+                            <strong>Myth:</strong> "Intermediate"<br>
+                            <strong>Reality:</strong> Lifetime $\approx 0$ (one vibration).
                         </div>
                     </div>
-            </section>
-
-            <!-- Slide 8: Kinetic Isotope Effect -->
-            <section>
-                <h2>Kinetic Isotope Effect (KIE)</h2>
-                <div class="cols">
-                    <div class="text-left">
-                        <p>Replacing H with D changes the rate.</p>
-                        <div class="formula-box">$$k_H / k_D \approx 7$$</div>
-                        <p class="text-small">Due to Zero-Point Energy differences. C-D bond is stronger (lower ZPE)
-                            than C-H.</p>
-                    </div>
-                    <div>
-                        <img src="images/kie_zpe.png" alt="Zero Point Energy">
-                    </div>
                 </div>
             </section>
 
-            <!-- Slide: Think-Pair-Share -->
+            <!-- Slide 4: Eyring Equation -->
             <section>
-                <h2>Think-Pair-Share</h2>
-                <p class="text-left"><strong>Question:</strong> Why is the Kinetic Isotope Effect ($k_H/k_D$) typically
-                    much larger ($\sim 7$) than the ratio of mean speeds ($\sqrt{2} \approx 1.4$)?</p>
-                <div class="cols">
-                    <div class="text-left text-small">
-                        <ol type="A">
-                            <li>Deuterium is twice as heavy as Hydrogen.</li>
-                            <li>The C-D bond is stronger (lower Zero-Point Energy) than C-H.</li>
-                            <li>Deuterium tunnels more easily.</li>
-                            <li>The pre-exponential factor is different.</li>
-                        </ol>
-                    </div>
-                    <div>
-                        <img src="images/kie_zpe.png" alt="ZPE Diagram" style="width: 80%;">
-                    </div>
+                <h2>2. The Eyring Equation</h2>
+                <p>Connecting Thermodynamics to Kinetics.</p>
+                <div class="formula-box">
+                    $$k = \frac{k_B T}{h} \cdot e^{\Delta^\ddagger S^\circ / R} \cdot e^{-\Delta^\ddagger H^\circ /
+                    RT}$$
                 </div>
-                <div class="fragment glass-card" style="margin-top: 1rem;">
-                    <p><strong>Answer: (B)</strong></p>
-                    <p class="text-small text-muted">The primary cause is the difference in Zero-Point Energy (ZPE) at
-                        the ground state. C-D has a lower ZPE than C-H, meaning it requires more energy to reach the
-                        same transition state.</p>
-                </div>
-            </section>
-
-            <!-- Slide 9: Quantum Tunneling -->
-            <section>
-                <h2>Quantum Tunneling</h2>
-                <div class="cols">
-                    <div class="text-left">
-                        <p>Particles can pass <strong>through</strong> the barrier, not just over it.</p>
-                        <ul>
-                            <li>Important for light particles (H, e$^-$).</li>
-                            <li>Significant at low T.</li>
-                            <li>Leads to curved Arrhenius plots.</li>
+                <div class="cols text-small">
+                    <div class="glass-panel text-left">
+                        <h4>$\Delta^\ddagger H^\circ$ (Enthalpy)</h4>
+                        <p><strong>Energy Barrier</strong></p>
+                        <p>Roughly equal to Arrhenius $E_a$.</p>
+                    </div>
+                    <div class="glass-panel text-left">
+                        <h4>$\Delta^\ddagger S^\circ$ (Entropy)</h4>
+                        <p><strong>Probability/Ordering</strong></p>
+                        <p>Determines the $A$-factor.</p>
+                        <ul class="text-muted">
+                            <li>$\Delta S < 0$: Tight TS (Associative)</li>
+                            <li>$\Delta S > 0$: Loose TS (Dissociative)</li>
                         </ul>
                     </div>
-                    <div>
-                        <img src="images/quantum_tunneling_comparison.png" alt="Tunneling">
-                    </div>
                 </div>
             </section>
 
-            <!-- Slide 10: Interactive Resources -->
+            <!-- Slide 5: Interactive Eyring Plot -->
             <section>
-                <h2>Interactive Learning</h2>
+                <h2>Eyring Plot Explorer</h2>
                 <div class="cols">
-                    <div class="text-left">
-                        <p>Explore these concepts in the Jupyter Notebook:</p>
-                        <ul>
-                            <li>Eyring Plot Generator</li>
-                            <li>KIE Calculator</li>
-                            <li>Tunneling Visualizer</li>
-                            <li>Salt Effect Explorer</li>
-                        </ul>
-                        <a href="https://colab.research.google.com/github/mcbadlon31/Reaction-Dynamics-Physical-Chemistry/blob/main/notebooks/03_Transition_State_Theory.ipynb"
-                            target="_blank" class="btn-action">Open in Colab</a>
-                    </div>
-                    <div>
-                        <div class="glass-card" style="padding: 10px; display: inline-block; background: white;">
-                            <img src="images/03_Transition_State_Theory.png" alt="QR Code"
-                                style="box-shadow: none; margin: 0; width: 200px;">
+                    <div class="text-left" style="flex: 1;">
+                        <p>Linear Form: $\ln(k/T)$ vs $1/T$.</p>
+                        <div class="glass-panel input-group">
+                            <label><i class="fas fa-fire"></i> Enthalpy $\Delta^\ddagger H^\circ$ (kJ/mol): <span
+                                    id="displayH">50</span></label>
+                            <input type="range" id="sliderH" min="20" max="100" value="50" step="1">
+
+                            <label style="margin-top: 20px;"><i class="fas fa-random"></i> Entropy $\Delta^\ddagger
+                                S^\circ$ (J/mol K): <span id="displayS">-50</span></label>
+                            <input type="range" id="sliderS" min="-200" max="50" value="-50" step="5">
                         </div>
-                        <p class="text-small text-muted">Scan to open on mobile</p>
+                        <div class="highlight-box">
+                            Slope $= -\Delta^\ddagger H^\circ / R$<br>
+                            Intercept $\propto \Delta^\ddagger S^\circ$
+                        </div>
+                    </div>
+                    <div style="flex: 1.5;">
+                        <div class="glass-panel"
+                            style="padding: 0; overflow: hidden; height: 400px; display: flex; align-items: center; justify-content: center;">
+                            <canvas id="eyringPlot" style="width: 100%; height: 100%; background: #0f172a;"></canvas>
+                        </div>
                     </div>
                 </div>
             </section>
 
-        <
+            <!-- Slide 6: Kinetic Isotope Effect -->
+            <section>
+                <h2>3. Kinetic Isotope Effect (KIE)</h2>
+                <div class="cols">
+                    <div class="text-left">
+                        <div class="formula-box">
+                            $$\frac{k_H}{k_D} \approx 7 \quad (\text{at } 298 \text{ K})$$
+                        </div>
+                        <p>Replacing H with D slows the reaction.</p>
+                        <div class="highlight-box">
+                            <strong>Cause: Zero Point Energy (ZPE)</strong>
+                            <p class="text-small">C-D bonds are lower in energy than C-H bonds. They have a higher
+                                "effective barrier" to climb.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="glass-panel">
+                            <img src="images/kie_zpe.png" alt="ZPE Diagram" style="width: 80%; border-radius: 8px;">
+                            <p class="text-small text-muted">ZPE Difference $\approx \frac{1}{2}h(\nu_H - \nu_D)$</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 7: Salt Effect -->
+            <section>
+                <h2>4. Kinetic Salt Effect</h2>
+                <div class="glass-panel" style="margin-bottom: 2rem;">
+                    <p>Ions shield charges. How does adding salt ($NaCl$) affect rate?</p>
+                </div>
+                <div class="cols">
+                    <div class="text-left" style="flex: 1;">
+                        <label>Reactant A Charge ($z_A$):</label>
+                        <select id="selectZa" class="glass-panel"
+                            style="padding: 5px; width: 100%; margin-bottom: 1rem;">
+                            <option value="2">+2</option>
+                            <option value="1" selected>+1</option>
+                            <option value="0">0</option>
+                            <option value="-1">-1</option>
+                            <option value="-2">-2</option>
+                        </select>
+                        <label>Reactant B Charge ($z_B$):</label>
+                        <select id="selectZb" class="glass-panel" style="padding: 5px; width: 100%;">
+                            <option value="2">+2</option>
+                            <option value="1" selected>+1</option>
+                            <option value="0">0</option>
+                            <option value="-1">-1</option>
+                            <option value="-2">-2</option>
+                        </select>
+                    </div>
+                    <div style="flex: 1.5;">
+                        <div class="glass-panel" style="height: 350px;">
+                            <div id="saltEffectPlot" style="width: 100%; height: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 8: Summary -->
+            <section>
+                <h2>Summary</h2>
+                <div class="cols">
+                    <div>
+                        <div class="glass-panel text-left">
+                            <h3 style="color: var(--accent)">Eyring Equation</h3>
+                            <div class="formula-box">$$k = \frac{k_B T}{h} e^{\Delta S/R} e^{-\Delta H/RT}$$</div>
+                        </div>
+                    </div>
+                    <div class="text-left">
+                        <p><strong>Tools for Mechanism:</strong></p>
+                        <ul>
+                            <li><strong>Eyring Plot</strong>: Get $\Delta H^\ddagger, \Delta S^\ddagger$.</li>
+                            <li><strong>KIE</strong>: Is H-bond breaking the rate-limiting step?</li>
+                            <li><strong>Salt Effect</strong>: Are the reactants charged?</li>
+                        </ul>
+                    </div>
+                </div>
+                <br>
+                <div class="fragment">
+                    <a href="../docs/index.html" class="btn-action">Return to Dashboard</a>
+                </div>
+            </section>
+
         </div>
     </div>
 
@@ -284,7 +227,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/math/math.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/notes/notes.min.js"></script>
-    
+
     <!-- Topic Specific Logic -->
     <script src="js/topic_18C.js"></script>
 
@@ -302,14 +245,15 @@
             progress: true,
             center: true,
             hash: true,
-            
+
             // Animation
             transition: 'fade', // professional fade
             transitionSpeed: 'default',
-            
+
             // Plugins
-            plugins: [ RevealMath.KaTeX, RevealNotes ]
+            plugins: [RevealMath.KaTeX, RevealNotes]
         });
     </script>
 </body>
+
 </html>

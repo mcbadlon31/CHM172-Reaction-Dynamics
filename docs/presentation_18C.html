@@ -1,167 +1,24 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>Topic 18C: Transition-State Theory</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Interactive slides for Topic 18C: Transition-State Theory">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap"
-        rel="stylesheet">
-
-    <!-- Reveal.js CSS -->
+    
+    <!-- Professional Theme -->
+    <link rel="stylesheet" href="presentation_style.css">
+    
+    <!-- Reveal.js Core -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/black.min.css" id="theme">
-
-    <!-- Plotly.js -->
-    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
-
-    <!-- Custom Glassmorphism Theme -->
-    <style>
-        :root {
-            --primary-color: #3b82f6;
-            --secondary-color: #60a5fa;
-            --accent-color: #8b5cf6;
-            --text-color: #f1f5f9;
-            --text-muted: #94a3b8;
-            --glass-bg: rgba(30, 41, 59, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        }
-
-        body {
-            background: radial-gradient(circle at 50% 10%, #0f172a 0%, #1e293b 100%);
-            font-family: 'Inter', sans-serif;
-        }
-
-        .reveal {
-            color: var(--text-color);
-        }
-
-        .reveal h1,
-        .reveal h2,
-        .reveal h3,
-        .reveal h4 {
-            font-family: 'Merriweather', serif;
-            text-transform: none;
-            background: linear-gradient(to right, #60a5fa, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
-        }
-
-        .reveal p,
-        .reveal li {
-            font-family: 'Inter', sans-serif;
-            font-weight: 300;
-            line-height: 1.6;
-        }
-
-        /* Glass Cards for Content */
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: var(--glass-shadow);
-            margin: 1rem 0;
-        }
-
-        .formula {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid var(--glass-border);
-            margin: 20px 0;
-            font-family: 'Computer Modern', serif;
-        }
-
-        .highlight-box {
-            border-left: 4px solid var(--accent-color);
-            background: rgba(139, 92, 246, 0.1);
-            padding: 1rem;
-            border-radius: 0 8px 8px 0;
-            margin: 1rem 0;
-            text-align: left;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-top: 20px;
-            transition: transform 0.2s;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Table Styling */
-        .reveal table {
-            font-size: 0.8em;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        .reveal th {
-            border-bottom: 2px solid var(--secondary-color);
-            padding: 10px;
-        }
-
-        .reveal td {
-            border-bottom: 1px solid var(--glass-border);
-            padding: 10px;
-        }
-
-        /* Image Styling */
-        .reveal img {
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        /* Layout Helpers */
-        .cols {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .text-left {
-            text-align: left;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .text-small {
-            font-size: 0.7em;
-        }
-
-        .text-muted {
-            color: var(--text-muted);
-        }
-    </style>
+    
+    <!-- Icons & Charts -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
 <body>
     <div class="reveal">
         <div class="slides">
-
             <!-- Slide 1: Title -->
             <section>
                 <h1>Topic 18C</h1>
@@ -178,7 +35,7 @@
                 <div class="glass-card text-left">
                     <p>Focus on the species at the top of the energy barrier: the <strong>Activated Complex
                             ($C^\ddagger$)</strong>.</p>
-                    <div class="formula">
+                    <div class="formula-box">
                         $$A + B \underset{K^\ddagger}{\rightleftharpoons} C^\ddagger \xrightarrow{k^\ddagger} P$$
                     </div>
                     <p>Assumes $C^\ddagger$ is in quasi-equilibrium with reactants.</p>
@@ -189,7 +46,7 @@
             <section>
                 <h2>The Eyring Equation</h2>
                 <p>Deriving the rate constant from statistical mechanics:</p>
-                <div class="formula">
+                <div class="formula-box">
                     $$k_r = \kappa \frac{k_B T}{h} e^{-\Delta^\ddagger G^\circ / RT}$$
                 </div>
                 <div class="cols text-small">
@@ -206,7 +63,7 @@
             <section>
                 <h2>Thermodynamic Formulation</h2>
                 <p>Expanding $\Delta^\ddagger G^\circ = \Delta^\ddagger H^\circ - T\Delta^\ddagger S^\circ$:</p>
-                <div class="formula">
+                <div class="formula-box">
                     $$k_r = \frac{k_B T}{h} e^{\Delta^\ddagger S^\circ / R} e^{-\Delta^\ddagger H^\circ / RT}$$
                 </div>
                 <div class="cols text-small">
@@ -250,7 +107,7 @@
                 <div class="cols">
                     <div class="text-left">
                         <p>Linearize the equation:</p>
-                        <div class="formula">
+                        <div class="formula-box">
                             $$\ln\left(\frac{k}{T}\right) = -\frac{\Delta^\ddagger H^\circ}{R}\frac{1}{T} +
                             \ln\left(\frac{k_B}{h}\right) + \frac{\Delta^\ddagger S^\circ}{R}$$
                         </div>
@@ -281,9 +138,9 @@
                             TS is more disordered (e.g., bond breaking).
                         </div>
                         <div style="margin-top: 20px;">
-                            <button id="btnAssoc" class="btn"
+                            <button id="btnAssoc" class="btn-action"
                                 style="font-size: 0.8em; margin-right: 10px;">Associative</button>
-                            <button id="btnDissoc" class="btn" style="font-size: 0.8em;">Dissociative</button>
+                            <button id="btnDissoc" class="btn-action" style="font-size: 0.8em;">Dissociative</button>
                         </div>
                     </div>
                     <div>
@@ -299,7 +156,7 @@
             <section>
                 <h2>Kinetic Salt Effect</h2>
                 <p>For ions in solution, ionic strength ($I$) affects the rate.</p>
-                <div class="formula">
+                <div class="formula-box">
                     $$\log(k) = \log(k_0) + 2A z_A z_B \sqrt{I}$$
                 </div>
                 <div class="cols">
@@ -340,7 +197,7 @@
                 <div class="cols">
                     <div class="text-left">
                         <p>Replacing H with D changes the rate.</p>
-                        <div class="formula">$$k_H / k_D \approx 7$$</div>
+                        <div class="formula-box">$$k_H / k_D \approx 7$$</div>
                         <p class="text-small">Due to Zero-Point Energy differences. C-D bond is stronger (lower ZPE)
                             than C-H.</p>
                     </div>
@@ -407,7 +264,7 @@
                             <li>Salt Effect Explorer</li>
                         </ul>
                         <a href="https://colab.research.google.com/github/mcbadlon31/Reaction-Dynamics-Physical-Chemistry/blob/main/notebooks/03_Transition_State_Theory.ipynb"
-                            target="_blank" class="btn">Open in Colab</a>
+                            target="_blank" class="btn-action">Open in Colab</a>
                     </div>
                     <div>
                         <div class="glass-card" style="padding: 10px; display: inline-block; background: white;">
@@ -419,20 +276,40 @@
                 </div>
             </section>
 
+        <
         </div>
     </div>
 
+    <!-- Reveal.js Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/math/math.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/notes/notes.min.js"></script>
+    
+    <!-- Topic Specific Logic -->
+    <script src="js/topic_18C.js"></script>
+
     <script>
         Reveal.initialize({
+            // Professional HD Resolution
+            width: 1920,
+            height: 1080,
+            margin: 0.1,
+            minScale: 0.2,
+            maxScale: 2.0,
+
+            // Navigation
+            controls: true,
+            progress: true,
+            center: true,
             hash: true,
-            transition: 'convex',
-            backgroundTransition: 'zoom',
-            plugins: [RevealMath.KaTeX]
+            
+            // Animation
+            transition: 'fade', // professional fade
+            transitionSpeed: 'default',
+            
+            // Plugins
+            plugins: [ RevealMath.KaTeX, RevealNotes ]
         });
     </script>
-    <script src="js/topic_18C.js"></script>
 </body>
-
 </html>

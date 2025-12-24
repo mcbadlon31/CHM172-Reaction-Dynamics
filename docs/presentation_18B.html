@@ -1,170 +1,24 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>Topic 18B: Diffusion-Controlled Reactions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Interactive slides for Topic 18B: Diffusion-Controlled Reactions">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap"
-        rel="stylesheet">
-
-    <!-- Reveal.js CSS -->
+    
+    <!-- Professional Theme -->
+    <link rel="stylesheet" href="presentation_style.css">
+    
+    <!-- Reveal.js Core -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reset.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/black.min.css" id="theme">
-
-    <!-- Plotly.js -->
-    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
-
-    <!-- Plotly.js -->
-    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
-
-    <!-- Custom Glassmorphism Theme -->
-    <style>
-        :root {
-            --primary-color: #3b82f6;
-            --secondary-color: #60a5fa;
-            --accent-color: #8b5cf6;
-            --text-color: #f1f5f9;
-            --text-muted: #94a3b8;
-            --glass-bg: rgba(30, 41, 59, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        }
-
-        body {
-            background: radial-gradient(circle at 85% 30%, #0f172a 0%, #1e293b 100%);
-            font-family: 'Inter', sans-serif;
-        }
-
-        .reveal {
-            color: var(--text-color);
-        }
-
-        .reveal h1,
-        .reveal h2,
-        .reveal h3,
-        .reveal h4 {
-            font-family: 'Merriweather', serif;
-            text-transform: none;
-            background: linear-gradient(to right, #60a5fa, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
-        }
-
-        .reveal p,
-        .reveal li {
-            font-family: 'Inter', sans-serif;
-            font-weight: 300;
-            line-height: 1.6;
-        }
-
-        /* Glass Cards for Content */
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: var(--glass-shadow);
-            margin: 1rem 0;
-        }
-
-        .formula {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid var(--glass-border);
-            margin: 20px 0;
-            font-family: 'Computer Modern', serif;
-        }
-
-        .highlight-box {
-            border-left: 4px solid var(--accent-color);
-            background: rgba(139, 92, 246, 0.1);
-            padding: 1rem;
-            border-radius: 0 8px 8px 0;
-            margin: 1rem 0;
-            text-align: left;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-top: 20px;
-            transition: transform 0.2s;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Table Styling */
-        .reveal table {
-            font-size: 0.8em;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        .reveal th {
-            border-bottom: 2px solid var(--secondary-color);
-            padding: 10px;
-        }
-
-        .reveal td {
-            border-bottom: 1px solid var(--glass-border);
-            padding: 10px;
-        }
-
-        /* Image Styling */
-        .reveal img {
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        /* Layout Helpers */
-        .cols {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .text-left {
-            text-align: left;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .text-small {
-            font-size: 0.7em;
-        }
-
-        .text-muted {
-            color: var(--text-muted);
-        }
-    </style>
+    
+    <!-- Icons & Charts -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
 <body>
     <div class="reveal">
         <div class="slides">
-
             <!-- Slide 1: Title -->
             <section>
                 <h1>Topic 18B</h1>
@@ -189,9 +43,9 @@
                             Molecules are crowded. <strong>Cage Effect</strong>. Diffusion limits encounter rate.
                         </div>
                         <div style="margin-top: 20px;">
-                            <button id="btnGas" class="btn" style="font-size: 0.8em; margin-right: 10px;">Gas
+                            <button id="btnGas" class="btn-action" style="font-size: 0.8em; margin-right: 10px;">Gas
                                 Phase</button>
-                            <button id="btnLiquid" class="btn" style="font-size: 0.8em;">Liquid Phase</button>
+                            <button id="btnLiquid" class="btn-action" style="font-size: 0.8em;">Liquid Phase</button>
                         </div>
                     </div>
                     <div>
@@ -254,7 +108,7 @@
             <!-- Slide 5: Reaction Scheme -->
             <section>
                 <h2>The Two-Step Mechanism</h2>
-                <div class="formula">
+                <div class="formula-box">
                     $$A + B \underset{k_{-d}}{\overset{k_d}{\rightleftharpoons}} [AB] \xrightarrow{k_a} P$$
                 </div>
                 <div class="text-left text-small">
@@ -270,12 +124,12 @@
             <section>
                 <h2>Steady-State Rate Law</h2>
                 <p>Applying the steady-state approximation to [AB]:</p>
-                <div class="formula">
+                <div class="formula-box">
                     $$k_{eff} = \frac{k_a k_d}{k_{-d} + k_a}$$
                 </div>
                 <div class="fragment glass-card">
                     <p><strong>Resistance Form:</strong></p>
-                    <div class="formula">
+                    <div class="formula-box">
                         $$\frac{1}{k_{eff}} = \frac{1}{k_d} + \frac{1}{K k_a}$$
                     </div>
                     <p class="text-small text-muted">Like electrical resistors in series, the slowest step dominates.
@@ -289,12 +143,12 @@
                 <div class="cols">
                     <div class="text-left">
                         <p><strong>Fick's First Law:</strong></p>
-                        <div class="formula">$$J = -D \frac{\partial c}{\partial x}$$</div>
+                        <div class="formula-box">$$J = -D \frac{\partial c}{\partial x}$$</div>
                         <p class="text-small">Flux is proportional to concentration gradient.</p>
                     </div>
                     <div class="text-left">
                         <p><strong>Stokes-Einstein Relation:</strong></p>
-                        <div class="formula">$$D = \frac{k_B T}{6\pi \eta r}$$</div>
+                        <div class="formula-box">$$D = \frac{k_B T}{6\pi \eta r}$$</div>
                         <p class="text-small">Connects diffusion ($D$) to viscosity ($\eta$) and size ($r$).</p>
                     </div>
                 </div>
@@ -304,12 +158,12 @@
             <section>
                 <h2>Smoluchowski Limit</h2>
                 <p>Deriving the maximum possible rate ($k_d$):</p>
-                <div class="formula">
+                <div class="formula-box">
                     $$k_d = 4\pi R^* D N_A$$
                 </div>
                 <div class="fragment">
                     <p>Substituting Stokes-Einstein ($D \approx k_BT/6\pi\eta r$):</p>
-                    <div class="formula">
+                    <div class="formula-box">
                         $$k_d \approx \frac{8RT}{3\eta}$$
                     </div>
                 </div>
@@ -340,7 +194,7 @@
             <div class="cols">
                 <div class="text-left">
                     <p>For diffusion-controlled reactions:</p>
-                    <div class="formula">$$k_d \propto \frac{T}{\eta(T)}$$</div>
+                    <div class="formula-box">$$k_d \propto \frac{T}{\eta(T)}$$</div>
                     <p>Since viscosity $\eta$ decreases with $T$, rate increases.</p>
                     <p class="text-small fragment">Apparent $E_a \approx 10-20$ kJ/mol (viscosity activation
                         energy).</p>
@@ -391,7 +245,7 @@
         <section>
             <h2>Reaction-Diffusion Coupling</h2>
             <p>When reaction and diffusion compete:</p>
-            <div class="formula">
+            <div class="formula-box">
                 $$\lambda = \sqrt{\frac{D}{k}}$$
             </div>
             <div class="cols">
@@ -418,7 +272,7 @@
                         <li>Viscosity Effects</li>
                     </ul>
                     <a href="https://colab.research.google.com/github/mcbadlon31/Reaction-Dynamics-Physical-Chemistry/blob/main/notebooks/02_Diffusion_Controlled.ipynb"
-                        target="_blank" class="btn">Open in Colab</a>
+                        target="_blank" class="btn-action">Open in Colab</a>
                 </div>
                 <div>
                     <div class="glass-card" style="padding: 10px; display: inline-block; background: white;">
@@ -430,21 +284,40 @@
             </div>
         </section>
 
-    </div>
+    <
+        </div>
     </div>
 
+    <!-- Reveal.js Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/math/math.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/notes/notes.min.js"></script>
+    
+    <!-- Topic Specific Logic -->
+    <script src="js/topic_18B.js"></script>
+
     <script>
         Reveal.initialize({
+            // Professional HD Resolution
+            width: 1920,
+            height: 1080,
+            margin: 0.1,
+            minScale: 0.2,
+            maxScale: 2.0,
+
+            // Navigation
+            controls: true,
+            progress: true,
+            center: true,
             hash: true,
-            transition: 'convex',
-            backgroundTransition: 'zoom',
-            plugins: [RevealMath.KaTeX]
+            
+            // Animation
+            transition: 'fade', // professional fade
+            transitionSpeed: 'default',
+            
+            // Plugins
+            plugins: [ RevealMath.KaTeX, RevealNotes ]
         });
     </script>
-    <!-- Custom Interactive Script -->
-    <script src="js/topic_18B.js"></script>
 </body>
-
 </html>

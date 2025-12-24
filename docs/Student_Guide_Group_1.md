@@ -104,7 +104,7 @@ Explore the Marcus Inverted Region (General Class Activity).
 ### Your Mission
 **Design a Chemical Reactor for HF Production.**
 
-1.  **Select Template**: Choose **Template 4: Chemical Reactor Design**.
+1.  **Select Templates**: Choose **Template 4: Chemical Reactor Design** and **Template 6: HF Chemical Laser**.
 2.  **Scenario**: You are designing a continuous reactor to produce HF (industrial chemical and laser fuel).
 3.  **Tasks**:
     *   Input your rate constants $k$ calculated in NB01/NB03.

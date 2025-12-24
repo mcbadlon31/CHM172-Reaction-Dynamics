@@ -75,7 +75,7 @@ Keep these numbers handy.
 
 **Goal**: Reactor Heating Design.
 
-1.  **Select Template**: **Chemical Reactor Design**.
+1.  **Select Template**: **Template 4: Chemical Reactor Design**.
 2.  **Scenario**: You are designing a reactor to make HCl.
 3.  **Optimization**:
     *   You have a cost function: Heating is expensive ($), but your reaction needs T > 600K.

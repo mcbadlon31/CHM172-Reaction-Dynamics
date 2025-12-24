@@ -94,6 +94,14 @@ function initCalculator() {
 
     // Listeners
     Object.values(inputs).forEach(input => input.addEventListener('input', update));
+
+    document.getElementById('reset-sim').addEventListener('click', () => {
+        inputs.A.value = "1e13";
+        inputs.Ea.value = "50";
+        inputs.T.value = "298";
+        update();
+    });
+
     update(); // Initial run
 }
 

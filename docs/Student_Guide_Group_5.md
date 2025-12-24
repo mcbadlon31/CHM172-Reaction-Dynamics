@@ -77,7 +77,7 @@ Keep these numbers handy.
 
 **Goal**: Solvent Optimization.
 
-1.  **Select Template**: **Build Your Own Reaction**.
+1.  **Select Template**: **Template 7: Solvent Cage Effect**.
 2.  **Scenario**: Industrial synthesis of $I_2$.
 3.  **Optimization**:
     *   You need to check if the reaction is **faster** in a low-viscosity solvent (Hexane) or high-viscosity (Medical Oil).

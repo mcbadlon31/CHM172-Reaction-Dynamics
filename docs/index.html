@@ -4,244 +4,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reaction Dynamics - Physical Chemistry</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Reaction Dynamics | Advanced Physical Chemistry</title>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap"
         rel="stylesheet">
+
+    <!-- Icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="background-gradient"></div>
 
-    <header class="hero">
+    <!-- Ambient Background -->
+    <div class="ambient-background">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">Reaction<span>Dynamics</span></div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#projects" class="nav-link">Project Portals</a></li>
+                <li><a href="#notebooks" class="nav-link">Courseware</a></li>
+                <li><a href="#simulation" class="nav-link">Simulation</a></li>
+            </ul>
+            <div class="btn-mobile-menu"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>Reaction Dynamics</h1>
-                <p class="subtitle">Interactive Physical Chemistry Course Materials</p>
-                <div class="hero-buttons">
-                    <a href="#notebooks" class="btn btn-primary">Get Started</a>
-                    <a href="https://github.com/mcbadlon31/CHM172-Reaction-Dynamics" class="btn btn-secondary"
-                        target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
-                </div>
+            <span class="hero-badge">CHM172 • Fall 2024</span>
+            <h1>Exploring the <span class="highlight-text">Microscopic World</span><br>of Chemical Reactivity</h1>
+            <p>An interactive computational journey through collision theory, transition states, and molecular dynamics.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-glow">Launch Project</a>
+                <a href="#notebooks" class="btn btn-glass">Browse Notebooks</a>
             </div>
         </div>
     </header>
 
     <main class="container">
-        <section id="overview" class="section glass-card">
-            <h2>Overview</h2>
-            <p>Welcome to the interactive companion for <strong>Focus 18: Reaction Dynamics</strong>. This platform
-                provides access to interactive Jupyter notebooks, high-quality visualizations, and comprehensive lecture
-                materials designed to enhance the learning experience in physical chemistry.</p>
-        </section>
 
-        <section id="notebooks" class="section">
-            <div class="section-header">
-                <h2>Interactive Notebooks</h2>
-                <div class="search-container">
-                    <input type="text" id="search-input" placeholder="Search topics...">
-                    <i class="fas fa-search search-icon"></i>
-                </div>
-            </div>
+        <!-- SECTION 1: Student Project Portals (FEATURED) -->
+        <section id="projects">
+            <h2>Student Project Portals</h2>
+            <p class="section-intro">Select your assigned group to access your customized research environment.</p>
 
-            <div class="grid" id="notebook-grid">
-                <div class="card glass-card" data-title="Collision Theory" data-topic="18A">
-                    <div class="card-header">
-                        <span class="topic-tag">18A</span>
-                        <h3>Collision Theory</h3>
-                    </div>
-                    <p>Explore collision frequency, the harpoon mechanism, and the RRK model.</p>
-                    <a href="https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/01_Collision_Theory.ipynb"
-                        target="_blank" class="btn btn-sm">Open in Colab</a>
-                </div>
-                <div class="card glass-card" data-title="Diffusion-Controlled Reactions" data-topic="18B">
-                    <div class="card-header">
-                        <span class="topic-tag">18B</span>
-                        <h3>Diffusion-Controlled Reactions</h3>
-                    </div>
-                    <p>Simulate diffusion processes and understand the Smoluchowski limit.</p>
-                    <a href="https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/02_Diffusion_Controlled.ipynb"
-                        target="_blank" class="btn btn-sm">Open in Colab</a>
-                </div>
-                <div class="card glass-card" data-title="Transition-State Theory" data-topic="18C">
-                    <div class="card-header">
-                        <span class="topic-tag">18C</span>
-                        <h3>Transition-State Theory</h3>
-                    </div>
-                    <p>Visualize potential energy surfaces and calculate kinetic isotope effects.</p>
-                    <a href="https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/03_Transition_State_Theory.ipynb"
-                        target="_blank" class="btn btn-sm">Open in Colab</a>
-                </div>
-                <div class="card glass-card" data-title="Molecular Collision Dynamics" data-topic="18D">
-                    <div class="card-header">
-                        <span class="topic-tag">18D</span>
-                        <h3>Molecular Collision Dynamics</h3>
-                    </div>
-                    <p>Dive into the dynamics of molecular collisions and scattering.</p>
-                    <a href="https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/04_Molecular_Dynamics.ipynb"
-                        target="_blank" class="btn btn-sm">Open in Colab</a>
-                </div>
-                <div class="card glass-card" data-title="Electron Transfer" data-topic="18E">
-                    <div class="card-header">
-                        <span class="topic-tag">18E</span>
-                        <h3>Electron Transfer</h3>
-                    </div>
-                    <p>Master Marcus theory and electron transfer mechanisms.</p>
-                    <a href="https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/05_Electron_Transfer.ipynb"
-                        target="_blank" class="btn btn-sm">Open in Colab</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="student-portal" class="section">
-            <div class="section-header">
-                <h2>Student Project Portals</h2>
-            </div>
             <div class="grid">
                 <!-- Group 1 -->
-                <div class="card glass-card group-card group-card-1">
-                    <div class="card-header">
-                        <span class="group-tag">Group 1</span>
-                        <h3>The Baseline Team</h3>
+                <div class="card glass-panel group-card group-card-1">
+                    <div class="card-icon"><i class="fas fa-atom"></i></div>
+                    <div class="card-content">
+                        <h3>Group 1: Baseline</h3>
+                        <p><strong>F + H₂ → HF + H</strong><br>Standard exothermic dynamics and chemical laser physics
+                            logic.</p>
                     </div>
-                    <p><strong>System:</strong> F + H₂ → HF + H<br>
-                    Standard exothermic dynamics and chemical laser physics.</p>
-                    <a href="https://github.com/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/docs/Student_Guide_Group_1.md"
-                        target="_blank" class="btn btn-sm">View Guide</a>
+                    <div class="card-footer">
+                        <a href="https://github.com/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/docs/Student_Guide_Group_1.md"
+                            target="_blank" class="btn-sm">Enter Portal <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
 
                 <!-- Group 2 -->
-                <div class="card glass-card group-card group-card-2">
-                    <div class="card-header">
-                        <span class="group-tag">Group 2</span>
-                        <h3>The Heavy Metal Team</h3>
+                <div class="card glass-panel group-card group-card-2">
+                    <div class="card-icon"><i class="fas fa-balance-scale"></i></div>
+                    <div class="card-content">
+                        <h3>Group 2: Heavy Metal</h3>
+                        <p><strong>F + D₂ → DF + D</strong><br>Investigating Kinetic Isotope Effects (KIE) and mass
+                            scaling.</p>
                     </div>
-                    <p><strong>System:</strong> F + D₂ → DF + D<br>
-                    Kinetic Isotope Effects (KIE) and quantum mass scaling.</p>
-                    <a href="https://github.com/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/docs/Student_Guide_Group_2.md"
-                        target="_blank" class="btn btn-sm">View Guide</a>
+                    <div class="card-footer">
+                        <a href="https://github.com/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/docs/Student_Guide_Group_2.md"
+                            target="_blank" class="btn-sm">Enter Portal <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
 
                 <!-- Group 3 -->
-                <div class="card glass-card group-card group-card-3">
-                    <div class="card-header">
-                        <span class="group-tag">Group 3</span>
-                        <h3>The Endothermic Team</h3>
+                <div class="card glass-panel group-card group-card-3">
+                    <div class="card-icon"><i class="fas fa-fire-alt"></i></div>
+                    <div class="card-content">
+                        <h3>Group 3: Endothermic</h3>
+                        <p><strong>Cl + H₂ → HCl + H</strong><br>Uphill energy landscapes, late barriers, and thermal
+                            forcing.</p>
                     </div>
-                    <p><strong>System:</strong> Cl + H₂ → HCl + H<br>
-                    Uphill reactions, late barriers, and thermal requirements.</p>
-                    <a href="https://github.com/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/docs/Student_Guide_Group_3.md"
-                        target="_blank" class="btn btn-sm">View Guide</a>
+                    <div class="card-footer">
+                        <a href="https://github.com/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/docs/Student_Guide_Group_3.md"
+                            target="_blank" class="btn-sm">Enter Portal <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
 
                 <!-- Group 4 -->
-                <div class="card glass-card group-card group-card-4">
-                    <div class="card-header">
-                        <span class="group-tag">Group 4</span>
-                        <h3>The High-T Engineers</h3>
+                <div class="card glass-panel group-card group-card-4">
+                    <div class="card-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="card-content">
+                        <h3>Group 4: High-T</h3>
+                        <p><strong>O + N₂ → NO + N</strong><br>Combustion chemistry, hypersonics, and atmospheric
+                            pollution.</p>
                     </div>
-                    <p><strong>System:</strong> O + N₂ → NO + N<br>
-                    Combustion chemistry, extreme temperatures, and pollution.</p>
-                    <a href="https://github.com/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/docs/Student_Guide_Group_4.md"
-                        target="_blank" class="btn btn-sm">View Guide</a>
+                    <div class="card-footer">
+                        <a href="https://github.com/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/docs/Student_Guide_Group_4.md"
+                            target="_blank" class="btn-sm">Enter Portal <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
 
                 <!-- Group 5 -->
-                <div class="card glass-card group-card group-card-5">
-                    <div class="card-header">
-                        <span class="group-tag">Group 5</span>
-                        <h3>The Solution Phase Team</h3>
+                <div class="card glass-panel group-card group-card-5">
+                    <div class="card-icon"><i class="fas fa-water"></i></div>
+                    <div class="card-content">
+                        <h3>Group 5: Solution</h3>
+                        <p><strong>I + I → I₂</strong><br>Viscous dynamics, cage effects, and diffusion control.</p>
                     </div>
-                    <p><strong>System:</strong> I + I → I₂ (in Solvent)<br>
-                    Viscosity, diffusion control, and liquid-phase dynamics.</p>
-                    <a href="https://github.com/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/docs/Student_Guide_Group_5.md"
-                        target="_blank" class="btn btn-sm">View Guide</a>
+                    <div class="card-footer">
+                        <a href="https://github.com/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/docs/Student_Guide_Group_5.md"
+                            target="_blank" class="btn-sm">Enter Portal <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="presentation" class="section">
-            <h2>Web Presentations</h2>
+        <!-- SECTION 2: Courseware (Notebooks) -->
+        <section id="notebooks">
+            <h2>Interactive Courseware</h2>
+            <p class="section-intro">Launch Jupyter notebooks directly in Google Colab.</p>
+
             <div class="grid">
-                <div class="card glass-card featured-card" onclick="window.location.href='presentation_18A.html'"
-                    style="cursor: pointer;">
-                    <div class="card-header centered-header">
-                        <h3>Topic 18A</h3>
+                <div class="card glass-panel">
+                    <div class="card-icon"><i class="fas fa-satellite-dish"></i></div>
+                    <div class="card-content">
+                        <h3>01. Collision Theory</h3>
+                        <p>Analyze collision frequencies, cross-sections, and the Maxwell-Boltzmann distribution.</p>
                     </div>
-                    <p>Collision Theory</p>
+                    <div class="card-footer">
+                        <a href="https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/01_Collision_Theory.ipynb"
+                            target="_blank" class="btn-sm">Open Module</a>
+                    </div>
                 </div>
-                <div class="card glass-card featured-card" onclick="window.location.href='presentation_18B.html'"
-                    style="cursor: pointer;">
-                    <div class="card-header centered-header">
-                        <h3>Topic 18B</h3>
+
+                <div class="card glass-panel">
+                    <div class="card-icon"><i class="fas fa-tint"></i></div>
+                    <div class="card-content">
+                        <h3>02. Diffusion Control</h3>
+                        <p>Simulate random walks, viscosity effects, and the Smoluchowski limit.</p>
                     </div>
-                    <p>Diffusion-Controlled Reactions</p>
+                    <div class="card-footer">
+                        <a href="https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/02_Diffusion_Controlled.ipynb"
+                            target="_blank" class="btn-sm">Open Module</a>
+                    </div>
                 </div>
-                <div class="card glass-card featured-card" onclick="window.location.href='presentation_18C.html'"
-                    style="cursor: pointer;">
-                    <div class="card-header centered-header">
-                        <h3>Topic 18C</h3>
+
+                <div class="card glass-panel">
+                    <div class="card-icon"><i class="fas fa-mountain"></i></div>
+                    <div class="card-content">
+                        <h3>03. Transition State</h3>
+                        <p>Visualize LEPS Potential Energy Surfaces and saddle points.</p>
                     </div>
-                    <p>Transition-State Theory</p>
+                    <div class="card-footer">
+                        <a href="https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/03_Transition_State_Theory.ipynb"
+                            target="_blank" class="btn-sm">Open Module</a>
+                    </div>
                 </div>
-                <div class="card glass-card featured-card" onclick="window.location.href='presentation_18D.html'"
-                    style="cursor: pointer;">
-                    <div class="card-header centered-header">
-                        <h3>Topic 18D</h3>
+
+                <div class="card glass-panel">
+                    <div class="card-icon"><i class="fas fa-project-diagram"></i></div>
+                    <div class="card-content">
+                        <h3>04. Molecular Dynamics</h3>
+                        <p>Run classical trajectories and analyze scattering angles.</p>
                     </div>
-                    <p>Molecular Collision Dynamics</p>
+                    <div class="card-footer">
+                        <a href="https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/04_Molecular_Dynamics.ipynb"
+                            target="_blank" class="btn-sm">Open Module</a>
+                    </div>
                 </div>
-                <div class="card glass-card featured-card" onclick="window.location.href='presentation_18E.html'"
-                    style="cursor: pointer;">
-                    <div class="card-header centered-header">
-                        <h3>Topic 18E</h3>
+
+                <div class="card glass-panel">
+                    <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                    <div class="card-content">
+                        <h3>05. Electron Transfer</h3>
+                        <p>Explore Marcus Theory and the inverted region parabola.</p>
                     </div>
-                    <p>Electron Transfer</p>
+                    <div class="card-footer">
+                        <a href="https://colab.research.google.com/github/mcbadlon31/CHM172-Reaction-Dynamics/blob/main/notebooks/05_Electron_Transfer.ipynb"
+                            target="_blank" class="btn-sm">Open Module</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="interactive-tool" class="section">
-            <h2>Interactive Rate Calculator</h2>
-            <p class="section-desc">Visualize the Arrhenius equation: $k = A e^{-E_a/RT}$</p>
-            <div class="calculator-container glass-card">
+        <!-- SECTION 3: Simulation Tool -->
+        <section id="simulation">
+            <h2>Kinetics Simulator</h2>
+            <p class="section-intro">Real-time visualization of the Arrhenius Equation.</p>
+
+            <div class="glass-panel calculator-interface">
                 <div class="calculator-controls">
-                    <div class="input-group">
-                        <label for="pre-exponential">Pre-exponential Factor ($A$):</label>
-                        <input type="number" id="pre-exponential" value="1e13" step="any">
+                    <div class="input-block">
+                        <label>Pre-exponential Factor ($A$)</label>
+                        <input type="number" id="pre-exponential" value="1e13" class="input-field">
                     </div>
-                    <div class="input-group">
-                        <label for="activation-energy">Activation Energy ($E_a$ in kJ/mol):</label>
-                        <input type="number" id="activation-energy" value="50">
+                    <div class="input-block">
+                        <label>Activation Energy ($E_a$ kJ/mol)</label>
+                        <input type="number" id="activation-energy" value="50" class="input-field">
                     </div>
-                    <div class="input-group">
-                        <label for="temperature">Temperature ($T$ in K):</label>
-                        <div class="range-container">
-                            <input type="range" id="temperature" min="200" max="1000" value="298">
-                            <span id="temp-display" class="value-display">298 K</span>
-                        </div>
+                    <div class="input-block">
+                        <label>Temperature ($T$): <span id="temp-display" style="float:right; color:var(--primary)">298
+                                K</span></label>
+                        <input type="range" id="temperature" min="200" max="1000" value="298" style="width:100%">
                     </div>
-                    <div class="result-group">
-                        <strong>Rate Constant ($k$):</strong>
-                        <span id="rate-result">Calculating...</span>
+
+                    <div class="result-display">
+                        <span class="result-label">Rate Constant (k)</span>
+                        <span class="result-val" id="rate-result">Calculating...</span>
                     </div>
                 </div>
+
                 <div class="calculator-graph">
                     <canvas id="rateChart"></canvas>
                 </div>
             </div>
         </section>
+
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2024 Reaction Dynamics Project. Licensed under <a
-                    href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.</p>
+        <div class="container footer-content">
+            <p>&copy; 2024 Reaction Dynamics Project</p>
+            <div class="footer-links">
+                <a href="https://github.com/mcbadlon31/CHM172-Reaction-Dynamics" target="_blank"><i
+                        class="fab fa-github"></i> GitHub</a>
+            </div>
         </div>
     </footer>
 

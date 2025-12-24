@@ -1,155 +1,148 @@
+// =========================================
+// INTERACTIVITY & CALCULATIONS
+// =========================================
+
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Search Functionality ---
-    const searchInput = document.getElementById('search-input');
-    const notebookGrid = document.getElementById('notebook-grid');
-    const cards = notebookGrid.getElementsByClassName('card');
+    initCalculator();
+    initScrollSpy();
+    initMobileMenu();
+});
 
-    searchInput.addEventListener('input', (e) => {
-        const searchTerm = e.target.value.toLowerCase();
+// --- 1. Rate Constant Calculator ---
+function initCalculator() {
+    const inputs = {
+        A: document.getElementById('pre-exponential'),
+        Ea: document.getElementById('activation-energy'),
+        T: document.getElementById('temperature')
+    };
 
-        Array.from(cards).forEach(card => {
-            const title = card.getAttribute('data-title').toLowerCase();
-            const topic = card.getAttribute('data-topic').toLowerCase();
+    const displays = {
+        temp: document.getElementById('temp-display'),
+        result: document.getElementById('rate-result')
+    };
 
-            if (title.includes(searchTerm) || topic.includes(searchTerm)) {
-                card.style.display = 'flex';
-                // Reset animation
-                card.style.animation = 'none';
-                card.offsetHeight; /* trigger reflow */
-                card.style.animation = 'fadeInDown 0.5s ease-out';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    });
+    const canvas = document.getElementById('rateChart');
+    if (!canvas) return;
 
-    // --- Rate Calculator & Chart ---
-    const preExpInput = document.getElementById('pre-exponential');
-    const activationEnergyInput = document.getElementById('activation-energy');
-    const temperatureInput = document.getElementById('temperature');
-    const tempDisplay = document.getElementById('temp-display');
-    const rateResult = document.getElementById('rate-result');
-    const ctx = document.getElementById('rateChart').getContext('2d');
-
-    const R = 8.314; // Gas constant in J/(mol*K)
+    const ctx = canvas.getContext('2d');
+    const R = 8.314; // Gas constant J/(mol K)
 
     // Initialize Chart
-    let rateChart = new Chart(ctx, {
+    let chart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: [],
             datasets: [{
-                label: 'Rate Constant k (s⁻¹)',
+                label: 'Reaction Rate k(T)',
                 data: [],
-                borderColor: '#60a5fa',
-                backgroundColor: 'rgba(96, 165, 250, 0.2)',
+                borderColor: '#3b82f6',
+                backgroundColor: 'rgba(59, 130, 246, 0.1)',
                 borderWidth: 3,
-                pointBackgroundColor: '#3b82f6',
-                pointRadius: 0,
-                pointHoverRadius: 6,
+                tension: 0.4,
                 fill: true,
-                tension: 0.4
-            }, {
-                label: 'Current T',
-                data: [],
-                pointBackgroundColor: '#fff',
-                pointBorderColor: '#8b5cf6',
-                pointBorderWidth: 2,
-                pointRadius: 6,
-                pointHoverRadius: 8,
-                showLine: false // Only show the point
+                pointRadius: 0
             }]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-                legend: {
-                    labels: { color: '#cbd5e1' }
-                },
-                tooltip: {
-                    mode: 'index',
-                    intersect: false,
-                    backgroundColor: 'rgba(15, 23, 42, 0.9)',
-                    titleColor: '#fff',
-                    bodyColor: '#cbd5e1',
-                    borderColor: 'rgba(255, 255, 255, 0.1)',
-                    borderWidth: 1
-                }
+                legend: { display: false }
             },
             scales: {
                 x: {
-                    type: 'linear',
                     title: { display: true, text: 'Temperature (K)', color: '#94a3b8' },
-                    grid: { color: 'rgba(255, 255, 255, 0.05)' },
-                    ticks: { color: '#cbd5e1' }
+                    grid: { color: 'rgba(255,255,255,0.05)' },
+                    ticks: { color: '#64748b' }
                 },
                 y: {
-                    title: { display: true, text: 'Rate Constant k (s⁻¹)', color: '#94a3b8' },
-                    grid: { color: 'rgba(255, 255, 255, 0.05)' },
-                    ticks: { color: '#cbd5e1' },
-                    type: 'linear' // Can switch to 'logarithmic' if needed
+                    title: { display: true, text: 'Rate Constant k', color: '#94a3b8' },
+                    grid: { color: 'rgba(255,255,255,0.05)' },
+                    ticks: { color: '#64748b' }
                 }
-            },
-            interaction: {
-                mode: 'nearest',
-                axis: 'x',
-                intersect: false
             }
         }
     });
 
-    function calculateRate() {
-        const A = parseFloat(preExpInput.value);
-        const Ea_kJ = parseFloat(activationEnergyInput.value);
-        const T = parseFloat(temperatureInput.value);
-
-        if (isNaN(A) || isNaN(Ea_kJ) || isNaN(T)) {
-            rateResult.textContent = "Invalid Input";
-            return;
-        }
-
-        // Update Display
-        tempDisplay.textContent = T + " K";
-        const Ea = Ea_kJ * 1000;
-        const k = A * Math.exp(-Ea / (R * T));
-        rateResult.textContent = k.toExponential(3) + " s⁻¹";
-
-        updateChart(A, Ea, T);
+    function calculateK(A, Ea, T) {
+        // Ea in kJ/mol -> J/mol
+        return A * Math.exp(-(Ea * 1000) / (R * T));
     }
 
-    function updateChart(A, Ea, currentT) {
-        // Generate data points for T from 200K to 1000K
+    function update() {
+        const A = parseFloat(inputs.A.value) || 0;
+        const Ea = parseFloat(inputs.Ea.value) || 0;
+        const currentT = parseFloat(inputs.T.value) || 298;
+
+        // Update Text
+        displays.temp.textContent = `${currentT} K`;
+        const k = calculateK(A, Ea, currentT);
+        displays.result.textContent = k.toExponential(2);
+
+        // Update Graph (Curve from 200K to 1000K)
         const temps = [];
         const rates = [];
-        const currentPoint = [];
-
-        for (let t = 200; t <= 1000; t += 10) {
-            const k_val = A * Math.exp(-Ea / (R * t));
+        for (let t = 200; t <= 1000; t += 20) {
             temps.push(t);
-            rates.push({ x: t, y: k_val });
+            rates.push(calculateK(A, Ea, t));
         }
 
-        // Current T point
-        const currentK = A * Math.exp(-Ea / (R * currentT));
-
-        // Update Chart Data
-        rateChart.data.labels = temps;
-        rateChart.data.datasets[0].data = rates;
-
-        // Update "Current T" point dataset
-        // We need to make it an array of same length or just one point?
-        // For scatter/line mix, we can just provide one point if x-axis is linear
-        rateChart.data.datasets[1].data = [{ x: currentT, y: currentK }];
-
-        rateChart.update('none'); // 'none' mode for performance
+        chart.data.labels = temps;
+        chart.data.datasets[0].data = rates;
+        chart.update();
     }
 
-    // Add event listeners
-    preExpInput.addEventListener('input', calculateRate);
-    activationEnergyInput.addEventListener('input', calculateRate);
-    temperatureInput.addEventListener('input', calculateRate);
+    // Listeners
+    Object.values(inputs).forEach(input => input.addEventListener('input', update));
+    update(); // Initial run
+}
 
-    // Initial calculation
-    calculateRate();
-});
+// --- 2. Scroll Spy (Navbar Highlight) ---
+function initScrollSpy() {
+    const sections = document.querySelectorAll('section, header');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const scrollY = window.scrollY;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            // logic: if scrolled past start of section (minus offset for header)
+            if (scrollY >= (sectionTop - 150)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    });
+}
+
+// --- 3. Mobile Menu ---
+function initMobileMenu() {
+    const btn = document.querySelector('.btn-mobile-menu');
+    const links = document.querySelector('.nav-links');
+
+    if (btn) {
+        btn.addEventListener('click', () => {
+            // Simple toggle for now, in real app needs animation class
+            const display = window.getComputedStyle(links).display;
+            links.style.display = (display === 'none') ? 'flex' : 'none';
+            if (links.style.display === 'flex') {
+                links.style.flexDirection = 'column';
+                links.style.position = 'absolute';
+                links.style.top = '80px';
+                links.style.left = '0';
+                links.style.width = '100%';
+                links.style.background = 'rgba(15, 17, 26, 0.95)';
+                links.style.padding = '20px';
+            }
+        });
+    }
+}

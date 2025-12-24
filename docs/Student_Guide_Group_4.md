@@ -3,6 +3,19 @@
 
 **System**: $\text{O}(^3\text{P}) + \text{N}_2 \rightarrow \text{NO} + \text{N}$
 
+---
+
+## 📋 Table of Contents
+- [Your Mission](#-your-mission)
+- [Critical Parameters](#-critical-parameters)
+- [Notebook Walkthroughs](#-notebook-walkthroughs)
+- [Troubleshooting](#-troubleshooting)
+- [Final Report Checklist](#-final-report-checklist)
+
+**Estimated Time**: 6-8 hours | **Conditions**: Extreme temperature (2000-5000 K)
+
+---
+
 ### 🧪 Your Mission
 You are the **High-T Engineers**. Your reaction is the rate-limiting step of the Zeldovich mechanism, responsible for producing thermal NOx in car engines and during spacecraft re-entry. It has a massive activation barrier. At room temperature, it effectively *never* happens. You operate at the extremes of physical chemistry: 2000K to 5000K.
 
@@ -73,6 +86,28 @@ Keep these numbers handy.
     *   This consumes energy (Endothermic) which actually *cools* the shock layer (Good for the ship!).
     *   **Simulation**: Calculate the rate of heat absorption at T = 5000 K.
     *   **Deliverable**: Plot Rate vs T from 1000K to 6000K. Identify the "Ignition Temperature" where NO production explodes.
+
+---
+
+## 🔧 Troubleshooting
+
+**Problem**: "The reactive fraction calculator shows 0.000000..."
+- **Normal!** With E_a = 315 kJ/mol at 300 K: exp(-315000/(8.314×300)) ≈ 10^(-55)
+- **Solution**: Increase T to 2000 K to see exp(-315000/(8.314×2000)) ≈ 10^(-8)
+- **Perspective**: You need literally billions of collisions for one reaction at room temp!
+
+**Problem**: "I can't find atmospheric chemistry data for comparison"
+- **Look for**: Zeldovich mechanism, thermal NOx formation, combustion chemistry
+- **Keywords**: Post-flame zones, hypersonic shock layers, scramjet combustion
+
+**Problem**: "What's the 'ignition temperature'?"
+- **Definition**: Temperature where reaction rate becomes significant (usually when rate > 10³ M⁻¹s⁻¹)
+- **For your system**: Typically ~2200 K for O + N₂
+- **Plot it**: Create a log(k) vs T graph and find where the curve inflects sharply.
+
+**Problem**: "The trajectory needs 300+ kJ/mol energy but that's less than E_a = 315"
+- **Classical mechanics**: Some trajectories can tunnel or react with less than E_a
+- **Reality**: Classical trajectories are approximate. Quantum effects matter for such high barriers.
 
 ---
 

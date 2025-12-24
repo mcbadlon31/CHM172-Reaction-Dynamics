@@ -3,6 +3,25 @@
 
 **System**: $\text{F} \cdot + \text{H}_2 \rightarrow \text{HF} + \text{H} \cdot$
 
+---
+
+## 📋 Table of Contents
+- [Your Mission](#-your-mission)
+- [Critical Parameters](#-critical-parameters)
+- [Notebook Walkthroughs](#-notebook-walkthroughs)
+  - [NB01: Collision Theory](#-notebook-01-collision-theory)
+  - [NB02: Diffusion Controlled](#-notebook-02-diffusion-controlled-reactions)
+  - [NB03: Transition State Theory](#-notebook-03-transition-state-theory)
+  - [NB04: Molecular Dynamics](#-notebook-04-molecular-dynamics)
+  - [NB05: Electron Transfer](#-notebook-05-electron-transfer)
+  - [NB06: Capstone Project](#-notebook-06-capstone-project)
+- [Troubleshooting](#-troubleshooting)
+- [Final Report Checklist](#-final-report)
+
+**Estimated Time**: 6-8 hours total across all notebooks
+
+---
+
 ### 🧪 Your Mission
 You are the **Baseline Team**. Your system, the reaction of fluorine atoms with hydrogen gas, is the "gold standard" of reaction dynamics. It is highly exothermic, fast, and famously powered the first chemical lasers. Your data will serve as the reference point against which all other groups (Isotope, Endothermic, etc.) will be compared.
 
@@ -114,5 +133,39 @@ Explore the Marcus Inverted Region (General Class Activity).
         *   If T increases too much, does the rate increase dangerously? (Runaway reaction risk?)
         *   Recommend an optimal residence time $\tau$ to get 90% yield.
 
-### Final Report
+---
+
+## 🔧 Troubleshooting
+
+### Common Issues and Solutions
+
+**Problem**: "ModuleNotFoundError: No module named 'leps_surface'"
+- **Solution**: Make sure you ran the Colab setup cell at the top of the notebook. The modules directory needs to be in your path.
+- **Check**: Run `import sys; print(sys.path)` and verify that the modules directory is listed.
+
+**Problem**: "My LEPS surface plot looks different from the example"
+- **Solution**: Check that you're using `K_sato=0.15` as specified. Different values create different surfaces.
+- **Expected**: You should see a saddle point (transition state) in the entrance channel for F+H₂.
+
+**Problem**: "The trajectory simulation runs forever / crashes"
+- **Solution**: High initial velocities can cause numerical instability. Keep collision energy < 100 kJ/mol.
+- **Tip**: If a trajectory doesn't finish in 500 fs, it's likely non-reactive. That's OK!
+
+**Problem**: "I don't understand what 'Early Barrier' means"
+- **Solution**: Look at the LEPS contour plot. The saddle point (highest energy along the reaction path) should be close to the reactant valley, not the product valley.
+- **Visual Aid**: Imagine climbing a mountain pass - an "early" barrier means the steep climb happens right at the start of your journey.
+
+**Problem**: "My calculated k doesn't match the experimental value"
+- **Solution**: That's expected! Collision theory is approximate. Differences of 2-10× are normal due to the steric factor (P).
+- **What to report**: Calculate P = k_experimental / k_theory and discuss whether it's < 1 (steric hindrance) or > 1 (harpoon mechanism).
+
+### Getting Help
+- Check the [Course Discussion Forum](https://github.com/mcbadlon31/CHM172-Reaction-Dynamics/discussions)
+- Review the main [README](../README.md) for installation help
+- Contact your TA during office hours
+
+---
+
+## 📝 Final Report
+
 Combine your findings into the Executive Summary. Focus on how the **Early Barrier** and **Exothermicity** define the unique behavior of the F+H₂ system compared to others.

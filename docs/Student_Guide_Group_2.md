@@ -3,6 +3,19 @@
 
 **System**: $\text{F} \cdot + \text{D}_2 \rightarrow \text{DF} + \text{D} \cdot$
 
+---
+
+## 📋 Table of Contents
+- [Your Mission](#-your-mission)
+- [Critical Parameters](#-critical-parameters)
+- [Notebook Walkthroughs](#-notebook-walkthroughs)
+- [Troubleshooting](#-troubleshooting)
+- [Final Report Checklist](#-final-report-checklist)
+
+**Estimated Time**: 6-8 hours | **Focus**: Understanding mass effects on reaction rates
+
+---
+
 ### 🧪 Your Mission
 You are the **Isotope Team**. Your system is chemically identical to Group 1 (Fluorine + Hydrogen), but physically heavier. You are using **Deuterium** ($^2\text{H}$ or $\text{D}$), the heavy isotope of hydrogen. Your goal is to measure the **Kinetic Isotope Effect (KIE)**—the change in reaction rate caused purely by mass differences.
 
@@ -90,6 +103,27 @@ Keep these numbers handy.
     *   Count how many HF vs DF molecules form.
     *   **Separation Factor**: $\alpha = \frac{[HF]/[H_2]}{[DF]/[D_2]}$.
     *   Can you find a temperature that maximizes this separation? (Hint: Lower T typically increases selectivity).
+
+---
+
+## 🔧 Troubleshooting
+
+**Problem**: "My collision frequency ratio isn't exactly √2"
+- **Solution**: Small deviations are OK due to rounding. The ratio should be 1.40-1.42.
+- **Physics**: The √2 comes from the mass ratio: √(m_H₂/m_D₂) = √(2.016/4.028) ≈ 1.414
+
+**Problem**: "Diffusion rates are the same for H₂ and D₂ in solution"
+- **Correct!** This is the key insight. In viscous solvents, size matters more than mass.
+- **Report this**: It's a major difference between gas and solution phase chemistry.
+
+**Problem**: "I can't calculate the ZPE difference"
+- **Formula**: ΔE_ZPE ≈ ½hν(1 - √(m_H/m_D)) for each bond
+- **Shortcut**: For this system, E_a(D₂) - E_a(H₂) ≈ 0.4 kJ/mol is given in your parameters.
+
+**Problem**: "What's a 'primary' vs 'secondary' KIE?"
+- **Primary**: Bond to isotope breaks in rate-limiting step (large effect, k_H/k_D = 2-10)
+- **Secondary**: Isotope nearby but bond doesn't break (small effect, k_H/k_D = 1.1-1.3)
+- **Your system**: Primary KIE because D-D bond breaks.
 
 ---
 

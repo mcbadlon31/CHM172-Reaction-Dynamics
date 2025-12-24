@@ -3,6 +3,19 @@
 
 **System**: $\text{I} \cdot + \text{I} \cdot \rightarrow \text{I}_2$ (in Solvent)
 
+---
+
+## 📋 Table of Contents
+- [Your Mission](#-your-mission)
+- [Critical Parameters](#-critical-parameters)
+- [Notebook Walkthroughs](#-notebook-walkthroughs)
+- [Troubleshooting](#-troubleshooting)
+- [Final Report Checklist](#-final-report-checklist)
+
+**Estimated Time**: 6-8 hours | **Unique Challenge**: Diffusion-limited kinetics
+
+---
+
 ### 🧪 Your Mission
 You are the **Solution Team**. While everyone else is flying around in the gas phase, you are dealing with the real world of wet chemistry. Your reaction (Iodine recombination) is barrierless ($E_a \approx 0$). In the gas phase, it would occur at every collision. But in solution, the solvent molecules cage you in. You are **Diffusion Controlled**.
 
@@ -83,6 +96,33 @@ Keep these numbers handy.
     *   You need to check if the reaction is **faster** in a low-viscosity solvent (Hexane) or high-viscosity (Medical Oil).
     *   **Trade-off**: Low viscosity = Fast diffusion (Good). High viscosity = High cage effect (Good for keeping them together once met).
     *   Which effect wins? (Hint: Usually Diffusion wins).
+
+---
+
+## 🔧 Troubleshooting
+
+**Problem**: "The Stokes-Einstein equation doesn't have mass in it - is that right?"
+- **Yes!** In the overdamped limit (high viscosity), friction dominates inertia.
+- **Analogy**: Swimming in honey - your mass doesn't matter much, only your size and the honey's thickness.
+- **Key Insight**: This is why solution-phase rates differ from gas-phase even for identical reactions.
+
+**Problem**: "My k_diff calculation gives ~10¹⁰ M⁻¹s⁻¹ but that seems too fast"
+- **It's correct!** Diffusion-limited rates are the speed limit for solution reactions.
+- **Context**: Enzyme-substrate binding often reaches this limit (called 'perfect' enzymes).
+
+**Problem**: "Does the cage effect speed up or slow down the reaction?"
+- **Complex!** It prevents immediate separation (good for recombination) but slows initial approach (bad).
+- **Net effect**: For barrierless recombination like I + I → I₂, cage helps because it prevents geminate separation.
+- **Compare**: Gas phase I + I needs a third body (M) to remove energy. Solvent acts as that third body!
+
+**Problem**: "I can't find viscosity data for my chosen solvent"
+- **Resources**: CRC Handbook, NIST Chemistry WebBook
+- **Typical values**: Water (1.0 cP), Hexane (0.3 cP), Ethanol (1.2 cP), Glycerol (1000 cP)
+
+**Problem**: "What's the difference between η (eta) and μ (mu)?"
+- **η**: Dynamic viscosity (Pa·s or cP), resistance to flow
+- **μ**: Reduced mass (kg), used in collision theory
+- **Don't confuse them!** They're unfortunately both Greek letters but totally different quantities.
 
 ---
 

@@ -3,6 +3,19 @@
 
 **System**: $\text{Cl} \cdot + \text{H}_2 \rightarrow \text{HCl} + \text{H} \cdot$
 
+---
+
+## 📋 Table of Contents
+- [Your Mission](#-your-mission)
+- [Critical Parameters](#-critical-parameters)
+- [Notebook Walkthroughs](#-notebook-walkthroughs)
+- [Troubleshooting](#-troubleshooting)
+- [Final Report Checklist](#-final-report-checklist)
+
+**Estimated Time**: 6-8 hours | **Challenge Level**: High (thermally demanding system)
+
+---
+
 ### 🧪 Your Mission
 You are the **Endothermic Team**. Unlike the easy, downhill reactions of Group 1, your reaction is **uphill**. It consumes heat ($\Delta H > 0$). This makes your reaction slow and sensitive. You must study the "Late Barrier" effect, a concept crucial for understanding enzyme catalysis and difficult chemical syntheses.
 
@@ -81,6 +94,27 @@ Keep these numbers handy.
     *   You have a cost function: Heating is expensive ($), but your reaction needs T > 600K.
     *   Find the "Sweet Spot": The temperature where the reaction is fast enough to make reasonable profit, but not so hot that fuel costs zero out your revenue.
     *   **Safety**: Unlike Group 1, you don't have a runaway risk (reaction consumes heat). Your risk is the fire going out!
+
+---
+
+## 🔧 Troubleshooting
+
+**Problem**: "My reaction rate at 300K is basically zero"
+- **Expected!** With E_a = 23 kJ/mol, exp(-23000/(8.314×300)) ≈ 0.0001
+- **Solution**: Increase temperature to 600-800 K to see meaningful rates.
+- **Real World**: This is why Cl + H₂ reactions only occur in flames or photochemical conditions.
+
+**Problem**: "The reactor optimization shows I lose money at all temperatures"
+- **Check**: Are you including the product value correctly? HCl is valuable.
+- **Economic Reality**: Endothermic reactions often need energy subsidies. Consider solar or waste heat integration.
+
+**Problem**: "I don't see why vibration helps more than translation for late barriers"
+- **Visual Aid**: Draw energy along reaction coordinate. For late barriers, the bond is already stretched at the TS.
+- **Analogy**: It's like trying to break a stick - it's easier if it's already flexing (vibrating) than if you just hit it fast.
+
+**Problem**: "My PES shows an early barrier, not late"
+- **Check System**: Make sure you're using Cl + H₂ parameters, not F + H₂.
+- **K_sato value**: Try K_sato = 0.0-0.1 for this system (different from Group 1).
 
 ---
 
